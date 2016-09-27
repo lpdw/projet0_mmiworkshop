@@ -1,0 +1,11 @@
+<% fields.each do |field| %>
+<div class="row">
+    <h3 class="text-center col-md-12"><%= field %></h3>
+
+    <% field.features.each do |feature| %>
+    <div class="col-md-3">
+        <%= render partial: 'features/badge', locals: { feature: feature, inactive: !project.has_feature?(feature) } %>
+    </div>
+    <% end %>
+</div>
+<% end %>

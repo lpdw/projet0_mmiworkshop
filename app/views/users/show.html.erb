@@ -1,0 +1,19 @@
+<% content_for :title, @user %>
+<div class="row">
+  <div class="col-md-3">
+    <%= image_tag @user.gravatar_url, class: 'img-circle img-responsive' %><br/>
+    <h1><%= @user %></h1>
+    <p><%= @user.email %></p>
+    <% unless @user.project.nil? %>
+      <p><%= link_to @user.project, @user.project %></p>
+      <% if can? :edit, @user.project %>
+        <textarea><%= @user.project.notes %></textarea>
+      <% end %>
+    <% end %>
+
+    <%= link_to 'Edit', edit_user_path(@user) if can? :edit, @user %>
+  </div>
+  <div class="col-md-9">
+    <%= render partial:'fields/list', locals: { fields: @fields, project: @user.project } unless @user.project.nil? %>
+  </div>
+</div>

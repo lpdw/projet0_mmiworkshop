@@ -1,0 +1,7 @@
+<%= link_to project do %>
+  <article class="project thumbnail">
+    <h1><%= project.name %></h1>
+    <p><%= project.description %></p>
+    <p><%= link_to project.url, project.url, target: :blank %></p>
+  </article>
+<% end %>

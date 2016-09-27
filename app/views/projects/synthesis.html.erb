@@ -1,0 +1,23 @@
+<%= column_chart @projects.map{|p| [p.to_s, p.note]} %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Projet</th>
+      <th>Note</th>
+      <th>Niveau 1</th>
+      <th>Niveau 2</th>
+      <th>Niveau 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project %></td>
+        <td><%= project.note %></td>
+        <td><%= project.features_with_level 1 %></td>
+        <td><%= project.features_with_level 2 %></td>
+        <td><%= project.features_with_level 3 %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

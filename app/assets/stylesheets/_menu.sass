@@ -1,0 +1,86 @@
+.menu-fullscreen
+  position: fixed
+  z-index: 1000
+  background: none
+  .toggle
+    background: transparent
+    width: 60px
+    height: 49px
+    cursor: pointer
+    position: fixed
+    right: 20px
+    top: 20px
+    z-index: 1001
+    .burger
+      transition: all .25s
+      height: 2px
+      width: 30px
+      position: absolute
+      top: 23px
+      left: 15px
+      background-color: transparent
+      &:before
+        transition: all .25s
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        height: 2px
+        width: 30px
+        background: black
+        transform: rotate(45deg)
+      &:after
+        transition: all .25s
+        content: ""
+        position: absolute
+        left: 0
+        top: 0
+        height: 2px
+        width: 30px
+        background: black
+        transform: rotate(-45deg)
+  &.menu-collapsed
+    .burger
+      background: white
+      &:before
+        transition: all .25s
+        content: ""
+        top: -8px
+        background: white
+        transform: rotate(0)
+      &:after
+        transition: all .25s
+        content: ""
+        top: 8px
+        background: white
+        transform: rotate(0)
+  nav
+    transition: all .25s
+    position: fixed
+    text-align: center
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: white
+    ul
+      margin-top: 100px
+      transition: all .25s
+      list-style-type: none
+      line-height: 80px
+      padding: 0
+      a
+        text-decoration: none
+        color: black
+        font-size: 22px
+        text-transform: uppercase
+        letter-spacing: 4px
+        font-weight: 700
+  &.menu-collapsed
+    nav
+      visibility: hidden
+      transition: all .25s
+      bottom: none
+      height: 300px
+      top: -300px
+      opacity: 0

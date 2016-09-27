@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: features
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :text
+#  icon        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  position    :integer
+#  field_id    :integer
+#  level       :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  icon: MyString
+
+two:
+  name: MyString
+  description: MyText
+  icon: MyString

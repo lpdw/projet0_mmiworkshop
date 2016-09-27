@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title><%= yield(:title).presence %> @ MMI Workshop</title>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag 'favicon.png' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="menu-fullscreen menu-collapsed">
+        <div class="toggle">
+            <div class="burger"></div>
+        </div>
+        <nav>
+            <ul>
+                <% if user_signed_in? %>
+                <li><%= link_to 'Workshops', workshops_path if can? :read, :workshops %></li>
+                <li><%= link_to 'Projets', projects_path if can? :read, :projects %></li>
+                <li><%= link_to 'Utilisateurs', users_path if can? :read, :users %></li>
+                <li><%= link_to 'Caractéristiques', features_path if can? :read, :features %></li>
+                <li><%= link_to 'Champs', fields_path if current_user.admin? %></li>
+                <li><%= link_to 'Mon profil', my_profile_path %></li>
+                <li><%= link_to 'Déconnexion', destroy_user_session_path, rel: 'nofollow', method: :delete %></li>
+                <% else %>
+                <li><%= link_to "Connexion", new_session_path(:user) %></li>
+                <li><%= link_to "Inscription", new_registration_path(:user) %></li>
+                <% end %>
+            </ul>
+        </nav>
+    </div>
+    <div class="jumbotron">
+        <%= link_to root_path do %>
+        mmi <span>workshop</span>
+        <% end %>
+    </div>
+    <div class="container">
+        <%= yield %>
+    </div>
+</body>
+</html>

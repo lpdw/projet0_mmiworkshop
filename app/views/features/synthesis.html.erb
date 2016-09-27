@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Caractéristique</th>
+      <th>Niveau</th>
+      <% @projects.each do |project| %>
+        <th><%= project %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @features.each do |feature| %>
+      <tr>
+        <td><%= feature %></td>
+        <td><%= feature.level %></td>
+        <% @projects.each do |project| %>
+          <td><% if project.has_feature?(feature) %>X<% end %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
