@@ -18,9 +18,9 @@
         <td><%= workshop.name %></td>
         <td><%= workshop.description %></td>
         <td><%= workshop.url %></td>
-        <td><%= link_to 'Show', workshop %></td>
-        <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
-        <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', workshop if can? :read, :workshops %></td>
+        <td><%= link_to 'Edit', edit_workshop_path(workshop) if can? :edit, :workshops %></td>
+        <td><%= link_to 'Destroy', workshop if can? :destroy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
