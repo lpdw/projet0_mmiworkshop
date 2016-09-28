@@ -9,65 +9,65 @@ Créer un compte Heroku puis télécharger Heroku for Mac OS X : https://s3.amaz
 
 Installer Ruby-2.2.4 :
 
-	`xcode-select --install`
+	xcode-select --install
 
-	`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-	`brew update`
+	brew update
 
-	`brew install rbenv ruby-build`
+	brew install rbenv ruby-build
 
-	`echo 'eval "$(rbenv init -)"' >> ~/.bash_profile`
+	echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 
-	`echo 'export PATH="$HOME/.rbenv/shims:$PATH"' >> ~/.bash_profile`
+	echo 'export PATH="$HOME/.rbenv/shims:$PATH"' >> ~/.bash_profile
 
-	`source ~/.bash_profile`
+	source ~/.bash_profile
 
-	`rbenv install 2.2.4`
+	rbenv install 2.2.4
 
-	`rbenv global 2.2.4`
+	rbenv global 2.2.4
 
-	`gem install rails --no-document`
+	gem install rails --no-document
 
 Installer Postgresql :
 
-	`brew update`
+	brew update
 
-	`brew doctor`
+	brew doctor
 
-	`brew install postgresql`
+	brew install postgresql
 
-	`gem install lunchy`
+	gem install lunchy
 
-	`mkdir -p ~/Library/LaunchAgents`
+	mkdir -p ~/Library/LaunchAgents
 
-	`cp /usr/local/Cellar/postgresql/X.X.X/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/ # REMPLACER X.X.X par la version de Postgresql installée`
+	cp /usr/local/Cellar/postgresql/X.X.X/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/ # REMPLACER X.X.X par la version de Postgresql installée
 
-	`launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist`
+	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
-	`lunchy start postgres # POUR LANCER POSTGRESQL`
+	lunchy start postgres # POUR LANCER POSTGRESQL
 
-	`lunchy stop postgres # POUR ARRETER POSTGRESQL`
+	lunchy stop postgres # POUR ARRETER POSTGRESQL
 
 Créer l'utilisateur "postgres" :
 
-	`createuser -s -r postgres`
+	createuser -s -r postgres
 
 Installer bundler :
 
-	`gem install bundler`
+	gem install bundler
 
 Se connecter à Heroku avec la commande :
 
-	`heroku login`
+	heroku login
 
 Cloner le projet :
 
-	// Projet D'origine (`git clone https://git.heroku.com/lpdwworkshop.git`)
+	// Projet D'origine (git clone https://git.heroku.com/lpdwworkshop.git)
 
-	`git clone https://github.com/lpdw/projet0_mmiworkshop.git`
+	git clone https://github.com/lpdw/projet0_mmiworkshop.git
 
-	`cd lpdwworkshop`
+	cd lpdwworkshop
 
 Modifier le fichier 'Gemfile' :
 
@@ -79,16 +79,16 @@ Modifier le fichier 'Gemfile' :
 
 Depuis le répertoire du projet, lancer l'installation du bundle :
 
-	`bundle install`
+	bundle install
 
 Créer et migrer la base :
 
-	`bundle exec rake db:create db:migrate`
+	bundle exec rake db:create db:migrate
 
 Lancer le serveur :
 
-	`rails -s`
-	
+	rails -s
+
 	(Ne pas oublier de lancer Postgres avant -> lunchy start postres)
 
 
