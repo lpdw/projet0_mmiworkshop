@@ -3,7 +3,7 @@ ruby '2.2.4'
 
 gem 'rails', '4.2.1'                                        # App                             https://github.com/rails/rails
 gem 'pg'                                                    # PostgreSQL database             https://bitbucket.org/ged/ruby-pg/src
-gem 'simple_form' 
+gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem 'uglifier'                                              # JS compressor                   https://github.com/lautis/uglifier
