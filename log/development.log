@@ -8266,3 +8266,85 @@ Processing by WorkshopsController#index as HTML
   [1m[36mWorkshop Load (0.3ms)[0m  [1mSELECT "workshops".* FROM "workshops"[0m
   Rendered workshops/index.html.erb within layouts/application (1.2ms)
 Completed 200 OK in 61ms (Views: 56.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/workshops" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+Processing by WorkshopsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 10]]
+  [1m[36mWorkshop Load (0.3ms)[0m  [1mSELECT "workshops".* FROM "workshops"[0m
+  Rendered workshops/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 108ms (Views: 103.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.self-848fd59ab0bf0fcb880bc7f14a478d41458ea4a98540153c505f4971365ca295.css?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/chartkick.self-c1cc238bd190b082728a95e6fbc3b08c594e10de9f775c0c4903f9ed830cf940.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/highcharts.self-b78652159d48ee893cd70c6c33a03be426578e4e385bcca8734047371f3cd138.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/_menu.self-d018456500be3807dad6b59c8953bb92ad9078b196087c605500b9534a738463.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/application.self-d088784b7ecb87f1ea17e6f982fa968ffefcc07b79de6ecc548fc00242868da6.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/workshops.self-19a187bec6cdb96d6de80a61c16c857c613536adf9138476bd367db38d282635.js?body=1" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/assets/background-7d9188ea4e0ae2cf3582647b200b46e36c01a90a965032a2e5605c48b1df8f04.jpg" for 127.0.0.1 at 2016-09-28 10:14:46 +0200
+
+
+Started GET "/workshops" for 127.0.0.1 at 2016-09-28 10:14:49 +0200
+Processing by WorkshopsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 10]]
+  [1m[36mWorkshop Load (0.3ms)[0m  [1mSELECT "workshops".* FROM "workshops"[0m
+  Rendered workshops/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 67ms (Views: 55.4ms | ActiveRecord: 0.7ms)
