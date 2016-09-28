@@ -51,15 +51,15 @@ Installer Postgresql :
 
 Créer l'utilisateur "postgres" :
 
-	createuser -s -r postgres
+`createuser -s -r postgres`
 
 Installer bundler :
 
-	gem install bundler
+`gem install bundler`
 
 Se connecter à Heroku avec la commande :
 
-	heroku login
+`heroku login`
 
 Cloner le projet :
 
@@ -72,9 +72,7 @@ Cloner le projet :
 Modifier le fichier 'Gemfile' :
 
 	Remplacer les lignes 7 et 8 par :
-
 	gem 'sass-rails', '>= 3.2'                                  # SASS                            https://github.com/rails/sass-rails
-
 	gem 'bootstrap-sass', '~> 3.3.6'                            # Bootstrap                       https://github.com/twbs/bootstrap-sass
 
 Depuis le répertoire du projet, lancer l'installation du bundle :
@@ -87,9 +85,8 @@ Créer et migrer la base :
 
 Lancer le serveur :
 
-	rails -s
-
-	(Ne pas oublier de lancer Postgres avant -> lunchy start postres)
+`rails -s`
+(Ne pas oublier de lancer Postgres avant -> lunchy start postres)
 
 
 
