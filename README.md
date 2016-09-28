@@ -10,43 +10,26 @@ Créer un compte Heroku puis télécharger Heroku for Mac OS X : https://s3.amaz
 Installer Ruby-2.2.4 :
 
 	xcode-select --install
-
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
 	brew update
-
 	brew install rbenv ruby-build
-
 	echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-
 	echo 'export PATH="$HOME/.rbenv/shims:$PATH"' >> ~/.bash_profile
-
 	source ~/.bash_profile
-
 	rbenv install 2.2.4
-
 	rbenv global 2.2.4
-
 	gem install rails --no-document
 
 Installer Postgresql :
 
 	brew update
-
 	brew doctor
-
 	brew install postgresql
-
 	gem install lunchy
-
 	mkdir -p ~/Library/LaunchAgents
-
 	cp /usr/local/Cellar/postgresql/X.X.X/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/ # REMPLACER X.X.X par la version de Postgresql installée
-
 	launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-
 	lunchy start postgres # POUR LANCER POSTGRESQL
-
 	lunchy stop postgres # POUR ARRETER POSTGRESQL
 
 Créer l'utilisateur "postgres" :
@@ -63,10 +46,8 @@ Se connecter à Heroku avec la commande :
 
 Cloner le projet :
 
-	// Projet D'origine (git clone https://git.heroku.com/lpdwworkshop.git)
-
+	Projet D'origine (git clone https://git.heroku.com/lpdwworkshop.git)
 	git clone https://github.com/lpdw/projet0_mmiworkshop.git
-
 	cd lpdwworkshop
 
 Modifier le fichier 'Gemfile' :
@@ -77,11 +58,11 @@ Modifier le fichier 'Gemfile' :
 
 Depuis le répertoire du projet, lancer l'installation du bundle :
 
-	bundle install
+`bundle install`
 
 Créer et migrer la base :
 
-	bundle exec rake db:create db:migrate
+`bundle exec rake db:create db:migrate`
 
 Lancer le serveur :
 
@@ -90,23 +71,19 @@ Lancer le serveur :
 
 
 
-// On récupère le dump de la base
+On récupère le dump de la base
 
-`heroku pg:backups capture --app lpdwworkshop`
+	heroku pg:backups capture --app lpdwworkshop
+	curl -o latest.dump 'heroku pg:backups public-url --app lpdwworkshop'
 
-
-`curl -o latest.dump 'heroku pg:backups public-url --app lpdwworkshop'`
-
-// Import du dump vers la base de donnée en local
+Import du dump vers la base de donnée en local
 
 `pg_restore --verbose --clean --no-acl --no-owner -h localhost -U postgres -d mmiworkshop latest.dump`
 
-
-// Dump base 
+Dump base 
 
 `psql mmiworkshop > base.dump`
 
-// Import depuis le dump psql
-
+Import depuis le dump psql
 
 `psql mmiworkshop < base.dump`
