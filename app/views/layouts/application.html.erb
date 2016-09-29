@@ -37,7 +37,17 @@
         <% end %>
     </div>
     <div class="container">
-        <%= yield %>
+        <%#  If user is a teatcher, show dashoard %>
+        <%if user_signed_in? %>
+          <% if !current_user.admin?%>
+              <h3> Dashboard </h3>
+
+          <% else %>
+              <%render 'projects/show' %>
+
+          <%end%>
+        <%end%>
+
     </div>
 </body>
 </html>

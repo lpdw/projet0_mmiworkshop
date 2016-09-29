@@ -22,6 +22,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
     @projects = Project.all
+    @features = Feature.all
+
   end
 
   def synthesis
