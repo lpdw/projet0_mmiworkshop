@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :project
+  has_and_belongs_to_many :project, uniq: true
   has_many :features, through: :project
 
   validates :email, presence: true
