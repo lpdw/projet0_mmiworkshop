@@ -14,7 +14,7 @@
 #
 
 class Project < ActiveRecord::Base
-  has_many :users
+  has_and_belongs_to_many :users, :join_table => :users_projects
   has_and_belongs_to_many :features, uniq: true
   belongs_to :workshop
 
