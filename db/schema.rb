@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 20160929140437) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "url"
     t.string   "github"
     t.integer  "workshop_id"
