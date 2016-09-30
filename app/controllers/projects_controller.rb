@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
     @fields = Field.all
+    @parent_fields = Field.all.where(parent_id: nil)
   end
 
   # GET /projects/new

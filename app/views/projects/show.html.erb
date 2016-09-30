@@ -14,10 +14,10 @@
         </li>
       <% end %>
     </ul>
-    <%= link_to 'Edit', edit_project_path(@project) if can? :edit, @project %>
-    <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @project %>
+    <button type="button" class="btn btn-link"><%= link_to 'Editer', edit_project_path(@project) if can? :edit, @project %></button>
+    <button type="button" class="btn btn-link"><%= link_to 'Supprimer', @project, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @project %></button>
   </div>
   <div class="col-md-9">
-    <%= render partial:'fields/list', locals: { fields: @fields, project: @project } %>
+    <%= render partial:'fields/list', locals: { parent_fields: @parent_fields, fields: @fields, project: @project } %>
   </div>
 </div>
