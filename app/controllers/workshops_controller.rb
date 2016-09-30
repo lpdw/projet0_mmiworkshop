@@ -19,10 +19,14 @@ class WorkshopsController < ApplicationController
   # GET /workshops
   def index
     @workshops = Workshop.all
+    @features = Feature.all
+    @projects= Project.all
   end
 
   # GET /workshops/1
   def show
+    @features = Feature.all
+    @projects= Project.all
   end
 
   # GET /workshops/new

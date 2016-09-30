@@ -1,0 +1,5 @@
+<% data=Hash.new %>
+<% @projects.each do |project| %>
+    <% data[project.name]= project.features.map {|c|c.name}.count()%>
+<% end %>
+<%= bar_chart [{name:"Dashboard", data:data}], max: @features.size() %>

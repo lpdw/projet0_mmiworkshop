@@ -26,6 +26,8 @@ class Project < ActiveRecord::Base
   	features.include? feature
   end
 
+
+
   def note
     features_with_level(1) + features_with_level(2)*2 + features_with_level(3)*3
   end
@@ -35,7 +37,7 @@ class Project < ActiveRecord::Base
     Feature.all.each do |feature|
       result += 1 if has_feature? feature and feature.level == level
     end
-    result 
+    result
   end
 
   def to_s

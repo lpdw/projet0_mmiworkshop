@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     @features = Feature.all
+    
 
   end
 
