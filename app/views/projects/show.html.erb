@@ -1,5 +1,8 @@
 <% content_for :title, @project %>
-
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'badge.js' %>
+<% end %>
+<%= render partial:'features/modal' %>
 <div class="row">
   <div class="col-md-3">
     <%= render 'project', project: @project %>
