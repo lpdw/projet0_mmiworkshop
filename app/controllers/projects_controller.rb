@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
-    @fields = Field.all
+    @fields = Field.all.where('parent_id IS NOT NULL')
   end
 
   # GET /projects/new

@@ -17,7 +17,7 @@ class FeaturesController < ApplicationController
   authorize_resource
 
   before_action :set_feature, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   # GET /features
   def index
