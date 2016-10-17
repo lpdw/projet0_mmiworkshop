@@ -4,13 +4,14 @@
   <ul class="nav nav-tabs" style="margin-bottom: 5px;">
     <% parent_fields.each do |parent_field|  %>
       <li class="<%= ' ' + (@pills == 1 ? 'active' : '') %>">
-        <a data-toggle="tab" href="#pills<%= @pills %>"><%= parent_field %></a>
+        <!-- <a data-toggle="tab" href="#pills<%= @pills %>"><%= parent_field %></a> -->
+        <%= link_to parent_field, '#pills'+@pills.to_s, 'data-toggle'=>'tab' %>
       </li>
       <% @pills+=1 %>
     <% end %>
     <% @pills=1 %>
-    <a href="#" class="btn btn-default openall" id="openall" style="float: right;">Tout afficher</a>
-    <a href="#" class="btn btn-default closeall" id="closeall" style="display: none; float: right;">Tout fermer</a>
+    <%= link_to 'Tout afficher','#', :class=>'btn btn-default openall', :id=>'openall', :style=>'float: right;' %>
+    <%= link_to 'Tout fermer','#', :class=>'btn btn-default closeall', :id=>'closeall', :style=>'display: none; float: right;' %>
   </ul>
 <!-- content -->
   <div class="tab-content">
