@@ -15,7 +15,9 @@
 
 class Project < ActiveRecord::Base
   has_and_belongs_to_many :users, :join_table => :users_projects
-  has_and_belongs_to_many :features, uniq: true
+  # has_and_belongs_to_many :features, uniq: true
+  has_many :features_projects
+  has_many :features, through: :features_projects
   belongs_to :workshop
 
   default_scope { order('name') }
