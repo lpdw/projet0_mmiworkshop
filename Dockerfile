@@ -1,15 +1,8 @@
 FROM ruby:2.2.4
-RUN apt-get update -qq && apt-get install -y build-essential nodejs npm nodejs-legacy mysql-client vim
-RUN npm install -g phantomjs
-
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 RUN mkdir /myapp
-
-WORKDIR /tmp
-COPY Gemfile Gemfile
-COPY Gemfile.lock Gemfile.lock
-RUN bundle install
-
-ADD . /myapp
 WORKDIR /myapp
-RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
-CMD ["rails","server","-b","0.0.0.0"]
+ADD Gemfile /myapp/Gemfile
+ADD Gemfile.lock /myapp/Gemfile.lock
+RUN bundle install
+ADD . /myapp
