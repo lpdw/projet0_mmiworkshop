@@ -25,8 +25,10 @@ class Project < ActiveRecord::Base
   def has_feature?(feature)
   	features.include? feature
   end
-
-
+  
+  def all_features
+    (features + child_features).uniq
+  end
 
   def note
     features_with_level(1) + features_with_level(2)*2 + features_with_level(3)*3

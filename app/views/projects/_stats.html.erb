@@ -1,5 +1,7 @@
 <% data=Hash.new %>
+<!-- Pour chaque projet, on récupère le nombre de badges validés par rapport au nombre de badges total-->
 <% @projects.each do |project| %>
     <% data[project.name]= project.features.map {|c|c.name}.count()%>
 <% end %>
+
 <%= bar_chart [{name:"Dashboard", data:data}], max: @features.size() %>

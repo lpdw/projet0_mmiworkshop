@@ -1,47 +1,34 @@
-<p> Statistique du projet: <%=@project.name%></p>
 <% data=Hash.new %>
 <% projet=Hash.new %>
-<%percentprojetC=0%>
-<%percentprojetDes=0%>
-<%percentprojetDev=0%>
+<%count=0%>
+<%percent=0%>
 
-<%countTotal=0%>
-<%countC=0%>
-<%percentC=0%>
-<%countDev=0%>
-<%percentDev=0%>
-<%countDes=0%>
-<%percentDes=0%>
-<% @fields.each do |field| %>
-<%= @features.all.count()%>
-    <% field.features.each do |feature| %>
+<!-- On récupère le nombre total de badges validés du projet-->
+<%featuresChecked=project.features.map {|c|c.name}.count()%>
+
+
+
+<!-- Pour chaque field parent (Dev, Contenu et Design), on récupère le nombre de features validés-->
+<% @fieldsParents.each do |field| %>
+    <% field.all_features.each do |feature| %>
         <%if(project.has_feature?(feature)) %>
-            <%if field.parent.name=="Contenu"%>
-                  <%countC=countC+1%>
-                  <%projet[field.parent.name]=countC%>
-                  <%percentC=countC*100/21%>
-                  <% data[field.parent.name]=percentC%>
-
-            <%elsif field.parent.name=="Dev"%>
-            <%countDev=countDev+1%>
-            <%projet[field.parent.name]=countDev%>
-
-            <%percentDev=countDev*100/15%>
-            <% data[field.parent.name]=percentDev%>
-            <%elsif field.parent.name=="Design"%>
-            <%countDes=countDes+1%>
-            <%projet[field.parent.name]=countDes%>
-
-            <%percentDes=countDes*100/9%>
-            <% data[field.parent.name]=percentDes%>
-            <%end%>
-
+                  <%count=count+1%>
         <%end %>
+        <!-- On calcule le pourcentage de badges validés par field (par rapport a tous les badges validés)-->
+        <%projet[field.name]=count*100/featuresChecked  %>
+       <!-- On calcule le pourcentage de features validé par field (par rapport au total de badges par field)-->
+        <%percent=count*100/field.all_features.count%>
+        <% data[field.name]=percent%>
     <% end %>
-<%countTotal=0%>
-
+<%count=0%>
 <% end %>
-<%=data%>
-<%=projet%>
-<%= pie_chart (projet)%>
-<%= bar_chart [{name:project.name, data:data}], max: 100 %>
+
+
+<div class="col-md-6">
+  <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
+
+</div>
+<div class="col-md-6">
+  <%= pie_chart (projet)%>
+
+</div>

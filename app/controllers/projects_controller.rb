@@ -35,6 +35,8 @@ class ProjectsController < ApplicationController
     @fields = Field.all
     @features = Feature.all
     @projects = Project.all
+    @fieldsParents = Field.all.where(parent_id: nil)
+
 
 
   end
