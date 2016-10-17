@@ -1,0 +1,47 @@
+<p> Statistique du projet: <%=@project.name%></p>
+<% data=Hash.new %>
+<% projet=Hash.new %>
+<%percentprojetC=0%>
+<%percentprojetDes=0%>
+<%percentprojetDev=0%>
+
+<%countTotal=0%>
+<%countC=0%>
+<%percentC=0%>
+<%countDev=0%>
+<%percentDev=0%>
+<%countDes=0%>
+<%percentDes=0%>
+<% @fields.each do |field| %>
+<%= @features.all.count()%>
+    <% field.features.each do |feature| %>
+        <%if(project.has_feature?(feature)) %>
+            <%if field.parent.name=="Contenu"%>
+                  <%countC=countC+1%>
+                  <%projet[field.parent.name]=countC%>
+                  <%percentC=countC*100/21%>
+                  <% data[field.parent.name]=percentC%>
+
+            <%elsif field.parent.name=="Dev"%>
+            <%countDev=countDev+1%>
+            <%projet[field.parent.name]=countDev%>
+
+            <%percentDev=countDev*100/15%>
+            <% data[field.parent.name]=percentDev%>
+            <%elsif field.parent.name=="Design"%>
+            <%countDes=countDes+1%>
+            <%projet[field.parent.name]=countDes%>
+
+            <%percentDes=countDes*100/9%>
+            <% data[field.parent.name]=percentDes%>
+            <%end%>
+
+        <%end %>
+    <% end %>
+<%countTotal=0%>
+
+<% end %>
+<%=data%>
+<%=projet%>
+<%= pie_chart (projet)%>
+<%= bar_chart [{name:project.name, data:data}], max: 100 %>

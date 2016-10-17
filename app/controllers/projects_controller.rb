@@ -23,8 +23,6 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     @features = Feature.all
-    
-
   end
 
   def synthesis
@@ -35,6 +33,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
     @fields = Field.all
+    @features = Feature.all
+    @projects = Project.all
+
+
   end
 
   # GET /projects/new
@@ -44,6 +46,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+  end
+
+  # GET /projects/1/stats
+  def stats
+    @project= Project.all
   end
 
   # POST /projects
