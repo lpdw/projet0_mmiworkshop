@@ -38,7 +38,6 @@ class ProjectsController < ApplicationController
     @fieldsParents = Field.all.where(parent_id: nil)
 
 
-
   end
 
   # GET /projects/new

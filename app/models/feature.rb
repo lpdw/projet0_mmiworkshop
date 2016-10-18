@@ -25,7 +25,7 @@ class Feature < ActiveRecord::Base
     field.smart_color unless field.nil?
   end
 
-  def icon 
+  def icon
     field.icon
   end
 

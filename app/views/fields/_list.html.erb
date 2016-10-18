@@ -30,7 +30,7 @@
             <div id="collapse<%= @compteur %>" class="panel-collapse collapse text-center">
               <div class="panel-body text-center">
                 <% field.features.each do |feature| %>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                       <%= render partial: 'features/badge', locals: { feature: feature, inactive: !project.has_feature?(feature) } %>
                   </div>
                 <% end %>
