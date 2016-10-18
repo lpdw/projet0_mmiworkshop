@@ -4,7 +4,7 @@
 <% end %>
 <%= render partial:'features/modal' %>
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3" id="project" data-id="<%= @project.id %>">
     <%= render 'project', project: @project %>
     <%= link_to @project.github, @project.github, target: :blank %>
     <ul class="list-group">

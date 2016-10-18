@@ -1,10 +1,11 @@
 <% inactive = false if inactive.nil? %>
+<% project_feature = project.proj_feat(feature, project)%>
 <% if request.fullpath.match(/projects/).nil? %>
 	<%= link_to feature do %>
 	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive } %>
 </div>
 <% end %>
 <% else %>
-	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive } %>
+	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive, project_feature: project_feature } %>
 </div>
 <% end %>

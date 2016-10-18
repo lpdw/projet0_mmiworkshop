@@ -4,7 +4,7 @@
 
     <% field.features.each do |feature| %>
     <div class="col-md-3">
-        <%= render partial: 'features/badge', locals: { feature: feature, inactive: !project.has_feature?(feature) } %>
+        <%= render partial: 'features/badge', locals: { feature: feature, inactive: !project.has_feature?(feature), project: project } %>
     </div>
     <% end %>
 </div>
