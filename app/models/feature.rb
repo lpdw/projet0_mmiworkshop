@@ -14,7 +14,9 @@
 #
 
 class Feature < ActiveRecord::Base
-  has_and_belongs_to_many :projects, uniq: true
+  # has_and_belongs_to_many :projects, uniq: true
+  has_many :features_projects
+  has_many :projects, through: :features_projects
   has_many :users, through: :projects
   belongs_to :field
   default_scope { order('position, level') }

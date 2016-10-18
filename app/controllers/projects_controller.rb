@@ -72,6 +72,11 @@ class ProjectsController < ApplicationController
     # feature = Feature.new(:feature_id => params[:feature_id], :project_id => params[:id])
     @project = Project.find(params[:id])
     @feature = Feature.find(params[:feature_id])
+
+    # debugger
+
+    # @feature.update params[:feature][:comment]
+
     # @project.feature_ids.insert(-1,params[:feature_id])
     # toto = 5
     # @project.feature_ids = []
@@ -79,10 +84,10 @@ class ProjectsController < ApplicationController
     # @project.feature_ids << 12
     # @project.feature_ids[2] << toto
     # render :text => params[:feature_id]
-    # @project.features << @feature
+    @project.features << @feature
     # render :text => @project.features.inspect
     # @feature
-    render :text => @feature.inspect
+    # render :text => @feature.inspect
     # puts @project.inspect
     # render :text => feature
     # @project.update(@project)
