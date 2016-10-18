@@ -14,8 +14,16 @@
 #
 
 require 'test_helper'
+#require 'factory_girl_rails'
 
 class FeaturesControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+
+#  def setup
+#    @request.env["devise.mapping"] = Devise.mappings[:admin]
+#    sign_in FactoryGirl.create(:admin)
+#  end
+
   setup do
     @feature = features(:one)
   end
@@ -26,10 +34,10 @@ class FeaturesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:features)
   end
 
-#   test "should get new" do
-#     get :new
-#     assert_response :success
-#   end
+#  test "should get new" do
+#    get :new
+#    assert_response :success
+#  end
 
 #   test "should create feature" do
 #     assert_difference('Feature.count') do

@@ -5,7 +5,6 @@
     <%= link_to user do %>
       <%= image_tag user.gravatar_url, class: 'img-circle img-responsive' %><br/>
       <%= user %><br/>
-      <small><%= link_to user.project, user.project unless user.project.nil? %></small>
       <% if can? :edit, user %>
       	<p><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-default btn-xs' %></p>
       <% end %>

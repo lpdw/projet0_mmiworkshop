@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623164257) do
+ActiveRecord::Schema.define(version: 20160930095006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20160623164257) do
   create_table "features_projects", id: false, force: :cascade do |t|
     t.integer "feature_id"
     t.integer "project_id"
+    t.integer "status"
+    t.string  "commentaire"
   end
 
   add_index "features_projects", ["feature_id", "project_id"], name: "index_features_projects_on_feature_id_and_project_id", using: :btree
@@ -46,15 +48,20 @@ ActiveRecord::Schema.define(version: 20160623164257) do
     t.integer  "parent_id"
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "url"
     t.string   "github"
     t.integer  "workshop_id"
     t.text     "notes"
+    t.integer  "etat_project"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,7 +69,6 @@ ActiveRecord::Schema.define(version: 20160623164257) do
     t.string   "last_name"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
-    t.integer  "project_id"
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -75,10 +81,22 @@ ActiveRecord::Schema.define(version: 20160623164257) do
     t.inet     "last_sign_in_ip"
     t.boolean  "admin",                  default: false
     t.integer  "diploma_year"
+    t.boolean  "profesor",               default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_projects", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "project_id"
+    t.integer "group_id"
+  end
+
+  add_index "users_projects", ["group_id"], name: "index_users_projects_on_group_id", using: :btree
+  add_index "users_projects", ["project_id"], name: "index_users_projects_on_project_id", using: :btree
+  add_index "users_projects", ["user_id", "project_id"], name: "index_users_projects_on_user_id_and_project_id", using: :btree
+  add_index "users_projects", ["user_id"], name: "index_users_projects_on_user_id", using: :btree
 
   create_table "workshops", force: :cascade do |t|
     t.string   "name",        null: false
@@ -88,4 +106,5 @@ ActiveRecord::Schema.define(version: 20160623164257) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "users_projects", "groups"
 end
