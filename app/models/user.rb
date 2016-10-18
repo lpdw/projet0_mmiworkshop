@@ -42,6 +42,23 @@ class User < ActiveRecord::Base
 
   default_scope { order('last_name, first_name') }
 
+
+
+  def self.search(search)
+    if search
+      where('lower(first_name) LIKE ?', "%#{search}%")
+      where('lower(last_name) LIKE ?', "%#{search}%")
+      where('lower(email) LIKE ?', "%#{search}%")
+
+    else
+      all
+    end
+
+  end
+
+
+
+
   def to_s
     if first_name.nil? or last_name.nil?
       "#{email}"

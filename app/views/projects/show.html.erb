@@ -24,6 +24,6 @@
   </div>
 
   <div class="col-md-9">
-    <%= render partial:'fields/list', locals: { fields: @fields, project: @project } %>
+    <%= render partial:'fields/list', locals: { parent_fields: @fieldsParents, fields: @fields, project: @project } %>
   </div>
 </div>
