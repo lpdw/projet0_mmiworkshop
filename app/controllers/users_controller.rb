@@ -19,6 +19,7 @@
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
 #  admin                  :boolean          default(FALSE)
+#  profesor               :boolean          default(FALSE)
 #  diploma_year           :integer
 #
 
@@ -96,6 +97,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :project_id, :admin, :diploma_year)
+      params.require(:user).permit(:first_name, :last_name, :email, :project_id, :admin, :profesor, :diploma_year)
     end
 end
