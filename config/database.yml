@@ -1,7 +1,7 @@
 default: &default
   adapter:  postgresql
   database: mmiworkshop
-  host:     localhost
+  host:     db
   username: postgres
   pool:     5
   timeout:  5000
