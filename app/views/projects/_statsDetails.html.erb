@@ -15,7 +15,9 @@
                   <%count=count+1%>
         <%end %>
         <!-- On calcule le pourcentage de badges validés par field (par rapport a tous les badges validés)-->
-        <%projet[field.name]=count*100/featuresChecked  %>
+        <%if(featuresChecked!=0)%>
+          <%projet[field.name]=count*100/featuresChecked  %>
+        <%end%>
        <!-- On calcule le pourcentage de features validé par field (par rapport au total de badges par field)-->
         <%percent=count*100/field.all_features.count%>
         <% data[field.name]=percent%>
@@ -28,7 +30,10 @@
   <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
 
 </div>
-<div class="col-md-6">
-  <%= pie_chart (projet)%>
-
+  <div class="col-md-6">
+    <%if(featuresChecked!=0)%>
+    <%= pie_chart (projet)%>
+<%else%>
+  <p> Aucun badge n'a été validé </p>
+  <%end%>
 </div>
