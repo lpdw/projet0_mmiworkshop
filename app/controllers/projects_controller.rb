@@ -73,9 +73,16 @@ class ProjectsController < ApplicationController
     # @feature = Feature.find(params[:data][:feature_id])
     # Find the link between project and feature
     @projectsfeature = FeaturesProject.where(["project_id=? and feature_id=?", params[:id], params[:data][:feature_id]]).first
+    @user = current_user
+    # render :text => @user.inspect
     # feature = Feature.new(:feature_id => params[:data][:feature_id], :project_id => params[:id])
     # FeaturesProject.new(params[:data])
     # @project.features << @feature
+    if(@user.admin == true || @user.profesor == true)
+      params[:data][:status] = 2
+    else
+      params[:data][:status] = 1
+    end
     # Create if nil
     if @projectsfeature.nil?
       sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}')"

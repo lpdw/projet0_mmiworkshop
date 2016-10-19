@@ -45,10 +45,7 @@ class User < ActiveRecord::Base
 # Méthode de recherche des utilisateurs, à partir de son nom, prénom ou mail
   def self.search(search)
     if search
-      where('lower(first_name) LIKE ?', "%#{search}%")
-      where('lower(last_name) LIKE ?', "%#{search}%")
-      where('lower(email) LIKE ?', "%#{search}%")
-
+      where("lower(first_name) LIKE '%#{search}%' OR lower(last_name) LIKE '%#{search}%' OR lower(email) LIKE '%#{search}%'")
     else
       all
     end

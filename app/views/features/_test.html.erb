@@ -1,4 +1,4 @@
-<div class="feature-badge<% if inactive %> inactive<% end %>" id="<%= feature.id %>" style="background-color: #<%= feature.color %>" data-commentaire="<% if !project_feature.nil? %><%= project_feature[:commentaire] %><% end %>" data-status="<% if !project_feature.nil? %><%= project_feature[:status] %><% end %>">
+<div class="feature-badge<% if inactive %> inactive<% end %>" id="<%= feature.id %>" style="background-color: #<%= feature.color %>" data-commentaire="<% if !defined?(project_feature).nil? && !project_feature.nil? %><%= project_feature[:commentaire] %><% end %>" data-status="<% if !defined?(project_feature).nil? && !project_feature.nil? %><%= project_feature[:status] %><% end %>">
 <div class="pattern"></div>
 <i class="glyphicon <%= feature.icon %>"></i>
 <span class="level"><%= feature.level %></span>
