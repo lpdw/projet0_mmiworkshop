@@ -14,7 +14,7 @@
   <%end%>
 <%= render partial:'features/modal' %>
 <div class="row">
-  <div class="col-md-3" id="project" data-id="<%= @project.id %>">
+  <div class="col-md-3" id="project" data-id="<%= @project.id %>" style="margin-top: 50px;">
     <%= render 'project', project: @project %>
     <%= link_to @project.github, @project.github, target: :blank %>
     <ul class="list-group">
@@ -30,8 +30,8 @@
     <button type="button" class="btn btn-link"><%= link_to 'Editer', edit_project_path(@project) if can? :edit, @project %></button>
     <button type="button" class="btn btn-link"><%= link_to 'Supprimer', @project, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @project %></button>
   </div>
-  <div class="col-md-9">
-    
+  <div class="col-md-9" style="margin-top: 50px;">
+
     <%= form_tag project_path, :method => 'get', :id => "projects_search" do %>
       <p>
           <%= text_field_tag :search, params[:search] %>
