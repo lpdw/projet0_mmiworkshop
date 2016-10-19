@@ -30,9 +30,8 @@
     <button type="button" class="btn btn-link"><%= link_to 'Editer', edit_project_path(@project) if can? :edit, @project %></button>
     <button type="button" class="btn btn-link"><%= link_to 'Supprimer', @project, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @project %></button>
   </div>
-  <!-- <div class="col-md-9">
-    <%= render partial:'fields/list', locals: { parent_fields: @parent_fields, fields: @fields, project: @project } %>
-
+  <div class="col-md-9">
+    
     <%= form_tag project_path, :method => 'get', :id => "projects_search" do %>
       <p>
           <%= text_field_tag :search, params[:search] %>
@@ -42,5 +41,5 @@
 
 
       <%= render partial:'fields/list', locals: { parent_fields: @fieldsParents, fields: @fields, project: @project } %>
-  </div> -->
+  </div>
 </div>
