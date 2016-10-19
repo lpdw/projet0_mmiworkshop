@@ -27,7 +27,7 @@ class Field < ActiveRecord::Base
   end
 
   def smart_color
-    color.empty? ? parent.color : color 
+    color.empty? ? parent.color : color
   end
 
   def all_features
@@ -40,6 +40,8 @@ class Field < ActiveRecord::Base
     result += "#{name} / "
     result
   end
+
+  
 
   def to_s
     "#{name}"

@@ -27,14 +27,19 @@ class Project < ActiveRecord::Base
   def has_feature?(feature)
   	features.include? feature
   end
-  
+
   def all_features
     (features + child_features).uniq
   end
 
+  def proj_feat(feature, project)
+    FeaturesProject.where(["project_id=? and feature_id=?", project[:id], feature[:id]]).first
+  end
   def note
     features_with_level(1) + features_with_level(2)*2 + features_with_level(3)*3
   end
+
+
 
   def features_with_level(level)
     result = 0

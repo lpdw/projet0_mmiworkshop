@@ -5,6 +5,7 @@
 </div>
 <% end %>
 <% else %>
-	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive } %>
+	<% project_feature = @project.proj_feat(feature, @project)%>
+	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive, project_feature: project_feature } %>
 </div>
 <% end %>
