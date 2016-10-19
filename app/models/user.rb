@@ -51,6 +51,8 @@ class User < ActiveRecord::Base
     end
   end
 
+
+
   private
 
     def set_as_admin_if_first

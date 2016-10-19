@@ -15,7 +15,9 @@
 
 class Project < ActiveRecord::Base
   has_and_belongs_to_many :users, :join_table => :users_projects
-  has_and_belongs_to_many :features, uniq: true
+  # has_and_belongs_to_many :features, uniq: true
+  has_many :features_projects
+  has_many :features, through: :features_projects
   belongs_to :workshop
 
   default_scope { order('name') }
@@ -24,6 +26,10 @@ class Project < ActiveRecord::Base
 
   def has_feature?(feature)
   	features.include? feature
+  end
+  
+  def all_features
+    (features + child_features).uniq
   end
 
   def note
@@ -35,7 +41,7 @@ class Project < ActiveRecord::Base
     Feature.all.each do |feature|
       result += 1 if has_feature? feature and feature.level == level
     end
-    result 
+    result
   end
 
   def to_s

@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :projects do
     collection do
       get 'synthesis'
+      get 'stats'
     end
   end
+  get 'projects/:id/stats' => 'projects#stats'
   get 'users/me' => 'users#me', as: 'my_profile'
   patch 'users/me' => 'users#update_me', as: 'update_my_profile'
   resources :users

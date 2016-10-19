@@ -14,6 +14,7 @@ gem 'cancancan'                                             # Authorization     
 gem 'gravtastic'                                            # Gravatar                        https://github.com/chrislloyd/gravtastic
 gem 'chartkick'                                             # Charts                          https://github.com/ankane/chartkick
 gem 'highcharts-rails'                                      # High Charts                      https://github.com/PerfectlyNormal/highcharts-rails
+gem 'filterrific'
 
 group :production do
   gem 'rails_12factor'

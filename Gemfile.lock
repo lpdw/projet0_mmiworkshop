@@ -40,7 +40,7 @@ GEM
       activerecord (>= 3.2, < 6.0)
       rake (>= 10.4, < 12.0)
     arel (6.0.3)
-    autoprefixer-rails (6.5.0)
+    autoprefixer-rails (6.5.0.1)
       execjs
     bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
@@ -61,6 +61,8 @@ GEM
     devise-i18n (1.1.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    filterrific (2.0.5)
+      rails (>= 3.1.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     gravtastic (3.2.6)
@@ -165,6 +167,7 @@ DEPENDENCIES
   chartkick
   devise
   devise-i18n
+  filterrific
   gravtastic
   highcharts-rails
   jquery-rails
@@ -181,4 +184,4 @@ RUBY VERSION
    ruby 2.2.4p230
 
 BUNDLED WITH
-   1.13.1
+   1.13.5

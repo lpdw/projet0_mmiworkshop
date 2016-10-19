@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
     @projects = Project.all
+    @features = Feature.all
   end
 
   def synthesis
@@ -33,6 +34,9 @@ class ProjectsController < ApplicationController
   def show
     @fields = Field.all
     @parent_fields = Field.all.where(parent_id: nil)
+    @features = Feature.all
+    @projects = Project.all
+    @fieldsParents = Field.all.where(parent_id: nil)
   end
 
   # GET /projects/new
@@ -42,6 +46,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+  end
+
+  # GET /projects/1/stats
+  def stats
+    @project= Project.all
   end
 
   # POST /projects
@@ -57,11 +66,34 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
-    if @project.update(project_params)
-      redirect_to @project, notice: 'Project was successfully updated.'
-    else
-      render :edit
-    end
+
+    # feature = Feature.new(:feature_id => params[:feature_id], :project_id => params[:id])
+    @project = Project.find(params[:id])
+    @feature = Feature.find(params[:feature_id])
+
+    # debugger
+
+    # @feature.update params[:feature][:comment]
+
+    # @project.feature_ids.insert(-1,params[:feature_id])
+    # toto = 5
+    # @project.feature_ids = []
+    # @project.feature_ids.push(5,7,4,744)
+    # @project.feature_ids << 12
+    # @project.feature_ids[2] << toto
+    # render :text => params[:feature_id]
+    @project.features << @feature
+    # render :text => @project.features.inspect
+    # @feature
+    # render :text => @feature.inspect
+    # puts @project.inspect
+    # render :text => feature
+    # @project.update(@project)
+    # if @project.update(project_params)
+    #   redirect_to @project, notice: 'Project was successfully updated.'
+    # else
+    #   render :edit
+    # end
   end
 
   # DELETE /projects/1

@@ -1,10 +1,10 @@
 <% inactive = false if inactive.nil? %>
-
-<%= link_to feature do %>
-<div class="feature-badge<% if inactive %> inactive<% end %>" style="background-color: #<%= feature.color %>">
-    <div class="pattern"></div>
-    <i class="glyphicon <%= feature.icon %>"></i>
-    <span class="level"><%= feature.level %></span>
-    <label><%= feature %></label>
+<% if request.fullpath.match(/projects/).nil? %>
+	<%= link_to feature do %>
+	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive } %>
+</div>
+<% end %>
+<% else %>
+	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive } %>
 </div>
 <% end %>
