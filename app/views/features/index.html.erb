@@ -16,7 +16,7 @@
       <% @fields.each do |field|  %>
         <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
           <% field.all_features.each do |feature| %>
-            <div class="col-md-2">
+            <div class="col-xs-6 col-sm-3 col-md-2">
                 <%= render partial: 'badge', locals: { feature: feature } %>
             </div>
           <% end %>
