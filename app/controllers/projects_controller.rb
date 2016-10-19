@@ -69,25 +69,28 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   def update
 
-    # feature = Feature.new(:feature_id => params[:feature_id], :project_id => params[:id])
-    @project = Project.find(params[:id])
-    @feature = Feature.find(params[:feature_id])
-
-    # debugger
-
-    # @feature.update params[:feature][:comment]
-
-    # @project.feature_ids.insert(-1,params[:feature_id])
-    # toto = 5
-    # @project.feature_ids = []
-    # @project.feature_ids.push(5,7,4,744)
-    # @project.feature_ids << 12
-    # @project.feature_ids[2] << toto
-    # render :text => params[:feature_id]
-    @project.features << @feature
-    # render :text => @project.features.inspect
-    # @feature
-    # render :text => @feature.inspect
+    # @project = Project.find(params[:id])
+    # @feature = Feature.find(params[:data][:feature_id])
+    # Find the link between project and feature
+    @projectsfeature = FeaturesProject.where(["project_id=? and feature_id=?", params[:id], params[:data][:feature_id]]).first
+    # feature = Feature.new(:feature_id => params[:data][:feature_id], :project_id => params[:id])
+    # FeaturesProject.new(params[:data])
+    # @project.features << @feature
+    # Create if nil
+    if @projectsfeature.nil?
+      sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}')"
+    # Update else
+    else
+      sql = "UPDATE features_projects SET status = #{params[:data][:status]}, commentaire = '#{params[:data][:commentaire]}' WHERE feature_id = #{params[:data][:feature_id]} AND project_id = #{params[:data][:project_id]}"
+      # @projectsfeature[:status] = 2
+      # @projectsfeature[:commentaire] = params[:data][:comment]
+      # @projectsfeature.update(commentaire: "toto")
+      # render :text => @projectsfeature.inspect
+      # @projectsfeature.save
+    end
+    render :text => sql
+    # Execute the query
+    ActiveRecord::Base.connection.execute sql
     # puts @project.inspect
     # render :text => feature
     # @project.update(@project)
