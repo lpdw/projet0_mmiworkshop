@@ -3,7 +3,7 @@
 
 <% content_for :javascript do %>
   <%= javascript_include_tag 'badge.js' %>
-<% end %>
+  <%end%>
 <%= render partial:'features/modal' %>
 <div class="row">
   <div class="col-md-3">
@@ -22,8 +22,17 @@
     <%= link_to 'Edit', edit_project_path(@project) if can? :edit, @project %>
     <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @project %>
   </div>
-
   <div class="col-md-9">
-    <%= render partial:'fields/list', locals: { parent_fields: @fieldsParents, fields: @fields, project: @project } %>
+    <%= form_tag project_path, :method => 'get', :id => "projects_search" do %>
+      <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Rechercher",:name => nil %>
+          <%= submit_tag "Annuler" %></p>
+    <%end%>
+
+
+      <%= render partial:'fields/list', locals: { parent_fields: @fieldsParents, fields: @fields, project: @project } %>
+
+
   </div>
 </div>

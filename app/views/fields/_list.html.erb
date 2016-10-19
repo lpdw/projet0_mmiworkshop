@@ -1,6 +1,10 @@
 <% @compteur=1 %>
 <% @pills=1 %>
 <!-- nav -->
+
+<!-- Si aucune recherche n'a été saisie ou l'utilisateur annule sa recherche, l'intégralité des champs sont affichés -->
+<%if(params[:commit].eql?"Annuler") || params[:search].nil? %>
+
   <ul class="nav nav-tabs" style="margin-bottom: 5px;">
     <% parent_fields.each do |parent_field|  %>
       <li class="<%= ' ' + (@pills == 1 ? 'active' : '') %>">
@@ -44,6 +48,16 @@
     <% @pills+=1 %>
     <% end %>
   </div>
+<%else%>
+<!-- Pour chacun des badges trouvés via le champ de recherche, on affiche le badge et son field parent-->
+<% @featuresSearch.each do |feature| %>
+    <div class="col-md-4 text-center">
+      <!-- On récupère le nom du field parent -->
+      <div class="panel-title  col-md-12">  <%=fields.where(id: feature.field_id).first%> </div>
+      <%= render partial: 'features/badge', locals: { feature: feature, inactive: !project.has_feature?(feature) } %>
+    </div>
+    <%end%>
+<%end%>
 
 <script>
 

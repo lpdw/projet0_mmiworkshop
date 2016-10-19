@@ -41,6 +41,7 @@ class Field < ActiveRecord::Base
     result
   end
 
+  
 
   def to_s
     "#{name}"

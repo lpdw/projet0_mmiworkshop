@@ -37,6 +37,7 @@ class Project < ActiveRecord::Base
   end
 
 
+
   def features_with_level(level)
     result = 0
     Feature.all.each do |feature|
