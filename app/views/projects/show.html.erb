@@ -1,13 +1,18 @@
 <% content_for :title, @project %>
-<<<<<<< HEAD
 <%= render 'statsDetails', project: @project%>
-
-=======
+<% content_for :head do %>
+  <script type="javascript">
+      $(function() {
+        var App = <%= current_user %>;
+        console.log(App);
+        // toto(App);        
+      });
+  </script>
+<% end %>
 <% content_for :javascript do %>
   <%= javascript_include_tag 'badge.js' %>
 <% end %>
 <%= render partial:'features/modal' %>
->>>>>>> 391c03498b790aeddc880390772fa76fc283c762
 <div class="row">
   <div class="col-md-3" id="project" data-id="<%= @project.id %>">
     <%= render 'project', project: @project %>
