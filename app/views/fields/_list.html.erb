@@ -35,7 +35,7 @@
               <div class="panel-body text-center">
                 <% field.features.each do |feature| %>
                   <div class="col-md-4">
-                      <%= render partial: 'features/badge', locals: { feature: feature, inactive: !project.has_feature?(feature) } %>
+                      <%= render partial: 'features/badge', locals: { feature: feature, project: project, inactive: !project.has_feature?(feature) } %>
                   </div>
                 <% end %>
               </div>
@@ -48,10 +48,7 @@
     <% @pills+=1 %>
     <% end %>
   </div>
-
-  <% end %>
-  <% else %>
-
+<%else%>
 <!-- Pour chacun des badges trouvés via le champ de recherche, on affiche le badge et son field parent-->
 <% @featuresSearch.each do |feature| %>
     <div class="col-md-4 text-center">
