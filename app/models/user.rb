@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :project, :join_table => :users_projects
   has_many :features, through: :project
-
   validates :email, presence: true
 
   before_create :set_as_admin_if_first
@@ -41,6 +40,17 @@ class User < ActiveRecord::Base
   delegate :has_feature?, to: :project
 
   default_scope { order('last_name, first_name') }
+
+
+# Méthode de recherche des utilisateurs, à partir de son nom, prénom ou mail
+  def self.search(search)
+    if search
+      where("lower(first_name) LIKE '%#{search}%' OR lower(last_name) LIKE '%#{search}%' OR lower(email) LIKE '%#{search}%'")
+    else
+      all
+    end
+
+end
 
   def to_s
     if first_name.nil? or last_name.nil?
