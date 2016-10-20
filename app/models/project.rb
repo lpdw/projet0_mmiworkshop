@@ -35,6 +35,9 @@ class Project < ActiveRecord::Base
   def proj_feat(feature, project)
     FeaturesProject.where(["project_id=? and feature_id=?", project[:id], feature[:id]]).first
   end
+  def in_users?(user)
+    self.users.include? user
+  end
   def note
     features_with_level(1) + features_with_level(2)*2 + features_with_level(3)*3
   end

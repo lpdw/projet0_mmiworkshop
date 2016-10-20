@@ -33,11 +33,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   def show
     @fields = Field.all
-    @features = Feature.all
     @projects = Project.all
     @fieldsParents = Field.all.where(parent_id: nil)
-
-
+    @featuresSearch= Feature.search(params[:search])
+    @features= Feature.all
+    @workshops=Workshop.all
 
   end
 
@@ -65,7 +65,7 @@ class ProjectsController < ApplicationController
       render :new
     end
   end
-
+  
   # PATCH/PUT /projects/1
   def update
 
@@ -85,7 +85,7 @@ class ProjectsController < ApplicationController
     end
     # Create if nil
     if @projectsfeature.nil?
-      sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}')"
+      sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}',now())"
     # Update else
     else
       sql = "UPDATE features_projects SET status = #{params[:data][:status]}, commentaire = '#{params[:data][:commentaire]}' WHERE feature_id = #{params[:data][:feature_id]} AND project_id = #{params[:data][:project_id]}"
