@@ -26,18 +26,19 @@
 <% end %>
 
 
-<div class="col-md-6">
-  <!-- Graphique représentant l'avancée en % des badges validés pour chaque field -->
-  <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
-</div>
-<div class="col-md-6">
-  <!-- Graphique représentant la répartition en % des badges validés (si il y a en a) -->
-    <%if(featuresChecked!=0)%>
-      <%= pie_chart (projet)%>
-    <%else%>
-      <p> Aucun badge n'a été validé </p>
-  <%end%>
-</div>
+<%if(featuresChecked!=0)%>
+  <div class="col-md-6">
+    <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
+  </div>
+  <div class="col-md-6">
+    <%= pie_chart (projet)%>
+  </div>
+<%else%>
+  <div class="col-md-12" style="text-align: center;">
+    <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
+    <p style="margin-top: 20px;">Aucun badges n'a été validé !</p>
+  </div>
+<%end%>
 
 <!-- Calcul du nombre de jours restants -->
 <% dateFin=@workshops.where(id: project.workshop_id).pluck(:dateFin)[0].to_date %>
