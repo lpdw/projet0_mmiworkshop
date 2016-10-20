@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
     @fieldsParents = Field.all.where(parent_id: nil)
     @featuresSearch= Feature.search(params[:search])
     @features= Feature.all
+    @workshops=Workshop.all
   end
 
   # GET /projects/new
