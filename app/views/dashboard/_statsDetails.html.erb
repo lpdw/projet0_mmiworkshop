@@ -6,8 +6,6 @@
 <!-- On récupère le nombre total de badges validés du projet-->
 <%featuresChecked=project.features.map {|c|c.name}.count()%>
 
-
-
 <!-- Pour chaque field parent (Dev, Contenu et Design), on récupère le nombre de features validés-->
 <% @fieldsParents.each do |field| %>
     <% field.all_features.each do |feature| %>
