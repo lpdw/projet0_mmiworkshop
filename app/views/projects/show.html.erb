@@ -1,14 +1,9 @@
 <% content_for :title, @project %>
 <%= render 'statsDetails', project: @project%>
-<% content_for :head do %>
-  <script type="javascript">
-      $(function() {
-        var App = <%= current_user %>;
-        console.log(App);
-        // toto(App);        
-      });
-  </script>
-<% end %>
+<!--<%= javascript_tag do %>
+  var App = "<%= current_user %>";
+  alert(App);
+<% end %>-->
 <% content_for :javascript do %>
   <%= javascript_include_tag 'badge.js' %>
 <% end %>
