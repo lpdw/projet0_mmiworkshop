@@ -4,4 +4,4 @@
     <% data[project.name]= project.features.map {|c|c.name}.count()%>
 <% end %>
 
-<%= bar_chart [{name:"Dashboard", data:data}], max: @features.size() %>
+<%= bar_chart [{name:"Nombre de badges validés", data:data}], max: @features.size() %>
