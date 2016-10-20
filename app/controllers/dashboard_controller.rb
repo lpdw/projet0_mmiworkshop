@@ -6,26 +6,19 @@ class DashboardController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.all
-    @features = Feature.all
-  end
-
-  def synthesis
-    @projects = Project.all
-    @features = Feature.all
-  end
-
-  # GET /projects/1
-  def show
     @fields = Field.all
 
     @parent_fields = Field.all.where(parent_id: nil)
-
 
     @projects = Project.all
     @fieldsParents = Field.all.where(parent_id: nil)
     @featuresSearch= Feature.search(params[:search])
     @features= Feature.all
+  end
+
+  def synthesis
+    @projects = Project.all
+    @features = Feature.all
   end
 
   # GET /projects/new
