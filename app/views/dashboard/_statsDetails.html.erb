@@ -24,14 +24,20 @@
 <% end %>
 
 
-<div class="col-md-6">
-  <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
-
-</div>
+<%if(featuresChecked!=0)%>
+<div class="row">
   <div class="col-md-6">
-    <%if(featuresChecked!=0)%>
+    <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
+  </div>
+  <div class="col-md-6">
     <%= pie_chart (projet)%>
-<%else%>
-  <p> Aucun badge n'a été validé </p>
-  <%end%>
+  </div>
 </div>
+<%else%>
+<div class="row">
+  <div class="col-md-12" style="text-align: center;">
+    <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
+    <p style="margin-top: 20px;">Aucun badges n'a été validé !</p>
+  </div>
+</div>
+<%end%>

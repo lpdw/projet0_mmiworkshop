@@ -14,6 +14,8 @@ class DashboardController < ApplicationController
     @fieldsParents = Field.all.where(parent_id: nil)
     @featuresSearch= Feature.search(params[:search])
     @features= Feature.all
+
+    @user = current_user
   end
 
   def synthesis

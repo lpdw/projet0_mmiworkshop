@@ -1,4 +1,4 @@
-<h2>Hello World!</h2>
+<!-- <h2>Dashboard</h2> -->
 
 <% content_for :head do %>
   <script type="javascript">
@@ -10,6 +10,28 @@
   </script>
   <% end %>
 
-<%= render 'stats'%>
+  <div class="col-md-3">
 
-<%= render 'statsDetails', project: @project %>
+    <article class="project thumbnail">
+      <h2><%= @user %></h2>
+      <% #On affiche Administrateur s'il est admin et enseignant s'il est prof
+      if @user.admin == true %>
+        <h3>Administrateur</h3>
+      <% elsif @user.profesor == true %>
+        <h3>Enseignant</h3>
+      <% end %>
+    </article>
+
+  </div>
+
+  <div class="col-md-9">
+
+      <%= render 'stats'%>
+
+    <% @projects.each do |project|%>
+      <div class="stats-project">
+        <%= render 'statsDetails', project: project %>
+      </div>
+    <%end%>
+
+</div>

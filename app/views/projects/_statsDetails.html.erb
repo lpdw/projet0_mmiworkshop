@@ -3,8 +3,6 @@
 <%count=0%>
 <%percent=0%>
 
-<% @projects.each do |project| %>
-
     <!-- On récupère le nombre total de badges validés du projet-->
     <%featuresChecked=project.features.map {|c|c.name}.count()%>
 
@@ -41,5 +39,3 @@
         <p style="margin-top: 20px;">Aucun badges n'a été validé !</p>
       </div>
     <%end%>
-    
-<% end %>
