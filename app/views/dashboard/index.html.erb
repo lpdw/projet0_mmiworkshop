@@ -12,6 +12,8 @@
 
   <div class="col-md-3">
 
+    <h1 style="margin: 0 0 20px 0">Tableau de bord</h1>
+
     <article class="project thumbnail">
       <h2><%= @user %></h2>
       <% #On affiche Administrateur s'il est admin et enseignant s'il est prof
@@ -26,12 +28,32 @@
 
   <div class="col-md-9">
 
-      <%= render 'stats'%>
+    <% @pills=1 %>
+    <!-- nav -->
+      <ul class="nav nav-tabs" style="margin-bottom: 5px;">
+        <% @workshops.each do |workshop| %>
+          <li class="<%= ' ' + (@pills == 1 ? 'active' : '') %>">
+            <%= link_to workshop.name, '#pills'+@pills.to_s, 'data-toggle'=>'tab' %>
+          </li>
+          <% @pills+=1 %>
+        <% end %>
+        <% @pills=1 %>
+      </ul>
 
-    <% @projects.each do |project|%>
-      <div class="stats-project">
-        <%= render 'statsDetails', project: project %>
-      </div>
-    <%end%>
+      <!-- content -->
+        <div class="tab-content">
+          <% @workshops.each do |workshop|  %>
+            <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
+            <%= render 'stats', workshop: workshop%>
+              <% @projects.where(workshop_id: workshop.id).each do |project|%>
+              <div class="stats-project">
+                <p style="margin: 0; padding: 5px;"><%= project.name %></p>
+                <%= render 'statsDetails', project: project %>
+              </div>
+              <% end %>
+            </div>
+          <% @pills+=1 %>
+          <% end %>
+        </div>
 
 </div>
