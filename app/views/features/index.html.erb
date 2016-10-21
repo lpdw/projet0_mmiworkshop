@@ -1,6 +1,6 @@
 <% content_for :title, 'Caractéristiques' %>
-<% @pills=1 %>
-<!-- nav -->
+<% @pills=1 #Pour lier les onglets %>
+<!-- nav : en onglet (bootstrap) por faciliter la navigation -->
   <ul class="nav nav-tabs" style="margin-bottom: 5px;">
     <% @fields.each do |field|  %>
       <li class="<%= ' ' + (@pills == 1 ? 'active' : '') %>">
@@ -11,7 +11,7 @@
     <% @pills=1 %>
   </ul>
 
-  <!-- content -->
+  <!-- content : contenu de chaque onglet -->
     <div class="tab-content">
       <% @fields.each do |field|  %>
         <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
