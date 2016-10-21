@@ -3,28 +3,27 @@
 <%count=0%>
 <%percent=0%>
 
-<!-- On récupère le nombre total de badges validés du projet-->
-<%featuresChecked=project.features.map {|c|c.name}.count()%>
+    <!-- On récupère le nombre total de badges validés du projet-->
+    <%featuresChecked=project.features.map {|c|c.name}.count()%>
 
 
 
-<!-- Pour chaque field parent (Dev, Contenu et Design), on récupère le nombre de features validés-->
-<% @fieldsParents.each do |field| %>
-    <% field.all_features.each do |feature| %>
-        <%if(project.has_feature?(feature)) %>
-                  <%count=count+1%>
-        <%end %>
-        <!-- On calcule le pourcentage de badges validés par field (par rapport a tous les badges validés)-->
-        <%if(featuresChecked!=0)%>
-          <%projet[field.name]=count*100/featuresChecked  %>
-        <%end%>
-       <!-- On calcule le pourcentage de features validé par field (par rapport au total de badges par field)-->
-        <%percent=count*100/field.all_features.count%>
-        <% data[field.name]=percent%>
+    <!-- Pour chaque field parent (Dev, Contenu et Design), on récupère le nombre de features validés-->
+    <% @fieldsParents.each do |field| %>
+        <% field.all_features.each do |feature| %>
+            <%if(project.has_feature?(feature)) %>
+                      <%count=count+1%>
+            <%end %>
+            <!-- On calcule le pourcentage de badges validés par field (par rapport a tous les badges validés)-->
+            <%if(featuresChecked!=0)%>
+              <%projet[field.name]=count*100/featuresChecked  %>
+            <%end%>
+           <!-- On calcule le pourcentage de features validé par field (par rapport au total de badges par field)-->
+            <%percent=count*100/field.all_features.count%>
+            <% data[field.name]=percent%>
+        <% end %>
+    <%count=0%>
     <% end %>
-<%count=0%>
-<% end %>
-
 
 <%if(featuresChecked!=0)%>
   <div class="col-md-6">
@@ -35,7 +34,6 @@
   </div>
 <%else%>
   <div class="col-md-12" style="text-align: center;">
-    <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
     <p style="margin-top: 20px;">Aucun badges n'a été validé !</p>
   </div>
 <%end%>
