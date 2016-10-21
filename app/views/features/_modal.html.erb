@@ -17,11 +17,16 @@
               <label for="commentaire">Commentaire :</label>
               <textarea class="form-control" rows="5" id="comment"></textarea>
             </div>
+              <div class="form-group">
+                <label for="commentaire_prof">Commentaire Professeur :</label>
+                <textarea class="form-control" rows="5" id="commentaire_prof"></textarea>
+            </div>
           </div>
           <div class="modal-footer">
             <div class="btn-group">
               <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-              <button type="button" class="btn btn-primary" id="create_demande">Creer</button>
+              <button type="button" class="btn btn-danger" id="reject_demande" style="display:none;">Rejeter</button>
+              <button type="button" class="btn btn-primary" id="create_demande"></button>
             </div>
           </div>
         </div>
