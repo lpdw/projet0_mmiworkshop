@@ -110,8 +110,8 @@ ActiveRecord::Schema.define(version: 20161020084009) do
     t.string   "url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.datetime "dateDebut"
-    t.datetime "dateFin"
+    t.datetime "dateDebut",  null: false
+    t.datetime "dateFin",  null: false
   end
 
   add_foreign_key "users_projects", "groups"
