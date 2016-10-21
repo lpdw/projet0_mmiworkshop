@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
+
     @projects = Project.all
     @features = Feature.all
   end
@@ -42,6 +43,8 @@ class ProjectsController < ApplicationController
     @featuresSearch= Feature.search(params[:search])
     @features= Feature.all
     @workshops=Workshop.all
+    
+    @featuresProject=FeaturesProject.all
   end
 
   # GET /projects/new
@@ -88,7 +91,7 @@ class ProjectsController < ApplicationController
     end
     # Create if nil
     if @projectsfeature.nil?
-      sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}')"
+      sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}',now())"
     # Update else
     else
       sql = "UPDATE features_projects SET status = #{params[:data][:status]}, commentaire = '#{params[:data][:commentaire]}' WHERE feature_id = #{params[:data][:feature_id]} AND project_id = #{params[:data][:project_id]}"
