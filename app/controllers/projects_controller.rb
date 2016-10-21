@@ -21,6 +21,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
+
     @projects = Project.all
     @features = Feature.all
   end
@@ -38,6 +39,7 @@ class ProjectsController < ApplicationController
     @featuresSearch= Feature.search(params[:search])
     @features= Feature.all
     @workshops=Workshop.all
+    @featuresProject=FeaturesProject.all
 
   end
 
@@ -65,7 +67,7 @@ class ProjectsController < ApplicationController
       render :new
     end
   end
-  
+
   # PATCH/PUT /projects/1
   def update
 

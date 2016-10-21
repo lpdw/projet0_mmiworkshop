@@ -1,5 +1,8 @@
 <% content_for :title, @workshop %>
-<%= render '/projects/stats'%>
+<%# Si le workshop contient un ou plusieurs projet, on affiche les statistiques%>
+<% if @workshop.projects.any? %>
+  <%= render '/projects/stats', projects: @workshop.projects%>
+<%end%>
 
 
 <div class="row">
