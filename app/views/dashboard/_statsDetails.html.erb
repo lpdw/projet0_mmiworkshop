@@ -23,7 +23,7 @@
 <%count=0%>
 <% end %>
 
-
+<% #S'il y a au moins un badge validé, on affiche les stats %>
 <%if(featuresChecked!=0)%>
 <div class="row">
   <div class="col-md-6">
@@ -33,11 +33,11 @@
     <%= pie_chart (projet)%>
   </div>
 </div>
+<% #Sinon, on afich qu'aucun badge n'a été validé %>
 <%else%>
 <div class="row">
   <div class="col-md-12" style="text-align: center;">
-    <%= bar_chart [{name:project.name, data:data}],colors:["grey", "black"], max: 100 %>
-    <p style="margin-top: 20px;">Aucun badges n'a été validé !</p>
+    <p>Aucun badge n'a été validé pour le moment !</p>
   </div>
 </div>
 <%end%>

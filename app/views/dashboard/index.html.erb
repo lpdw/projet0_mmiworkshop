@@ -1,5 +1,6 @@
 <!-- <h2>Dashboard</h2> -->
 
+<% content_for :title, 'Dashboard' %>
 <% content_for :head do %>
   <script type="javascript">
       $(function() {
@@ -38,6 +39,10 @@
           <% @pills+=1 %>
         <% end %>
         <% @pills=1 %>
+        <%= options_for_select([['Lisbon', 1], ['Madrid', 2]], 2) %>
+
+        <%= select_tag(options_for_select()) %>
+        <%= link_to 'Tout afficher','#', :class=>'btn btn-default openall', :id=>'openall', :style=>'float: right;' %>
       </ul>
 
       <!-- content -->
@@ -47,7 +52,7 @@
             <%= render 'stats', workshop: workshop%>
               <% @projects.where(workshop_id: workshop.id).each do |project|%>
               <div class="stats-project">
-                <p style="margin: 0; padding: 5px;"><%= project.name %></p>
+                <p style="margin: 0; padding: 5px;"><%= link_to project, 'projects/'+project.id.to_s %></p>
                 <%= render 'statsDetails', project: project %>
               </div>
               <% end %>
