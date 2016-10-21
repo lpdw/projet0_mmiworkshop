@@ -1,10 +1,9 @@
 <% content_for :title, @project %>
 <%= render 'statsDetails', project: @project%>
-<!--<%= javascript_tag do %>
-  var App = "<%= current_user %>";
-  alert(App);
-<% end %>-->
-
+<%= javascript_tag do %>
+  var Features = {};
+  Features['droit'] = "<% if (@project.in_users?(current_user) && current_user.profesor) || current_user.admin %>2<% elsif @project.in_users?(current_user) %>1<% else %>0<% end %>";
+<% end %>
 <% content_for :javascript do %>
   <%= javascript_include_tag 'badge.js' %>
   <%end%>
