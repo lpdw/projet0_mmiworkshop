@@ -40,8 +40,7 @@ class Feature < ActiveRecord::Base
 #Méthode de recherche des features en fonction de son nom ou du nom du field auquel elle appartient
   def self.search(search)
     if search
-      where('lower(name) LIKE ?', "%#{search}%")
-      where ("field_id in (SELECT id from fields where lower(name) LIKE '%#{search}%') OR lower(name) LIKE '%#{search}%'")
+      where ("field_id in (SELECT id from fields where lower(name) LIKE lower('%#{search}%')) OR lower(name) LIKE lower('%#{search}%')")
     else
       all
     end
