@@ -14,7 +14,6 @@
 
 class Workshop < ActiveRecord::Base
   has_many :projects
-
   validates :name, presence: true
 
   def to_s
