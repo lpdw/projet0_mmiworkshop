@@ -10,6 +10,7 @@ class Ability
       can :read, :all
       can :me, User
       can :update_me, User
+      can :update, Project
     end
   end
 end
