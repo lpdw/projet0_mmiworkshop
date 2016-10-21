@@ -36,11 +36,6 @@ class Project < ActiveRecord::Base
     FeaturesProject.where(["project_id=? and feature_id=?", project[:id], feature[:id]]).first
   end
 
-  def datesDemandes
-    @projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").group(:name).group_by_day(:date_demande).count("case when date_demande IS NOT NULL THEN 0 end")
-  end
-
-
   def in_users?(user)
     self.users.include? user
   end
