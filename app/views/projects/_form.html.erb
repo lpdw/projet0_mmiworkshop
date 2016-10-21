@@ -1,6 +1,6 @@
 <%= simple_form_for(@project) do |f| %>
   <%= f.error_notification %>
-  <%= f.button :submit, class: "btn btn-default" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 
   <%= f.input :name %>
   <%= f.input :description %>
@@ -8,10 +8,25 @@
   <%= f.input :url %>
   <%= f.input :github %>
   <%= f.input :notes %>
-  <%= f.association :features, 
-        as: :check_boxes, 
-        label: 'Caractéristiques', 
-        collection: Feature.includes(:field).reorder('fields.parent_id, features.field_id, level').all.map { |f| [f.name_with_hierarchy, f.id] } %>
+  <div class="form-group text optional project_features">
+    <label class="control-label text optional" for="project_features">Badges</label>
+    <% @project_features = @project.features.includes(:field).map %>
+    <% if @project_features.count > 0 %>
+      <% @project_features.each do |f| %>
+        <div class="form-group associatedinputs">
+          <input class="form-control string optional" type="text" value="<%= f.name %>">
+          <input type="hidden" name="project[feature_ids][]" value="<%= f.id %>">
+        </div>
+      <% end %>
+    <% else %>
+      <div class="form-group associatedinputs">
+        <input class="form-control string optional" type="text" value="">
+        <input type="hidden" name="project[feature_ids][]" value="">
+      </div>
+    <% end %>
+  </div>
+  <button type="button" class="addinputassociated btn btn-default">Ajouter un badge</button>
+  <br/><br/>
 
-  <%= f.button :submit, class: "btn btn-default" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   end
   resources :fields
   root 'features#index'
+  get 'get_feature_id' => 'features#get_feature_id'
+  get 'autocomplete_feature' => 'features#autocomplete_feature'
 end

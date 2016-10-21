@@ -7,7 +7,6 @@
 #  last_name              :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  project_id             :integer
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -97,6 +96,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :project_id, :admin, :profesor, :diploma_year)
+      params.require(:user).permit(:first_name, :last_name, :email, :admin, :profesor, :diploma_year)
     end
 end

@@ -7,7 +7,6 @@
 #  last_name              :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  project_id             :integer
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -29,8 +28,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_and_belongs_to_many :project, :join_table => :users_projects
-  has_many :features, through: :project
+  has_and_belongs_to_many :projects, :join_table => :users_projects
+  #has_many :features, through: :projects
 
   validates :email, presence: true
 
@@ -39,7 +38,7 @@ class User < ActiveRecord::Base
   include Gravtastic
   gravtastic size: 100
 
-  delegate :has_feature?, to: :project
+  #delegate :has_feature?, to: :projects
 
   default_scope { order('last_name, first_name') }
 

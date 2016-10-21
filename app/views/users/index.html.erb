@@ -8,6 +8,9 @@
       <% if can? :edit, user %>
       	<p><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-default btn-xs' %></p>
       <% end %>
+      <% if can? :destroy, user %>
+        <p><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure ?' }, class: 'btn btn-default btn-xs' %></p>
+      <% end %>
     <% end %>
   </div>
   <% end %>
