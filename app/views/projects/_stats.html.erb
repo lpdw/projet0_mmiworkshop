@@ -5,9 +5,9 @@
 <% projects.each do |project| %>
     <% data[project.name] = project.features.map {|c|c.name}.count()%>
 <% end %>
-<%= bar_chart [data: data.to_a, name:"Badge(s) demandé(s)"], colors: ["#014B4C","#012322","#0D7979"], max: @features.size() %>
+<%= bar_chart [data: data.to_a, name:  "Badge(s) demandé(s)"], colors: ["#014B4C","#012322","#0D7979"], max: @features.size() %>
 
 
 <%# Demande de validation de badge par jour et par projet%>
 
-<%=line_chart projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").group(:name).group_by_day(:date_demande).count("case when date_demande IS NOT NULL THEN 0 end"),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"] %>
+<%=line_chart projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").group(:name).group_by_day(:date_demande).count(),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"] %>
