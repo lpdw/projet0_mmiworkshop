@@ -39,10 +39,8 @@
           <% @pills+=1 %>
         <% end %>
         <% @pills=1 %>
-        <%= options_for_select([['Lisbon', 1], ['Madrid', 2]], 2) %>
 
-        <%= select_tag(options_for_select()) %>
-        <%= link_to 'Tout afficher','#', :class=>'btn btn-default openall', :id=>'openall', :style=>'float: right;' %>
+        <%= select_tag('name', options_for_select([['Lisbon', 1], ['Madrid', 2]]), :style=>'float: right;', :class=>'btn btn-default') %>
       </ul>
 
       <!-- content -->
