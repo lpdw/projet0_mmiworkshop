@@ -1,4 +1,9 @@
 <% content_for :title, @workshop %>
+<%# Si le workshop contient un ou plusieurs projet, on affiche les statistiques%>
+<% if @workshop.projects.any? %>
+  <%= render '/projects/stats', projects: @workshop.projects%>
+<%end%>
+
 
 <div class="row">
     <div class="col-md-3">
@@ -12,13 +17,17 @@
         </article>
     </div>
 
-    <% if @workshop.projects.any? %>
-    <div class="row">
-        <% @workshop.projects.each do |project| %>
-        <div class="col-md-3">
-            <%= link_to project, project %>
+    <% if @workshop.projects.any?
+    @id = 1 %>
+      <div class="col-md-9">
+        <h3 style="margin-top: 0;">Liste des projets</h3>
+      </div>
+      <% @workshop.projects.each do |project| %>
+        <div class="col-md-9">
+          <p>Projet <%= @id %> : <%= link_to project, project %></p>
         </div>
-        <% end %>
-    </div>
+      <% @id += 1
+      end %>
+
     <% end %>
 </div>

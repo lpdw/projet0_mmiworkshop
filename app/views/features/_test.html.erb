@@ -1,0 +1,7 @@
+<% status = !defined?(project_feature).nil? && !project_feature.nil? ? project_feature[:status] : 0 %>
+<% refuser = !defined?(project_feature).nil? && !project_feature.nil? ? project_feature[:refuser] : 0 %>
+<div class="feature-badge<% if inactive || status == 1 %> inactive<% end %>" id="<%= feature.id %>" style="background-color: #<%= feature.color %>">
+<div class="pattern"></div>
+<i class="glyphicon <%= feature.icon %>"></i>
+<span class="level" <% if status == 1 &&  refuser == true%> style="background-color: red"<% elsif status == 1 %> style="background-color: #00FFFF"<% end %>><%= feature.level %></span>
+<label><%= feature %></label>	

@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930095006) do
+ActiveRecord::Schema.define(version: 20161020121158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dashboards", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "features", force: :cascade do |t|
     t.string   "name"
@@ -28,10 +33,13 @@ ActiveRecord::Schema.define(version: 20160930095006) do
   end
 
   create_table "features_projects", id: false, force: :cascade do |t|
-    t.integer "feature_id"
-    t.integer "project_id"
-    t.integer "status"
-    t.string  "commentaire"
+    t.integer  "feature_id"
+    t.integer  "project_id"
+    t.integer  "status"
+    t.string   "commentaire"
+    t.datetime "date_demande"
+    t.boolean  "refuser",          default: false
+    t.text     "commentaire_prof"
   end
 
   add_index "features_projects", ["feature_id", "project_id"], name: "index_features_projects_on_feature_id_and_project_id", using: :btree
@@ -104,6 +112,8 @@ ActiveRecord::Schema.define(version: 20160930095006) do
     t.string   "url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.datetime "dateDebut"
+    t.datetime "dateFin"
   end
 
   add_foreign_key "users_projects", "groups"

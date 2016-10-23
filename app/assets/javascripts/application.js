@@ -3,8 +3,10 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require chartkick
+//= require Chart.bundle
 //= require highcharts
 //= require_tree .
+
 $(document).ready(function() {
 
 	$('button.addinput').each(function() {
@@ -97,3 +99,10 @@ var listenEachAssociatedInputs = function(){
 	});
 
 };
+
+$(function() {
+	$("#users_search input").keyup(function() {
+		$.get($("#users_search").attr("action"), $("#users_search").serialize(), null, "script");
+		return false;
+	});
+});

@@ -28,9 +28,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+
   # GET /users
   def index
-    @users = User.where.not(admin: true).all
+    @users= User.search(params[:search]).where.not(admin: true).all
+    if (params[:commit].eql?("Tout afficher") || params[:search].nil?)
+      @users= User.where.not(admin: true).all
+    end
   end
 
   def diploma

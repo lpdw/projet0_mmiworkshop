@@ -1,10 +1,22 @@
 <% inactive = false if inactive.nil? %>
-
-<%= link_to feature do %>
-<div class="feature-badge<% if inactive %> inactive<% end %>" style="background-color: #<%= feature.color %>">
-    <div class="pattern"></div>
-    <i class="glyphicon <%= feature.icon %>"></i>
-    <span class="level"><%= feature.level %></span>
-    <label><%= feature %></label>
+<% if request.fullpath.match(/projects/).nil? %>
+	<%= link_to feature do %>
+	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive } %>
+</div>
+<% end %>
+<% else %>
+	<% project_feature = project.proj_feat(feature, project)%>
+	<%= javascript_tag do %>
+		<% if !project_feature.nil? %>
+			var id = '<%= project_feature.feature_id %>';
+			Features[id] = {};
+			Features[id]['feature_id'] = "<%= project_feature[:feature_id] %>";
+			Features[id]['status'] = "<%= project_feature[:status] %>";
+			Features[id]['commentaire'] = "<%= project_feature[:commentaire] %>";
+			Features[id]['commentaire_prof'] = "<%= project_feature[:commentaire_prof] %>";
+			Features[id]['refuser'] = "<%= project_feature[:refuser] %>";
+	  	<% end %>
+	<% end %>
+	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive, project_feature: project_feature } %>
 </div>
 <% end %>

@@ -1,0 +1,57 @@
+<% data=Hash.new %>
+<% projet=Hash.new %>
+<%count=0%>
+<%percent=0%>
+
+    <!-- On récupère le nombre total de badges validés du projet-->
+    <%featuresChecked=project.features.map {|c|c.name}.count()%>
+
+
+
+    <!-- Pour chaque field parent (Dev, Contenu et Design), on récupère le nombre de features validés-->
+    <% @fieldsParents.each do |field| %>
+        <% field.all_features.each do |feature| %>
+            <%if(project.has_feature?(feature)) %>
+                      <%count=count+1%>
+            <%end %>
+            <!-- On calcule le pourcentage de badges validés par field (par rapport a tous les badges validés)-->
+            <%if(featuresChecked!=0)%>
+              <%projet[field.name]=count*100/featuresChecked  %>
+            <%end%>
+           <!-- On calcule le pourcentage de features validé par field (par rapport au total de badges par field)-->
+            <%percent=count*100/field.all_features.count%>
+            <% data[field.name]=percent%>
+        <% end %>
+    <%count=0%>
+    <% end %>
+
+<%if(featuresChecked!=0)%>
+
+      <div class="col-md-6">
+        <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
+        <%= bar_chart [{name: "Badge(s) validé(s) (en %)", data:data}],colors: ["#014B4C","#012322","#0D7979"], hAxis: {format: 'percent'}, max: 100%>
+      </div>
+      <div class="col-md-6">
+        <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
+        <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"]%>
+      </div>
+      <%=line_chart @projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("project_id=?",project.id).group(:name).group_by_day(:date_demande).count("case when date_demande IS NOT NULL THEN 0 end"),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"] %>
+
+<%else%>
+  <div class="col-md-12" style="text-align: center;">
+    <p style="margin-top: 20px;">Aucun badges n'a été validé !</p>
+  </div>
+<%end%>
+
+<!-- Calcul du nombre de jours restants -->
+
+<% dateFin=@workshops.where(id: project.workshop_id).pluck(:dateFin)[0].to_date %>
+<% aujourdhui=Time.now.to_date%>
+<% joursRestants=(dateFin-aujourdhui).to_i%>
+<% if (joursRestants<0)%>
+  <p> Le projet est terminé </p>
+<%elsif (joursRestants==0)%>
+  <p> C'est le dernier jour ! </p>
+<%else%>
+  <p> Il reste <%=joursRestants%> jours. </p>
+<%end%>

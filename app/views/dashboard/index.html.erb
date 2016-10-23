@@ -1,0 +1,139 @@
+<!-- <h2>Dashboard</h2> -->
+
+<% content_for :title, 'Dashboard' %>
+<% content_for :head do %>
+  <script type="javascript">
+      $(function() {
+        var App = <%= current_user %>;
+        console.log(App);
+        // toto(App);
+      });
+  </script>
+  <% end %>
+
+  <div class="col-md-3">
+
+    <h1 style="margin: 0 0 20px 0">Tableau de bord</h1>
+
+    <article class="project thumbnail">
+      <h2><%= @user %></h2>
+      <% #On affiche Administrateur s'il est admin et enseignant s'il est prof
+      if @user.admin == true %>
+        <h3>Administrateur</h3>
+      <% elsif @user.profesor == true %>
+        <h3>Enseignant</h3>
+      <% end %>
+    </article>
+
+  </div>
+
+  <div class="col-md-9">
+
+      <%if (params[:filter].eql?"inprogress")%>
+
+      <% @pills=1 %>
+      <!-- nav -->
+        <ul class="nav nav-tabs" style="margin-bottom: 5px;">
+          <% @workshops.each do |workshop| %>
+            <li class="<%= ' ' + (@pills == 1 ? 'active' : '') %>">
+              <%= link_to workshop.name, '#pills'+@pills.to_s, 'data-toggle'=>'tab' %>
+            </li>
+            <% @pills+=1 %>
+          <% end %>
+          <% @pills=1 %>
+
+        <form class="form" action="#" method="get">
+            <%= select_tag('filter', options_for_select([['Tous les projets', 'all'], ['Projets en cours', 'inprogress', 'selected'=>'selected'], ['Projets terminés', 'end']]), :style=>'float: right;', :class=>'btn btn-default', 'onChange'=>'this.parentNode.submit()') %>
+        </form>
+
+        </ul>
+
+        <!-- content -->
+          <div class="tab-content">
+            <% @workshops.each do |workshop|  %>
+              <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
+              <%= render 'stats', workshop: workshop%>
+                <% @projects.where(workshop_id: workshop.id).each do |project|%>
+                <div class="stats-project">
+                  <p style="margin: 0; padding: 5px;"><%= link_to project, 'projects/'+project.id.to_s %></p>
+                  <%= render 'statsDetails', project: project %>
+                </div>
+                <% end %>
+              </div>
+            <% @pills+=1 %>
+            <% end %>
+          </div>
+
+          <%elsif (params[:filter].eql?"end")%>
+
+          <% @pills=1 %>
+          <!-- nav -->
+            <ul class="nav nav-tabs" style="margin-bottom: 5px;">
+              <% @workshops.each do |workshop| %>
+                <li class="<%= ' ' + (@pills == 1 ? 'active' : '') %>">
+                  <%= link_to workshop.name, '#pills'+@pills.to_s, 'data-toggle'=>'tab' %>
+                </li>
+                <% @pills+=1 %>
+              <% end %>
+              <% @pills=1 %>
+
+            <form class="form" action="#" method="get">
+                <%= select_tag('filter', options_for_select([['Tous les projets', 'all'], ['Projets en cours', 'inprogress'], ['Projets terminés', 'end', 'selected'=>'selected']]), :style=>'float: right;', :class=>'btn btn-default', 'onChange'=>'this.parentNode.submit()') %>
+            </form>
+
+            </ul>
+
+            <!-- content -->
+              <div class="tab-content">
+                <% @workshops.each do |workshop|  %>
+                  <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
+                  <%= render 'stats', workshop: workshop%>
+                    <% @projects.where(workshop_id: workshop.id).each do |project|%>
+                    <div class="stats-project">
+                      <p style="margin: 0; padding: 5px;"><%= link_to project, 'projects/'+project.id.to_s %></p>
+                      <%= render 'statsDetails', project: project %>
+                    </div>
+                    <% end %>
+                  </div>
+                <% @pills+=1 %>
+                <% end %>
+              </div>
+
+          <% else %>
+
+          <% @pills=1 %>
+          <!-- nav -->
+            <ul class="nav nav-tabs" style="margin-bottom: 5px;">
+              <% @workshops.each do |workshop| %>
+                <li class="<%= ' ' + (@pills == 1 ? 'active' : '') %>">
+                  <%= link_to workshop.name, '#pills'+@pills.to_s, 'data-toggle'=>'tab' %>
+                </li>
+                <% @pills+=1 %>
+              <% end %>
+              <% @pills=1 %>
+
+            <form class="form" action="#" method="get">
+                <%= select_tag('filter', options_for_select([['Tous les projets', 'all'], ['Projets en cours', 'inprogress'], ['Projets terminés', 'end', 'selected'=>'selected']]), :style=>'float: right;', :class=>'btn btn-default', 'onChange'=>'this.parentNode.submit()') %>
+            </form>
+
+            </ul>
+
+            <!-- content -->
+              <div class="tab-content">
+                <% @workshops.each do |workshop|  %>
+                  <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
+                  <%= render 'stats', workshop: workshop%>
+                    <% @projects.where(workshop_id: workshop.id).each do |project|%>
+                    <div class="stats-project">
+                      <p style="margin: 0; padding: 5px;"><%= link_to project, 'projects/'+project.id.to_s %></p>
+                      <%= render 'statsDetails', project: project %>
+                    </div>
+                    <% end %>
+                  </div>
+                <% @pills+=1 %>
+                <% end %>
+              </div>
+
+              <%end%>
+
+</div>
