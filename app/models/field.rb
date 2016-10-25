@@ -41,6 +41,14 @@ class Field < ActiveRecord::Base
     result
   end
 
+  def category
+    result = ''
+    unless parent.nil?
+      result += "#{parent.name}"
+    end
+    result
+  end
+
   
 
   def to_s

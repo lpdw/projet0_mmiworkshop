@@ -27,10 +27,10 @@ $(document).ready(function() {
 
 	// Add an input group (input text + hidden) to set multiple values.
 	$('button.addinputassociated').each(function() {
-		var element = $(this).prev().find('.form-group.associatedinputs').first().clone();
+		var element = $(this).parent().prev().find('.form-group.associatedinputs').first().clone();
 		element.find('input').each(function(){$(this).val("")});
 		$(this).click(function() {
-			$(this).prev().find('.form-group.associatedinputs').first().parent().append(element.clone());
+			$(this).parent().prev().find('.form-group.associatedinputs').first().parent().append(element.clone());
 			listenEachAssociatedInputs();
 		});
 	});
@@ -48,19 +48,30 @@ var listenEachAssociatedInputs = function(){
 
 	$('.form-group.associatedinputs').each(function(){
 
-		$(this).find('input[type=text]').first().autocomplete({
-			query_result: null,
+		$(this).find('input').first().autocomplete({
+			query_result: [],
 			source: function(request, response){
 				$.ajax({
 					url: "/autocomplete_feature",
 					dataType: "json",
 					data: {term: request.term},
 					success: function(data) {
-						query_result = data;
-						var features_name = [];
-						jQuery.each(data, function(i, val){
-							features_name[i] = val.name;
+						console.log(data);
+						var id = [];
+						var i = 0;
+						$("input[type=hidden][name='project[feature_ids][]']").each(function(){
+							id[i] = $(this).val();
+							i++;
 						});
+						var features_name = [];
+						var result = [];
+						jQuery.each(data, function(i, val){
+							if(jQuery.inArray(val.id.toString(), id) == -1){
+								features_name[features_name.length] = val.name_with_category;
+								result.push(val);
+							}
+						});
+						query_result = result;
 						response(features_name);
 					}
 				});
@@ -68,8 +79,8 @@ var listenEachAssociatedInputs = function(){
 			minLength: 2,
 			select: function(event, ui) {
 				var feature_id;
-				jQuery.each(query_result, function(i, val){
-					if(ui.item.value == val.name){
+				$.each(query_result, function(i, val){
+					if(ui.item.value == val.name_with_category){
 						feature_id = val.id;
 						return false;
 					}
@@ -78,27 +89,45 @@ var listenEachAssociatedInputs = function(){
 			}
 		});
 
-		$(this).find('input[type=text]').first().bind("change paste keyup", function() {
-			var element = $(this).parent();
-			$.ajax({
-				url: "/get_feature_id",
-				type: "GET",
-				data: {feature_name: $(this).val()},
-				success: function(data){
-					var feature_id = data[0];
-					var hiddenInput = element.find('input[type=hidden]').first();
-					if(feature_id){
-						setInputValue(hiddenInput, feature_id);
-					} else {
-						setInputValue(hiddenInput, "");
-					}
+	});
+
+	$("#myModal").on("show.bs.modal", function(e) {
+		var link = $(e.relatedTarget);
+		$(this).find(".modal-content").load(link.attr("href"), function(){
+			var id = [];
+			var i = 0;
+			$("input[type=hidden][name='project[feature_ids][]']").each(function(){
+				id[i] = $(this).val();
+				i++;
+			});
+			$("input[type=checkbox][name='project[feature_ids][]']").each(function(){
+				if (jQuery.inArray($(this).val(), id) != -1) {
+					$(this).parent().parent().remove();
 				}
 			});
 		});
-
 	});
 
 };
+
+var removeField = function(element){
+	if(element.parent().parent().parent().children('DIV').size()>1)
+		element.parent().parent().remove();
+	else
+		element.parent().parent().find('input').each(function(){$(this).val("");});
+}
+
+var addFeaturesInputs = function(){
+	$("input[type=checkbox][name='project[feature_ids][]']:checked").each(function(){
+		var element = $("div.project_features").first().children("div.associatedinputs").last().clone();
+		while(!$("div.project_features").first().children("div.associatedinputs").last().find('input[type=hidden]').first().val()){
+			$("div.project_features").first().children("div.associatedinputs").last().remove();
+		}
+		element.find('input[type=hidden]').first().val($(this).val());
+		element.find('input').first().val($(this).parent().text());
+		$("div.project_features").first().append(element);
+	});
+}
 
 $(function() {
 	$("#users_search input").keyup(function() {

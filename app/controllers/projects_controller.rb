@@ -137,6 +137,11 @@ class ProjectsController < ApplicationController
     redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
 
+  def get_features_modal
+    @project = Project.find(params[:id])
+    render :partial => "features_modal"
+  end
+
   private
   def set_project
     @project = Project.find(params[:id])

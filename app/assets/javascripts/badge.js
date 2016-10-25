@@ -7,7 +7,7 @@ $(function() {
 		$(".feature-badge").click(function() {
 			// Exclusion si on à pas le droit
 			if(Features.droit == 0){
-				alert("Vous n\'avez pas le droit de faire une demande de badge, seul les membres du projet ainsi que leur professeur dispose de ce droit");
+				alert("Vous n\'avez pas le droit de faire une demande de badge, seul les membres du projet ainsi que leurs professeurs disposents de ce droit");
 				return;
 			}
 			// On ouvre le modal
@@ -27,14 +27,14 @@ $(function() {
 	    	// Si c'est une nouvelle demande 
 	    	if(typeof Features[id] === 'undefined'){
 	    		value = "Aucun";
-	    		button = Features.droit == 2 ? 'Validé' : 'Creer';
+	    		button = Features.droit == 2 ? 'Valider' : 'Creer';
 	    		$('#comment').val('');
 		    	$('#commentaire_prof').val('');
 	    	}
 	    	else{
 	    		value = Features[id].status == 1 ? "En attente de validation":"Validé";
 	    		value = Features[id].refuser == 'true' ? "Rejeté" : value;
-	    		button = Features[id].status == 1 && Features.droit == 2 ? 'Validé' : 'Modifié';
+	    		button = Features[id].status == 1 && Features.droit == 2 ? 'Valider' : 'Modifier';
 		    	$('#comment').val(Features[id].commentaire);
 		    	$('#commentaire_prof').val(Features[id].commentaire_prof);
 	    	}

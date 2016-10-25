@@ -13,20 +13,46 @@
     <% @project_features = @project.features.includes(:field).map %>
     <% if @project_features.count > 0 %>
       <% @project_features.each do |f| %>
-        <div class="form-group associatedinputs">
-          <input class="form-control string optional" type="text" value="<%= f.name %>">
+        <div class="input-group form-group associatedinputs">
+          <input class="form-control" aria-label="Text input with segmented button dropdown" value="<%= f.name_with_category %>" style="border-bottom-left-radius:4px;border-top-left-radius:4px;">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" onclick="removeField($(this));" style="border-left:0;border-bottom-left-radius:0;border-top-left-radius:0;">
+              <span class="glyphicon glyphicon-remove"></span>
+            </button>
+          </span>
           <input type="hidden" name="project[feature_ids][]" value="<%= f.id %>">
         </div>
       <% end %>
     <% else %>
-      <div class="form-group associatedinputs">
-        <input class="form-control string optional" type="text" value="">
+      <div class="input-group form-group associatedinputs">
+        <input class="form-control" aria-label="Text input with segmented button dropdown" value="" style="border-bottom-left-radius:4px;border-top-left-radius:4px;">
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" onclick="removeField($(this));" style="border-left:0;border-bottom-left-radius:0;border-top-left-radius:0;">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </span>
         <input type="hidden" name="project[feature_ids][]" value="">
       </div>
     <% end %>
   </div>
-  <button type="button" class="addinputassociated btn btn-default">Ajouter un badge</button>
+  <div class="btn-group">
+    <button type="button" class="addinputassociated btn btn-default">Ajouter un badge</button>
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="caret"></span>
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="/get_features_modal?id=<%= @project.id %>"  data-remote="false" data-toggle="modal" data-target="#myModal">Ajouter des badges depuis la liste</a></li>
+    </ul>
+  </div>
   <br/><br/>
 
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>

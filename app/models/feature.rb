@@ -33,6 +33,10 @@ class Feature < ActiveRecord::Base
     "#{field.ancestors} #{name} (#{description})"
   end
 
+  def name_with_category
+    "#{name} (#{field.category})"
+  end
+
   def to_s
     "#{name}"
   end
