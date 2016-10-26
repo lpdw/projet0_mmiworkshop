@@ -22,7 +22,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
 
-    @projects = Project.all
+# L'utilisateur n'a accès qu'aux projets auxquels il est assigné (qu'il soit professeur ou élève)
+    @projects = Project.joins("INNER JOIN users_projects ON projects.id=users_projects.project_id").where("users_projects.user_id= ?",current_user.id)
     @features = Feature.all
   end
 
@@ -43,7 +44,7 @@ class ProjectsController < ApplicationController
     @featuresSearch= Feature.search(params[:search])
     @features= Feature.all
     @workshops=Workshop.all
-    
+
     @featuresProject=FeaturesProject.all
   end
 
@@ -63,6 +64,7 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
+
     @project = Project.new(project_params)
 
     if @project.save
@@ -81,7 +83,7 @@ class ProjectsController < ApplicationController
     # if(!self.in_users?(current_user) || !current_user.admin)
     #   return false
     # end
-    if !params[:data].nil? 
+    if !params[:data].nil?
       @projectsfeature = FeaturesProject.where(["project_id=? and feature_id=?", params[:id], params[:data][:feature_id]]).first
       @user = current_user
       # render :text => @user.inspect
@@ -128,7 +130,7 @@ class ProjectsController < ApplicationController
     else
       render :edit
     end
-    
+
   end
 
   # DELETE /projects/1
