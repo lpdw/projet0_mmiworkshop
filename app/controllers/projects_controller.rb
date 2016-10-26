@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/stats
   def stats
-    @project= Project.all
+    @project = Project.all
   end
 
   # POST /projects
@@ -138,7 +138,11 @@ class ProjectsController < ApplicationController
   end
 
   def get_features_modal
-    @project = Project.find(params[:id])
+    if params[:id].nil?
+      @project = Project.new
+    else
+      @project = Project.find(params[:id])
+    end
     render :partial => "features_modal"
   end
 

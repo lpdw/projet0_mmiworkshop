@@ -42,7 +42,7 @@
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <ul class="dropdown-menu">
-      <li><a href="/get_features_modal?id=<%= @project.id %>"  data-remote="false" data-toggle="modal" data-target="#myModal">Ajouter des badges depuis la liste</a></li>
+      <li><a href="/get_features_modal<% unless @project.id.nil? %>?id=<%= @project.id %><% end %>" data-remote="false" data-toggle="modal" data-target="#myModal">Ajouter des badges depuis la liste</a></li>
     </ul>
   </div>
   <br/><br/>
