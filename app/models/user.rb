@@ -50,8 +50,7 @@ class User < ActiveRecord::Base
     else
       all
     end
-
-end
+  end
 
   def to_s
     if first_name.nil? or last_name.nil?
@@ -61,7 +60,13 @@ end
     end
   end
 
-
+  def name_for_associated_inuts
+    if first_name.nil? or last_name.nil?
+      "#{email}"
+    else
+      "#{first_name} #{last_name} (#{email})"
+    end
+  end
 
   private
 

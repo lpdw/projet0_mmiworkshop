@@ -45,6 +45,7 @@ class ProjectsController < ApplicationController
     @workshops=Workshop.all
     
     @featuresProject=FeaturesProject.all
+    @usersProject=UsersProject.all
   end
 
   # GET /projects/new
@@ -137,13 +138,32 @@ class ProjectsController < ApplicationController
     redirect_to projects_url, notice: 'Project was successfully destroyed.'
   end
 
-  def get_features_modal
+  def autocomplete_feature
+    if params[:term]
+      @autocomplete_values = ""
+      if params[:type] == "users_projects"
+        @autocomplete_values = User.where('first_name ILIKE ? OR last_name ILIKE ? OR email ILIKE ?', "%#{params[:term].downcase}%", "%#{params[:term].downcase}%", "%#{params[:term].downcase}%")
+      elsif params[:type] == "features_projects"
+        @autocomplete_values = Feature.where('name ILIKE ?', "%#{params[:term].downcase}%")
+      end
+      respond_to do |format|  
+        format.html
+        format.json { render :json => @autocomplete_values.as_json(:only => [:id], :methods => [:name_for_associated_inuts]) }
+      end
+    end
+  end
+
+  def get_add_from_list_modal
     if params[:id].nil?
       @project = Project.new
     else
       @project = Project.find(params[:id])
     end
-    render :partial => "features_modal"
+    unless params[:label].nil? || params[:input_class].nil?
+      @label = params[:label]
+      @input_class = params[:input_class]
+      render :partial => "features_modal"
+    end
   end
 
   private
@@ -152,6 +172,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :url, :github, :notes, :workshop_id, feature_ids: [])
+    params.require(:project).permit(:name, :description, :url, :github, :notes, :workshop_id, feature_ids: [], user_ids: [])
   end
 end
