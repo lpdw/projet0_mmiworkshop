@@ -162,7 +162,7 @@ class ProjectsController < ApplicationController
     unless params[:label].nil? || params[:input_class].nil?
       @label = params[:label]
       @input_class = params[:input_class]
-      render :partial => "features_modal"
+      render :partial => "associated_inputs_modal"
     end
   end
 
