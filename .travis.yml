@@ -4,13 +4,21 @@ env:
   - DB=sqlite
   - DB=mysql
   - DB=postgresql
-script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
+
 before_script:
   - mysql -e 'create database mmiworkshop_test'
   - psql -c 'create database mmiworkshop_test' -U postgres
+
+  script:
+  - bundle exec rake db:schema:load
+  - bundle exec rake db:test:prepare
+  - bundle exec rake spec
+after_failure:
+  - "mysql -e 'show databases;'"
+  - "cat ./config/database.yml"
+  - "echo $RAILS_ENV"
+- "bundle exec rake --version"
+
 bundler_args: --binstubs=./bundler_stubs
 rvm:
   - 2.2.4
