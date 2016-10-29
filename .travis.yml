@@ -1,5 +1,15 @@
 language: ruby
 sudo: required
-script: "RAILS_ENV=development bundle exec rake db:create db:migrate db:seed --trace"
-rvm:
+env:
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgresql
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+before_script:
+  - mysql -e 'create database mmiworkshop_test'
+  - psql -c 'create database mmiworkshop_test' -U postgres
+bundler_args: --binstubs=./bundler_stubsrvm:
   - 2.2.4
