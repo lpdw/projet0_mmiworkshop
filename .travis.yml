@@ -11,9 +11,9 @@ before_script:
   - psql -c 'create database mmiworkshop_test' -U postgres
 
 script:
-  - bundle exec rake -t db:schema:load
-  - bundle exec rake -t db:test:prepare
-  - bundle exec rake -t
+  - bundle exec rake -t db:create
+  - bundle exec rake -t db:migrate
+  - bundle exec rake -t db:seed
 
 after_failure:
   - "mysql -e 'show databases;'"
