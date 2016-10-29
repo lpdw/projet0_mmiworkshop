@@ -10,10 +10,10 @@ before_script:
   - psql -c 'create database mmiworkshop_test' -U postgres
 
 script:
-  - bundle exec rake db:schema:load
-  - bundle exec rake db:test:prepare
-  - bundle exec rake spec
-  
+  - bundle exec rake -t db:schema:load
+  - bundle exec rake -t db:test:prepare
+  - bundle exec rake -t
+
 after_failure:
   - "mysql -e 'show databases;'"
   - "cat ./config/database.yml"
