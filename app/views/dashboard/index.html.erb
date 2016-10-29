@@ -21,7 +21,9 @@
       if @user.admin == true %>
         <h3>Administrateur</h3>
       <% elsif @user.profesor == true %>
-        <h3>Enseignant</h3>
+        <h3>Enseignant(e)</h3>
+      <% else%>
+        <h3> Étudiant(e) </h3>
       <% end %>
     </article>
 
@@ -30,7 +32,9 @@
   <div class="col-md-9">
 
       <%if (params[:filter].eql?"inprogress")%>
-
+      <%if @workshops.empty?%>
+        <h3> Vous n'avez aucun projet en cours</h3>
+        <%else%>
       <% @pills=1 %>
       <!-- nav -->
         <ul class="nav nav-tabs" style="margin-bottom: 5px;">
@@ -52,20 +56,22 @@
           <div class="tab-content">
             <% @workshops.each do |workshop|  %>
               <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
-              <%= render 'stats', workshop: workshop%>
+              <%= render 'projects/stats', projects: @projects.where(workshop_id: workshop.id)%>
                 <% @projects.where(workshop_id: workshop.id).each do |project|%>
                 <div class="stats-project">
                   <p style="margin: 0; padding: 5px;"><%= link_to project, 'projects/'+project.id.to_s %></p>
-                  <%= render 'statsDetails', project: project %>
+                  <%= render 'projects/statsDetails', project: project %>
                 </div>
                 <% end %>
               </div>
             <% @pills+=1 %>
             <% end %>
           </div>
-
+          <%end%>
           <%elsif (params[:filter].eql?"end")%>
-
+          <%if @workshops.empty?%>
+            <h3> Vous n'avez aucun projet terminé</h3>
+            <%else%>
           <% @pills=1 %>
           <!-- nav -->
             <ul class="nav nav-tabs" style="margin-bottom: 5px;">
@@ -87,18 +93,18 @@
               <div class="tab-content">
                 <% @workshops.each do |workshop|  %>
                   <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
-                  <%= render 'stats', workshop: workshop%>
+                  <%= render 'projects/stats', projects: @projects.where(workshop_id: workshop.id)%>
                     <% @projects.where(workshop_id: workshop.id).each do |project|%>
                     <div class="stats-project">
                       <p style="margin: 0; padding: 5px;"><%= link_to project, 'projects/'+project.id.to_s %></p>
-                      <%= render 'statsDetails', project: project %>
+                      <%= render 'projects/statsDetails', project: project %>
                     </div>
                     <% end %>
                   </div>
                 <% @pills+=1 %>
                 <% end %>
               </div>
-
+              <%end%>
           <% else %>
 
           <% @pills=1 %>
@@ -122,11 +128,11 @@
               <div class="tab-content">
                 <% @workshops.each do |workshop|  %>
                   <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
-                  <%= render 'stats', workshop: workshop%>
+                  <%= render 'projects/stats', projects: @projects.where(workshop_id: workshop.id)%>
                     <% @projects.where(workshop_id: workshop.id).each do |project|%>
                     <div class="stats-project">
                       <p style="margin: 0; padding: 5px;"><%= link_to project, 'projects/'+project.id.to_s %></p>
-                      <%= render 'statsDetails', project: project %>
+                      <%= render 'projects/statsDetails', project: project %>
                     </div>
                     <% end %>
                   </div>

@@ -35,7 +35,7 @@
         <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
         <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"]%>
       </div>
-      <%=line_chart @projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("project_id=?",project.id).group(:name).group_by_day(:date_demande).count("case when date_demande IS NOT NULL THEN 0 end"),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"] %>
+      <%=line_chart @projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("features_projects.project_id=?",project.id).group(:name).group_by_day(:date_demande).count("case when date_demande IS NOT NULL THEN 0 end"),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"] %>
 
 <%else%>
   <div class="col-md-12" style="text-align: center;">

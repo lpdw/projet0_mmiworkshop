@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "dashboard#index"
   resources :dashboard
   resources :workshops
   devise_for :users
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
     end
   end
   resources :fields
-  root 'features#index'
   get 'autocomplete_feature' => 'features#autocomplete_feature'
   get 'get_features_modal' => 'projects#get_features_modal'
 end

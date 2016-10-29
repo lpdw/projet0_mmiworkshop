@@ -6,12 +6,18 @@ class DashboardController < ApplicationController
 
   # GET /projects
   def index
-    @workshops = Workshop.all
     @fields = Field.all
 
     @parent_fields = Field.all.where(parent_id: nil)
-
-    @projects = Project.all
+    if (params[:filter].eql?("inprogress"))
+      @workshops=Workshop.where("'dateFin' >?",Time.now.to_date)
+    elsif (params[:filter].eql?("end"))
+      @workshops=Workshop.where("'dateFin' <=?",Time.now.to_date)
+    else
+      @workshops = Workshop.all
+    end
+#Les utilisateurs n'ont accès aux statistiques que des projets auxquels ils sont associés
+    @projects = Project.joins("INNER JOIN users_projects ON projects.id=users_projects.project_id").where("users_projects.user_id= ?",current_user.id)
     @fieldsParents = Field.all.where(parent_id: nil)
     @featuresSearch= Feature.search(params[:search])
     @features= Feature.all

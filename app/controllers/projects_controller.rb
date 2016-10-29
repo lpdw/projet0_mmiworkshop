@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
     @parent_fields = Field.all.where(parent_id: nil)
 
 
-    @projects = Project.all
+    @projects = Project.joins("INNER JOIN users_projects ON projects.id=users_projects.project_id").where("users_projects.user_id= ?",current_user.id)
     @fieldsParents = Field.all.where(parent_id: nil)
     @featuresSearch= Feature.search(params[:search])
     @features= Feature.all
