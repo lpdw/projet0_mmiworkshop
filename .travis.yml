@@ -6,6 +6,7 @@ env:
   - DB=postgresql
 
 before_script:
+  - psql -c "CREATE USER test WITH PASSWORD 'test';" -U postgres
   - mysql -e 'create database mmiworkshop_test'
   - psql -c 'create database mmiworkshop_test' -U postgres
 
