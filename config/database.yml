@@ -9,7 +9,7 @@ default: &default
 development:
   <<: *default
 
-  test:
+test:
   <<: *default
   adapter: postgresql
   database: mmiworkshop_test
