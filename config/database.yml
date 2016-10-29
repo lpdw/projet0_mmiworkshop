@@ -8,4 +8,8 @@ default: &default
 
 development:
   <<: *default
+
+  test:
+  <<: *default
+  adapter: postgresql
   database: mmiworkshop
