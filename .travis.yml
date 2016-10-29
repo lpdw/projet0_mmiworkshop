@@ -1,4 +1,5 @@
 language: ruby
 sudo: required
+"script": "RAILS_ENV=development bundle exec rake db:create db:migrate db:seed --trace"
 rvm:
   - 2.2.4
