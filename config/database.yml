@@ -14,3 +14,5 @@ test:
   adapter: postgresql
   database: mmiworkshop_test
   username: test
+  encoding: unicode
+  pool: 5
