@@ -11,5 +11,6 @@ script:
 before_script:
   - mysql -e 'create database mmiworkshop_test'
   - psql -c 'create database mmiworkshop_test' -U postgres
-bundler_args: --binstubs=./bundler_stubsrvm:
+bundler_args: --binstubs=./bundler_stubs
+rvm:
   - 2.2.4
