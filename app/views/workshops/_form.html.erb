@@ -5,14 +5,9 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :url %>
-    <%= f.input :dateDebut, :as => :date,
-     :start_year => Date.today.year,
-    :end_year => 2050,
-    :order => [ :day, :month, :year], :required => true%>
-    <%= f.input :dateFin, :as => :date,
-    :start_year => Date.today.year,
-    :end_year => 2050,
-    :order => [ :day, :month, :year], :required => true%>
+<%= f.input :dateDebut, :as=> 'string' ,:label => 'Date de début du projet', input_html: { id: 'dateDebut' } %>
+<%= f.input :dateFin, :as=> 'string' ,:label => 'Date de fin du projet', input_html: { id: 'dateFin' } %>
+
 
   </div>
 
