@@ -19,7 +19,7 @@ $(function() {
 	    		$('#comment').attr("disabled", true);
 	    		if(typeof Features[id] !== 'undefined'){
 		    		// Si la demande a été faite on ajoute le bouton de rejet
-		    		if(Features[id].status == 1 && Features[id].refuser == 'false'){$("#reject_demande").css("display", "block");}	    			
+		    		if(Features[id].status == 1 && Features[id].refuser == 'false'){$("#reject_demande").css("display", "block");}
 	    		}
 	    	}
 	    	// Sinon on disabled le commentaire prof
@@ -37,6 +37,12 @@ $(function() {
 	    		button = Features[id].status == 1 && Features.droit == 2 ? 'Valider' : 'Modifier';
 		    	$('#comment').val(Features[id].commentaire);
 		    	$('#commentaire_prof').val(Features[id].commentaire_prof);
+		    	if(Features[id].status == 2){
+		    		$("#create_demande").css("display", "none");
+		    		$('#comment').attr("disabled", true);
+		    		$('#commentaire_prof').attr("disabled", true);
+		    		return;
+		    	}
 	    	}
 	    	$('#create_demande').html(button);
 	    	$('#modal_status').html(value);
