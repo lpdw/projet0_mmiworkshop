@@ -33,7 +33,7 @@ class Feature < ActiveRecord::Base
     "#{field.ancestors} #{name} (#{description})"
   end
 
-  def name_with_category
+  def name_for_associated_inuts
     "#{name} (#{field.category})"
   end
 

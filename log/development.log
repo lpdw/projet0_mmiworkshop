@@ -230,3 +230,1405 @@ Started GET "/users/password/new" for ::1 at 2016-10-17 17:01:23 +0200
 Processing by Devise::PasswordsController#new as HTML
   Rendered devise/passwords/new.html.erb within layouts/application (7.5ms)
 Completed 200 OK in 150ms (Views: 147.9ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (8.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'dashboards'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'features'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'features_projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'fields'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'groups'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users_projects'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'workshops'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/projects" for ::1 at 2016-10-30 15:09:34 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "workshops"[0m
+  [1m[35m (1.7ms)[0m  SELECT COUNT(*) FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)
+  [1m[36mProject Load (1.7ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)  ORDER BY name[0m
+  Rendered projects/_project.html.erb (2.3ms)
+  Rendered projects/index.html.erb within layouts/application (53.3ms)
+Warning. Error encountered while saving cache 0040bf46576d2dbd6e1eb4e04504aaaec92aa582/application.sassc: can't dump hash with default proc
+
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.all.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.all.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.base.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.base.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.core.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.core.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.accordion.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.accordion.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.autocomplete.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.autocomplete.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.button.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.button.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.datepicker.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.datepicker.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.dialog.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.dialog.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.menu.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.menu.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.progressbar.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.progressbar.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.resizable.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.resizable.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.selectable.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.selectable.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.slider.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.slider.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.spinner.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.spinner.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.tabs.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.tabs.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.tooltip.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.tooltip.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.theme.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.theme.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/themes/_jquery.ui.base.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/themes/_jquery.ui.base.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+Warning. Error encountered while saving cache 0040bf46576d2dbd6e1eb4e04504aaaec92aa582/application.sassc: can't dump hash with default proc
+
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.all.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.all.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.base.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.base.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.core.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.core.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.accordion.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.accordion.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.autocomplete.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.autocomplete.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.button.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.button.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.datepicker.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.datepicker.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.dialog.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.dialog.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.menu.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.menu.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.progressbar.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.progressbar.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.resizable.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.resizable.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.selectable.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.selectable.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.slider.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.slider.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.spinner.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.spinner.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.tabs.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.tabs.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.tooltip.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.tooltip.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.theme.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/jquery.ui.theme.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+DEPRECATION WARNING: Extra .css in SCSS file is unnecessary. Rename /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/themes/_jquery.ui.base.css.scss to /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/jquery-ui-sass-rails-4.0.3.0/app/assets/stylesheets/themes/_jquery.ui.base.scss. (called from _app_views_layouts_application_html_erb___1655116944214949324_70284088099420 at /Users/Charlie/Documents/Projet0/projet0_mmiworkshop/app/views/layouts/application.html.erb:7)
+Completed 200 OK in 11543ms (Views: 11433.5ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/assets/badge.self-6d9ef7ed8421a7791cd530622259c02df091a787b34f2edbdaaa4c64cc867d25.js?body=1" for ::1 at 2016-10-30 15:09:46 +0100
+
+
+Started GET "/assets/application.self-48b07502f42603334a95b46df17adefbb7febe11bc21b2d101a355a3563dcc71.css?body=1" for ::1 at 2016-10-30 15:09:46 +0100
+
+
+Started GET "/dashboard" for ::1 at 2016-10-30 15:09:52 +0100
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36mWorkshop Load (1.9ms)[0m  [1mSELECT "workshops".* FROM "workshops"[0m
+  [1m[35mProject Load (0.9ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17) AND "projects"."workshop_id" = $1  ORDER BY name  [["workshop_id", 1]]
+  [1m[36mFeature Load (1.8ms)[0m  [1mSELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level[0m  [["project_id", 1]]
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "features"
+  [1m[36m (3.2ms)[0m  [1mSELECT COUNT(*) AS count_all, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND "projects"."workshop_id" = $1 AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name[0m  [["workshop_id", 1]]
+  Rendered projects/_stats.html.erb (106.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17) AND "projects"."workshop_id" = $1  ORDER BY name  [["workshop_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level[0m  [["project_id", 1]]
+  [1m[35mField Load (1.2ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position
+  [1m[36mField Load (0.4ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 1]]
+  [1m[35mFeature Load (6.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 9]]
+  [1m[36mFeature Load (0.9ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 10]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 11]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 12]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 13]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 14]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 15]]
+  [1m[36mFeature Load (0.7ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 1]]
+  [1m[35mField Load (0.6ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 2]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 16]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 17]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 18]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 2]]
+  [1m[36mField Load (0.6ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 3]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 8]]
+  [1m[36mFeature Load (1.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 6]]
+  [1m[35mFeature Load (0.7ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 7]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 5]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 4]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 3]]
+  [1m[35m (2.2ms)[0m  SELECT COUNT(case when date_demande IS NOT NULL THEN 0 end) AS count_case_when_date_demande_is_not_null_then_0_end, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND (features_projects.project_id=1) AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name
+  [1m[36m (0.5ms)[0m  [1mSELECT "workshops"."dateFin" FROM "workshops" WHERE "workshops"."id" = $1[0m  [["id", 1]]
+  Rendered projects/_statsDetails.html.erb (196.0ms)
+  Rendered dashboard/index.html.erb within layouts/application (332.0ms)
+Completed 200 OK in 784ms (Views: 700.3ms | ActiveRecord: 41.4ms)
+
+
+Started GET "/dashboard?filter=inprogress" for ::1 at 2016-10-30 15:10:04 +0100
+Processing by DashboardController#index as HTML
+  Parameters: {"filter"=>"inprogress"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36m (7.8ms)[0m  [1mSELECT COUNT(*) FROM "workshops" WHERE ('dateFin' >'2016-10-30')[0m
+  [1m[35mWorkshop Load (0.5ms)[0m  SELECT "workshops".* FROM "workshops" WHERE ('dateFin' >'2016-10-30')
+  [1m[36mProject Load (1.3ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17) AND "projects"."workshop_id" = $1  ORDER BY name[0m  [["workshop_id", 1]]
+  [1m[35mFeature Load (1.1ms)[0m  SELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level  [["project_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "features"[0m
+  [1m[35m (1.3ms)[0m  SELECT COUNT(*) AS count_all, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND "projects"."workshop_id" = $1 AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name  [["workshop_id", 1]]
+  Rendered projects/_stats.html.erb (15.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17) AND "projects"."workshop_id" = $1  ORDER BY name[0m  [["workshop_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level  [["project_id", 1]]
+  [1m[36mField Load (0.9ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position[0m
+  [1m[35mField Load (0.6ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 1]]
+  [1m[36mFeature Load (1.8ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 9]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 10]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 11]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 12]]
+  [1m[36mFeature Load (0.6ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 13]]
+  [1m[35mFeature Load (1.1ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 14]]
+  [1m[36mFeature Load (0.6ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 15]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 1]]
+  [1m[36mField Load (29.4ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 2]]
+  [1m[35mFeature Load (0.7ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 16]]
+  [1m[36mFeature Load (0.8ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 17]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 18]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 2]]
+  [1m[35mField Load (0.6ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 3]]
+  [1m[36mFeature Load (1.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 8]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 6]]
+  [1m[36mFeature Load (0.6ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 7]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 5]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 4]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 3]]
+  [1m[36m (1.6ms)[0m  [1mSELECT COUNT(case when date_demande IS NOT NULL THEN 0 end) AS count_case_when_date_demande_is_not_null_then_0_end, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND (features_projects.project_id=1) AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name[0m
+  [1m[35m (0.5ms)[0m  SELECT "workshops"."dateFin" FROM "workshops" WHERE ('dateFin' >'2016-10-30') AND "workshops"."id" = $1  [["id", 1]]
+  Rendered projects/_statsDetails.html.erb (189.6ms)
+  Rendered dashboard/index.html.erb within layouts/application (225.1ms)
+Completed 200 OK in 697ms (Views: 600.8ms | ActiveRecord: 60.1ms)
+
+
+Started GET "/dashboard?filter=end" for ::1 at 2016-10-30 15:10:09 +0100
+Processing by DashboardController#index as HTML
+  Parameters: {"filter"=>"end"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "workshops" WHERE ('dateFin' <='2016-10-30')
+  Rendered dashboard/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 534ms (Views: 496.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/projects" for ::1 at 2016-10-30 15:10:19 +0100
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "workshops"
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)[0m
+  [1m[35mProject Load (2.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)  ORDER BY name
+  Rendered projects/_project.html.erb (0.8ms)
+  Rendered projects/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 447ms (Views: 432.3ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/projects" for ::1 at 2016-10-30 15:10:25 +0100
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "workshops"
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)[0m
+  [1m[35mProject Load (1.1ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)  ORDER BY name
+  Rendered projects/_project.html.erb (0.5ms)
+  Rendered projects/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 485ms (Views: 469.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/workshops" for ::1 at 2016-10-30 15:11:02 +0100
+Processing by WorkshopsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35mWorkshop Load (1.1ms)[0m  SELECT "workshops".* FROM "workshops"
+  Rendered workshops/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 729ms (Views: 692.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users" for ::1 at 2016-10-30 15:11:09 +0100
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."admin" != 't')  ORDER BY last_name, first_name
+  Rendered users/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 466ms (Views: 451.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/features" for ::1 at 2016-10-30 15:11:17 +0100
+Processing by FeaturesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35mField Load (1.0ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position
+  [1m[36mField Load (0.6ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 1]]
+  [1m[35mFeature Load (0.8ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 9]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 10]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 11]]
+  [1m[36mFeature Load (0.7ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 12]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 13]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 14]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 15]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 1]]
+  [1m[35mField Load (0.5ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (39.4ms)
+  Rendered features/_badge.html.erb (44.4ms)
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (3.4ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (1.9ms)
+  Rendered features/_badge.html.erb (3.8ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.4ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (1.8ms)
+  Rendered features/_badge.html.erb (3.7ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.4ms)
+  Rendered features/_test.html.erb (0.7ms)
+  Rendered features/_badge.html.erb (3.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.0ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.1ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (1.9ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.1ms)
+  Rendered features/_test.html.erb (0.1ms)
+  Rendered features/_badge.html.erb (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (4.4ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.3ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.2ms)
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 2]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 16]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 17]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 18]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 2]]
+  [1m[35mField Load (0.7ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (3.2ms)
+  Rendered features/_badge.html.erb (5.6ms)
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (2.4ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (1.9ms)
+  Rendered features/_badge.html.erb (4.4ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.4ms)
+  Rendered features/_test.html.erb (0.1ms)
+  Rendered features/_badge.html.erb (2.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (1.9ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.7ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.3ms)
+  [1m[36mField Load (0.6ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 3]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 8]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 6]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 7]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 5]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 4]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 3]]
+  [1m[35mField Load (0.6ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (3.0ms)
+  Rendered features/_badge.html.erb (5.4ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.3ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.0ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.6ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (1.8ms)
+  Rendered features/_badge.html.erb (3.6ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.3ms)
+  Rendered features/_test.html.erb (0.1ms)
+  Rendered features/_badge.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.5ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.1ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (1.9ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.1ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.2ms)
+  Rendered features/index.html.erb within layouts/application (350.9ms)
+Completed 200 OK in 748ms (Views: 722.9ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/projects" for ::1 at 2016-10-30 15:11:23 +0100
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "workshops"
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)[0m
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)  ORDER BY name
+  Rendered projects/_project.html.erb (1.2ms)
+  Rendered projects/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 430ms (Views: 415.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/projects/1" for ::1 at 2016-10-30 15:11:25 +0100
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1  [["id", 1]]
+  [1m[36mFeature Load (1.2ms)[0m  [1mSELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level[0m  [["project_id", 1]]
+  [1m[35mField Load (1.1ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 1]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 9]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 10]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 11]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 12]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 13]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 14]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 15]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 1]]
+  [1m[35mField Load (0.5ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 2]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 16]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 17]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 18]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 2]]
+  [1m[36mField Load (0.6ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 3]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 8]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 6]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 7]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 5]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 4]]
+  [1m[36mFeature Load (0.6ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 3]]
+  [1m[35m (1.9ms)[0m  SELECT COUNT(case when date_demande IS NOT NULL THEN 0 end) AS count_case_when_date_demande_is_not_null_then_0_end, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND (features_projects.project_id=1) AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name
+  [1m[36m (0.5ms)[0m  [1mSELECT "workshops"."dateFin" FROM "workshops" WHERE "workshops"."id" = $1[0m  [["id", 1]]
+  Rendered projects/_statsDetails.html.erb (108.5ms)
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1 AND "users"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 17]]
+  Rendered features/_modal.html.erb (0.6ms)
+  Rendered projects/_project.html.erb (0.8ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1  ORDER BY last_name, first_name[0m  [["project_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 9]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=1) LIMIT 1
+  [1m[36mField Load (1.3ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (5.8ms)
+  Rendered features/_badge.html.erb (23.7ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=2) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=3) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 10]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (6.7ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=5) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=6) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 11]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.9ms)
+  Rendered features/_badge.html.erb (7.2ms)
+  [1m[35mFeaturesProject Load (0.9ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=18) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=19) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 12]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=7) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (3.5ms)
+  Rendered features/_badge.html.erb (7.7ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=8) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (5.0ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=9) LIMIT 1
+  Rendered features/_test.html.erb (0.4ms)
+  Rendered features/_badge.html.erb (4.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 13]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=20) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.5ms)
+  Rendered features/_badge.html.erb (6.7ms)
+  [1m[35mFeaturesProject Load (5.2ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=21) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (8.9ms)
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=42) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 14]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=25) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (7.3ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=26) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (5.2ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=27) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 15]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=22) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.6ms)
+  Rendered features/_badge.html.erb (6.8ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=23) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=24) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 16]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=10) LIMIT 1
+  [1m[36mField Load (0.7ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (3.4ms)
+  Rendered features/_badge.html.erb (7.6ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=16) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.4ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=11) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 17]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=12) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (2.4ms)
+  Rendered features/_badge.html.erb (6.4ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=13) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=14) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 18]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (2.7ms)
+  Rendered features/_badge.html.erb (6.7ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=29) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=30) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 8]]
+  [1m[35mFeaturesProject Load (1.0ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=31) LIMIT 1
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.9ms)
+  Rendered features/_badge.html.erb (7.5ms)
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=32) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=33) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 6]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=34) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (2.2ms)
+  Rendered features/_badge.html.erb (6.0ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=15) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=46) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 7]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=39) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (6.1ms)
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=40) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.8ms)
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=41) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 5]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=36) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (5.9ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=38) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=37) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 4]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=43) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.5ms)
+  Rendered features/_badge.html.erb (6.4ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=44) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=45) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.8ms)
+  Rendered fields/_list.html.erb (394.9ms)
+  Rendered projects/show.html.erb within layouts/application (556.9ms)
+Completed 200 OK in 943ms (Views: 870.0ms | ActiveRecord: 59.0ms)
+
+
+Started GET "/projects/1/edit" for ::1 at 2016-10-30 15:11:32 +0100
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1[0m  [["id", 1]]
+  [1m[35mWorkshop Load (1.3ms)[0m  SELECT "workshops".* FROM "workshops"
+  [1m[36mFeature Load (0.9ms)[0m  [1mSELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level[0m  [["project_id", 1]]
+  [1m[35mField Load (1.4ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."id" IN (9, 16, 8, 10, 6, 18, 12)  ORDER BY parent_id, position
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  [1m[35mField Load (0.4ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  [1m[36mField Load (0.4ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered projects/_form.html.erb (518.8ms)
+  Rendered projects/edit.html.erb within layouts/application (522.5ms)
+Completed 200 OK in 947ms (Views: 926.7ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/features" for ::1 at 2016-10-30 15:12:46 +0100
+Processing by FeaturesController#index as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36mField Load (1.3ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position[0m
+  [1m[35mField Load (0.7ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 1]]
+  [1m[36mFeature Load (0.8ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 9]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 10]]
+  [1m[36mFeature Load (0.7ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 11]]
+  [1m[35mFeature Load (0.7ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 12]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 13]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 14]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 15]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 1]]
+  [1m[36mField Load (0.6ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (6.8ms)
+  Rendered features/_badge.html.erb (11.3ms)
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (7.1ms)
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (3.1ms)
+  Rendered features/_badge.html.erb (10.4ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.1ms)
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (3.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (3.2ms)
+  Rendered features/_badge.html.erb (5.7ms)
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  Rendered features/_test.html.erb (0.5ms)
+  Rendered features/_badge.html.erb (2.7ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (3.2ms)
+  Rendered features/_badge.html.erb (5.4ms)
+  Rendered features/_test.html.erb (0.4ms)
+  Rendered features/_badge.html.erb (2.6ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.7ms)
+  Rendered features/_badge.html.erb (7.9ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.4ms)
+  Rendered features/_test.html.erb (0.4ms)
+  Rendered features/_badge.html.erb (2.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.7ms)
+  Rendered features/_badge.html.erb (5.8ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.6ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.5ms)
+  [1m[36mCACHE (0.5ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.7ms)
+  Rendered features/_badge.html.erb (4.9ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.8ms)
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (2.7ms)
+  [1m[35mField Load (0.6ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 2]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 16]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 17]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 18]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 2]]
+  [1m[36mField Load (0.6ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (5.5ms)
+  Rendered features/_badge.html.erb (8.0ms)
+  Rendered features/_test.html.erb (0.8ms)
+  Rendered features/_badge.html.erb (10.1ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (3.0ms)
+  Rendered features/_badge.html.erb (5.6ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.7ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (2.9ms)
+  Rendered features/_badge.html.erb (5.3ms)
+  Rendered features/_test.html.erb (0.5ms)
+  Rendered features/_badge.html.erb (2.6ms)
+  Rendered features/_test.html.erb (0.5ms)
+  Rendered features/_badge.html.erb (2.7ms)
+  [1m[35mField Load (0.5ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 3]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 8]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 6]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 7]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 5]]
+  [1m[36mFeature Load (0.6ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 4]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 3]]
+  [1m[36mField Load (0.4ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (3.4ms)
+  Rendered features/_badge.html.erb (5.5ms)
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (2.9ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.4ms)
+  [1m[35mCACHE (0.3ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (3.2ms)
+  Rendered features/_badge.html.erb (5.4ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.6ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (3.3ms)
+  Rendered features/_badge.html.erb (5.5ms)
+  Rendered features/_test.html.erb (0.5ms)
+  Rendered features/_badge.html.erb (2.7ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (3.0ms)
+  Rendered features/_badge.html.erb (5.2ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.7ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.5ms)
+  Rendered features/_badge.html.erb (10.5ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (2.5ms)
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  Rendered features/index.html.erb within layouts/application (434.2ms)
+Completed 200 OK in 1289ms (Views: 1113.5ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/projects" for ::1 at 2016-10-30 15:15:52 +0100
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "workshops"[0m
+  [1m[35m (1.2ms)[0m  SELECT COUNT(*) FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17)  ORDER BY name[0m
+  Rendered projects/_project.html.erb (0.7ms)
+  Rendered projects/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 467ms (Views: 450.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/projects/1" for ::1 at 2016-10-30 15:15:55 +0100
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1[0m  [["id", 1]]
+  [1m[35mFeature Load (1.3ms)[0m  SELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level  [["project_id", 1]]
+  [1m[36mField Load (0.7ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position[0m
+  [1m[35mField Load (0.5ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 1]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 9]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 10]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 11]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 12]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 13]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 14]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 15]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 1]]
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 2]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 16]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 17]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 18]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 2]]
+  [1m[35mField Load (0.5ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 3]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 8]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 6]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 7]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 5]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 4]]
+  [1m[35mFeature Load (0.3ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 3]]
+  [1m[36m (2.1ms)[0m  [1mSELECT COUNT(case when date_demande IS NOT NULL THEN 0 end) AS count_case_when_date_demande_is_not_null_then_0_end, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND (features_projects.project_id=1) AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name[0m
+  [1m[35m (0.5ms)[0m  SELECT "workshops"."dateFin" FROM "workshops" WHERE "workshops"."id" = $1  [["id", 1]]
+  Rendered projects/_statsDetails.html.erb (109.0ms)
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1 AND "users"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 17]]
+  Rendered features/_modal.html.erb (0.1ms)
+  Rendered projects/_project.html.erb (0.6ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1  ORDER BY last_name, first_name  [["project_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 9]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=1) LIMIT 1[0m
+  [1m[35mField Load (0.4ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.7ms)
+  Rendered features/_badge.html.erb (7.6ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=2) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=3) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 10]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (6.2ms)
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=5) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=6) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 11]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (6.1ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=18) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=19) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 12]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=7) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (5.9ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=8) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.6ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=9) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 13]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=20) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.3ms)
+  Rendered features/_badge.html.erb (6.3ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=21) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=42) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 14]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=25) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (6.0ms)
+  [1m[35mFeaturesProject Load (1.0ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=26) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.8ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=27) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 15]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=22) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.2ms)
+  Rendered features/_badge.html.erb (5.9ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=23) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.4ms)
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=24) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.7ms)
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 16]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=10) LIMIT 1[0m
+  [1m[35mField Load (0.4ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (2.8ms)
+  Rendered features/_badge.html.erb (7.2ms)
+  [1m[36mFeaturesProject Load (0.9ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=16) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.5ms)
+  Rendered features/_badge.html.erb (5.1ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=11) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 17]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=12) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (6.6ms)
+  Rendered features/_badge.html.erb (10.8ms)
+  [1m[35mFeaturesProject Load (1.1ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=13) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (5.4ms)
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=14) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 18]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (2.6ms)
+  Rendered features/_badge.html.erb (7.1ms)
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=29) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.4ms)
+  Rendered features/_badge.html.erb (4.9ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=30) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 8]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=31) LIMIT 1[0m
+  [1m[35mField Load (0.5ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (2.9ms)
+  Rendered features/_badge.html.erb (6.7ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=32) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=33) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (5.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 6]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=34) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (5.9ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=15) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (5.6ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=46) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 7]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=39) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (6.3ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=40) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.6ms)
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=41) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 5]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=36) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.3ms)
+  Rendered features/_badge.html.erb (6.4ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=38) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=37) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 4]]
+  [1m[36mFeaturesProject Load (1.0ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=43) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (24.9ms)
+  Rendered features/_badge.html.erb (30.1ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=44) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mFeaturesProject Load (0.9ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=45) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  Rendered fields/_list.html.erb (393.7ms)
+  Rendered projects/show.html.erb within layouts/application (528.1ms)
+Completed 200 OK in 926ms (Views: 860.7ms | ActiveRecord: 51.3ms)
+
+
+Started GET "/projects/2" for ::1 at 2016-10-30 15:16:00 +0100
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1  [["id", 2]]
+  [1m[36mFeature Load (0.8ms)[0m  [1mSELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level[0m  [["project_id", 2]]
+  [1m[35mField Load (0.6ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position
+  [1m[36mField Load (0.9ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 1]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 9]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 10]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 11]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 12]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 13]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 14]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 15]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 1]]
+  [1m[35mField Load (0.9ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 2]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 16]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 17]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 18]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 2]]
+  [1m[36mField Load (1.0ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 3]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 8]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 6]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 7]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 5]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 4]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 3]]
+  [1m[35m (0.6ms)[0m  SELECT "workshops"."dateFin" FROM "workshops" WHERE "workshops"."id" = $1  [["id", 1]]
+  Rendered projects/_statsDetails.html.erb (107.7ms)
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1 AND "users"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 17]]
+  Rendered features/_modal.html.erb (0.1ms)
+  Rendered projects/_project.html.erb (0.5ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1  ORDER BY last_name, first_name  [["project_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 9]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=1) LIMIT 1[0m
+  [1m[35mField Load (0.6ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.9ms)
+  Rendered features/_badge.html.erb (6.8ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=2) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=3) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 10]]
+  [1m[35mFeaturesProject Load (0.9ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (6.3ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=5) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=6) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 11]]
+  [1m[36mFeaturesProject Load (0.9ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.2ms)
+  Rendered features/_badge.html.erb (6.6ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=18) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.4ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=19) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 12]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=7) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.6ms)
+  Rendered features/_badge.html.erb (7.1ms)
+  [1m[35mFeaturesProject Load (6.4ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=8) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (10.5ms)
+  [1m[36mFeaturesProject Load (6.1ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=9) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (9.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 13]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=20) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.6ms)
+  Rendered features/_badge.html.erb (14.0ms)
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=21) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.8ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=42) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 14]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=25) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.5ms)
+  Rendered features/_badge.html.erb (6.9ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=26) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.8ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=27) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 15]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=22) LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (3.0ms)
+  Rendered features/_badge.html.erb (6.8ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=23) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.8ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=24) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 16]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=10) LIMIT 1[0m
+  [1m[35mField Load (0.4ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (2.9ms)
+  Rendered features/_badge.html.erb (7.0ms)
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=16) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=11) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 17]]
+  [1m[35mFeaturesProject Load (0.9ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=12) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (3.4ms)
+  Rendered features/_badge.html.erb (7.5ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=13) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=14) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 18]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (2.4ms)
+  Rendered features/_badge.html.erb (7.0ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=29) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=30) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (7.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 8]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=31) LIMIT 1[0m
+  [1m[35mField Load (1.3ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (7.4ms)
+  Rendered features/_badge.html.erb (12.3ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=32) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=33) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 6]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=34) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.5ms)
+  Rendered features/_badge.html.erb (6.3ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=15) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=46) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 7]]
+  [1m[36mFeaturesProject Load (0.9ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=39) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (2.0ms)
+  Rendered features/_badge.html.erb (6.4ms)
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=40) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=41) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 5]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=36) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.2ms)
+  Rendered features/_badge.html.erb (6.9ms)
+  [1m[35mFeaturesProject Load (0.9ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=38) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.8ms)
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=37) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 4]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=43) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (2.3ms)
+  Rendered features/_badge.html.erb (7.3ms)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=44) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=45) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (5.2ms)
+  Rendered fields/_list.html.erb (402.6ms)
+  Rendered projects/show.html.erb within layouts/application (532.2ms)
+Completed 200 OK in 975ms (Views: 898.4ms | ActiveRecord: 62.4ms)
+
+
+Started GET "/projects/1/edit" for ::1 at 2016-10-30 15:16:11 +0100
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35mProject Load (0.7ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1  [["id", 1]]
+  [1m[36mWorkshop Load (0.6ms)[0m  [1mSELECT "workshops".* FROM "workshops"[0m
+  [1m[35mFeature Load (0.7ms)[0m  SELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level  [["project_id", 1]]
+  [1m[36mField Load (0.8ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."id" IN (9, 16, 8, 10, 6, 18, 12)  ORDER BY parent_id, position[0m
+  [1m[35mField Load (0.5ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  [1m[36mField Load (0.4ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  [1m[35mField Load (0.4ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered projects/_form.html.erb (44.5ms)
+  Rendered projects/edit.html.erb within layouts/application (47.1ms)
+Completed 200 OK in 440ms (Views: 423.8ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-30 15:16:51 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gj5cAllenQNwJqOEwWcneUZ1Kt1aPKajRKVXTNQ/7GOb4CnrmsLlunQz87jhiRpU5yNhaCMMssmdEXTf6RaPoQ==", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Connexion"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["email", "test@test.com"]]
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36mSQL (9.8ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["last_sign_in_at", "2016-10-25 20:07:07.652062"], ["current_sign_in_at", "2016-10-30 14:16:51.810390"], ["sign_in_count", 3], ["updated_at", "2016-10-30 14:16:51.818224"], ["id", 12]]
+  [1m[35m (8.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 332ms (ActiveRecord: 20.1ms)
+
+
+Started GET "/dashboard" for ::1 at 2016-10-30 15:16:51 +0100
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 12]]
+  [1m[35mWorkshop Load (0.6ms)[0m  SELECT "workshops".* FROM "workshops"
+  [1m[36mProject Load (1.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 12) AND "projects"."workshop_id" = $1  ORDER BY name[0m  [["workshop_id", 1]]
+  Rendered projects/_stats.html.erb (3.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 12) AND "projects"."workshop_id" = $1  ORDER BY name  [["workshop_id", 1]]
+  Rendered dashboard/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 694ms (Views: 491.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/application.self-48b07502f42603334a95b46df17adefbb7febe11bc21b2d101a355a3563dcc71.css?body=1" for ::1 at 2016-10-30 15:16:53 +0100
+
+
+Started GET "/assets/badge.self-6d9ef7ed8421a7791cd530622259c02df091a787b34f2edbdaaa4c64cc867d25.js?body=1" for ::1 at 2016-10-30 15:16:53 +0100
+
+
+Started GET "/apple-touch-icon-precomposed.png" for ::1 at 2016-10-30 15:16:54 +0100
+
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.1ms)
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.7ms)
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (218.8ms)
+
+
+Started GET "/apple-touch-icon.png" for ::1 at 2016-10-30 15:16:55 +0100
+
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (3.3.0) lib/web_console/middleware.rb:131:in `call_app'
+  web-console (3.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.0ms)
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.4ms)
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (191.3ms)
+
+
+Started GET "/projects" for ::1 at 2016-10-30 15:16:58 +0100
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.9ms)[0m  SELECT COUNT(*) FROM "workshops"
+  [1m[36m (1.8ms)[0m  [1mSELECT COUNT(*) FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 12)[0m
+  Rendered projects/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 517ms (Views: 499.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/dashboard" for ::1 at 2016-10-30 15:17:02 +0100
+Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 12]]
+  [1m[36mWorkshop Load (0.6ms)[0m  [1mSELECT "workshops".* FROM "workshops"[0m
+  [1m[35mProject Load (0.9ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 12) AND "projects"."workshop_id" = $1  ORDER BY name  [["workshop_id", 1]]
+  Rendered projects/_stats.html.erb (2.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 12) AND "projects"."workshop_id" = $1  ORDER BY name[0m  [["workshop_id", 1]]
+  Rendered dashboard/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 433ms (Views: 419.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for ::1 at 2016-10-30 15:17:08 +0100
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."admin" != 't')  ORDER BY last_name, first_name[0m
+  Rendered users/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 441ms (Views: 429.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/12/edit" for ::1 at 2016-10-30 15:17:11 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 12]]
+  Rendered users/_form.html.erb (36.7ms)
+  Rendered users/edit.html.erb within layouts/application (44.6ms)
+Completed 200 OK in 487ms (Views: 473.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users" for ::1 at 2016-10-30 15:17:19 +0100
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."admin" != 't')  ORDER BY last_name, first_name[0m
+  Rendered users/index.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 452ms (Views: 434.7ms | ActiveRecord: 1.8ms)

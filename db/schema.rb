@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160930095006) do
-=======
 ActiveRecord::Schema.define(version: 20161020121158) do
->>>>>>> 11cbcbd3dbc2a97340a857deb23957c308d9dc17
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,12 +33,6 @@ ActiveRecord::Schema.define(version: 20161020121158) do
   end
 
   create_table "features_projects", id: false, force: :cascade do |t|
-<<<<<<< HEAD
-    t.integer "feature_id"
-    t.integer "project_id"
-    t.integer "status"
-    t.string  "commentaire"
-=======
     t.integer  "feature_id"
     t.integer  "project_id"
     t.integer  "status"
@@ -50,7 +40,6 @@ ActiveRecord::Schema.define(version: 20161020121158) do
     t.datetime "date_demande"
     t.boolean  "refuser",          default: false
     t.text     "commentaire_prof"
->>>>>>> 11cbcbd3dbc2a97340a857deb23957c308d9dc17
   end
 
   add_index "features_projects", ["feature_id", "project_id"], name: "index_features_projects_on_feature_id_and_project_id", using: :btree
