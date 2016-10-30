@@ -22,9 +22,15 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
 
-# L'utilisateur n'a accès qu'aux projets auxquels il est assigné (qu'il soit professeur ou élève)
-    @projects = Project.joins("INNER JOIN users_projects ON projects.id=users_projects.project_id").where("users_projects.user_id= ?",current_user.id)
+# L'utilisateur n'a accès qu'aux projets auxquels il est assigné (si il est élève)
+    if(!current_user.admin? && !current_user.profesor?)
+      @projects = Project.joins("INNER JOIN users_projects ON projects.id=users_projects.project_id").where("users_projects.user_id= ?",current_user.id)
+    else
+      @projects=Project.all
+    end
     @features = Feature.all
+
+    @badgesAttente=Project.joins("INNER JOIN features_projects ON project.id=features_projects.project_id").where("status=1")
   end
 
   def synthesis

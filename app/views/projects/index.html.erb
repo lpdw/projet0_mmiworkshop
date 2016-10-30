@@ -1,6 +1,6 @@
 <% content_for :title, 'Projets' %>
-<%# On affiche le bouton nouveau projet seulement si il existe au moins un Workshop%>
 
+<%# On ne peut créer un nouveau projet  seulement si il existe au moins un Workshop%>
 <% if Workshop.any?%>
 <%= link_to 'New', new_project_path, class: 'btn btn-primary' if can? :create, Project %><br/><br/>
 <%end%>
