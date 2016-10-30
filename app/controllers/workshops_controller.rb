@@ -19,10 +19,14 @@ class WorkshopsController < ApplicationController
   # GET /workshops
   def index
     @workshops = Workshop.all
+    @features = Feature.all
+    @projects= Project.all
   end
 
   # GET /workshops/1
   def show
+    @features = Feature.all
+    @projects= Project.all
   end
 
   # GET /workshops/new
@@ -68,6 +72,6 @@ class WorkshopsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def workshop_params
-      params.require(:workshop).permit(:name, :description, :url)
+      params.require(:workshop).permit(:name, :description, :url,:dateDebut,:dateFin)
     end
 end

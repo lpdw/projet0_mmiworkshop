@@ -14,7 +14,9 @@
 #
 
 class Feature < ActiveRecord::Base
-  has_and_belongs_to_many :projects, uniq: true
+  # has_and_belongs_to_many :projects, uniq: true
+  has_many :features_projects
+  has_many :projects, through: :features_projects
   has_many :users, through: :projects
   belongs_to :field
   default_scope { order('position, level') }
@@ -23,7 +25,7 @@ class Feature < ActiveRecord::Base
     field.smart_color unless field.nil?
   end
 
-  def icon 
+  def icon
     field.icon
   end
 
@@ -31,7 +33,22 @@ class Feature < ActiveRecord::Base
     "#{field.ancestors} #{name} (#{description})"
   end
 
+  def name_with_category
+    "#{name} (#{field.category})"
+  end
+
   def to_s
     "#{name}"
   end
+
+#Méthode de recherche des features en fonction de son nom ou du nom du field auquel elle appartient
+  def self.search(search)
+    if search
+      where ("field_id in (SELECT id from fields where lower(name) LIKE lower('%#{search}%')) OR lower(name) LIKE lower('%#{search}%')")
+    else
+      all
+    end
+
+  end
+
 end

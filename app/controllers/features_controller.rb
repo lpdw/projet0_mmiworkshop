@@ -69,6 +69,16 @@ class FeaturesController < ApplicationController
     redirect_to features_url, notice: 'Feature was successfully destroyed.'
   end
 
+  def autocomplete_feature
+    if params[:term]
+       @features_list = Feature.where('name ILIKE ?', "%#{params[:term].downcase}%")
+       respond_to do |format|  
+          format.html
+          format.json { render :json => @features_list.as_json(:only => [:id], :methods => [:name_with_category]) }
+       end
+     end 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_feature

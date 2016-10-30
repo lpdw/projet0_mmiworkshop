@@ -1,11 +1,79 @@
-<% fields.each do |field| %>
-<div class="row">
-    <h3 class="text-center col-md-12"><%= field %></h3>
+<% @compteur=1 #Pour lier les menu en accordéon %>
+<% @pills=1 #Pour lier les onglets %>
 
-    <% field.features.each do |feature| %>
-    <div class="col-md-3">
-        <%= render partial: 'features/badge', locals: { feature: feature, inactive: !project.has_feature?(feature) } %>
-    </div>
+<!-- Si aucune recherche n'a été saisie ou l'utilisateur annule sa recherche, l'intégralité des champs sont affichés -->
+<%if(params[:commit].eql?"Annuler") || params[:search].nil? %>
+
+<!-- nav : onglets via Bootstrap -->
+  <ul class="nav nav-tabs" style="margin-bottom: 5px;">
+    <% parent_fields.each do |parent_field|  %>
+      <li class="<%= ' ' + (@pills == 1 ? 'active' : '') %>">
+        <%= link_to parent_field, '#pills'+@pills.to_s, 'data-toggle'=>'tab' %>
+      </li>
+      <% @pills+=1 %>
     <% end %>
-</div>
-<% end %>
+    <% @pills=1 %>
+    <%= link_to 'Tout afficher','#', :class=>'btn btn-default openall', :id=>'openall', :style=>'float: right;' %>
+    <%= link_to 'Tout fermer','#', :class=>'btn btn-default closeall', :id=>'closeall', :style=>'display: none; float: right;' %>
+  </ul>
+<!-- content : contenu de chaque onglet -->
+  <div class="tab-content">
+  <% parent_fields.each do |parent_field|  %>
+  <!-- On affiche les badges par catégorie grâce à des menu en accordéon pour faciliter la lecture -->
+    <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>">
+      <div class="panel-group text-center" id="accordion<%= @pills %>">
+        <% fields.where(parent_id: parent_field.id).each do |field|  %>
+          <div class="panel panel-default">
+            <!-- Nom du field et lien qui servira à ouvrir/fermer l'accordéon -->
+            <a data-toggle="collapse" data-parent="#accordion<%= @pills %>" href="#collapse<%= @compteur %>" style="text-decoration: none;color: black;">
+            <div class="row panel-heading" style="background-color: transparent !important;">
+                <h3 class="panel-title text-center col-md-12">
+                  <%= field %>
+                </h3>
+            </div>
+            </a>
+            <!-- Contenu (badges) de l'accordéon -->
+            <div id="collapse<%= @compteur %>" class="panel-collapse collapse text-center">
+              <div class="panel-body text-center">
+                <% field.features.each do |feature| %>
+                  <div class="col-md-4">
+                      <%= render partial: 'features/badge', locals: { feature: feature, project: project, inactive: !project.has_feature?(feature) } %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% @compteur+=1 %>
+        <% end %>
+      </div>
+      </div>
+    <% @pills+=1 %>
+    <% end %>
+  </div>
+<%else%>
+<!-- Pour chacun des badges trouvés via le champ de recherche, on affiche le badge et son field parent-->
+<% @featuresSearch.each do |feature| %>
+    <div class="col-md-4 text-center">
+      <!-- On récupère le nom du field parent -->
+      <div class="panel-title  col-md-12">  <%=fields.where(id: feature.field_id).first%> </div>
+      <%= render partial: 'features/badge', locals: { feature: feature,project: project, inactive: !project.has_feature?(feature) } %>
+    </div>
+    <%end%>
+<%end%>
+
+<script>
+
+$('.closeall').click(function(){
+  $('.panel-collapse.in')
+    .collapse('hide');
+  $('#openall').show();
+$('#closeall').hide();
+});
+$('.openall').click(function(){
+  $('.panel-collapse:not(".in")')
+    .collapse('show');
+  $('#closeall').show();
+  $('#openall').hide();
+});
+
+</script>

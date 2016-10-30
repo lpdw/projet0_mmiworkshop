@@ -1,3 +1,21 @@
 language: ruby
+sudo: required
+env:
+  - DB=postgresql
+
+before_script:
+  - psql -c "CREATE USER test WITH PASSWORD 'test';" -U postgres
+  - psql -c 'create database mmiworkshop_test' -U postgres
+
+script:
+  - RAILS_ENV=test bundle exec rake db:create db:migrate db:seed --trace
+  - pg_restore --verbose --clean --no-acl --no-owner -h -U postgres -d mmiworkshop_test latest.dump
+after_failure:
+  - "mysql -e 'show databases;'"
+  - "cat ./config/database.yml"
+  - "echo $RAILS_ENV"
+  - "bundle exec rake --version"
+
+bundler_args: --binstubs=./bundler_stubs
 rvm:
   - 2.2.4

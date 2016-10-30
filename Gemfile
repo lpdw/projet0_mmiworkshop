@@ -8,12 +8,14 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem 'uglifier'                                              # JS compressor                   https://github.com/lautis/uglifier
 gem 'jquery-rails'                                          # JQuery                          https://github.com/rails/jquery-rails
+gem 'jquery-ui-sass-rails'									# JQuery UI with sass			  https://github.com/jhilden/jquery-ui-sass-rails
 gem 'devise'                                                # Authentication                  https://github.com/plataformatec/devise
 gem 'devise-i18n'                                           # Translations of authentication  https://github.com/tigrish/devise-i18n
 gem 'cancancan'                                             # Authorization                   https://github.com/CanCanCommunity/cancancan
 gem 'gravtastic'                                            # Gravatar                        https://github.com/chrislloyd/gravtastic
 gem 'chartkick'                                             # Charts                          https://github.com/ankane/chartkick
 gem 'highcharts-rails'                                      # High Charts                      https://github.com/PerfectlyNormal/highcharts-rails
+gem 'groupdate'
 
 group :production do
   gem 'rails_12factor'

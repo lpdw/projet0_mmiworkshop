@@ -7,7 +7,6 @@
 #  last_name              :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  project_id             :integer
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -19,6 +18,7 @@
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
 #  admin                  :boolean          default(FALSE)
+#  profesor               :boolean          default(FALSE)
 #  diploma_year           :integer
 #
 
@@ -28,9 +28,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+
   # GET /users
   def index
-    @users = User.where.not(admin: true).all
+    @users= User.search(params[:search]).where.not(admin: true).all
+    if (params[:commit].eql?("Tout afficher") || params[:search].nil?)
+      @users= User.where.not(admin: true).all
+    end
   end
 
   def diploma
@@ -96,6 +100,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :project_id, :admin, :diploma_year)
+      params.require(:user).permit(:first_name, :last_name, :email, :admin, :profesor, :diploma_year)
     end
 end

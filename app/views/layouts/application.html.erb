@@ -8,6 +8,8 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+    <%= yield :head %>
 </head>
 <body>
     <div class="menu-fullscreen menu-collapsed">
@@ -17,7 +19,8 @@
         <nav>
             <ul>
                 <% if user_signed_in? %>
-                <li><%= link_to 'Workshops', workshops_path if can? :read, :workshops %></li>
+                <li><%= link_to 'Dashboard', '/dashboard' %></li>
+                <li><%= link_to 'Workshops', workshops_path if can? :manage, :workshops %></li>
                 <li><%= link_to 'Projets', projects_path if can? :read, :projects %></li>
                 <% if current_user.admin? %><li><%= link_to 'Utilisateurs', users_path if can? :read, :users %></li><% end %>
                 <li><%= link_to 'Caractéristiques', features_path if can? :read, :features %></li>
@@ -37,7 +40,7 @@
         <% end %>
     </div>
     <div class="container">
-        <%= yield %>
+          <%=yield%>
     </div>
 </body>
 </html>

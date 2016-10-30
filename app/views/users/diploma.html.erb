@@ -6,7 +6,6 @@
     <tr>
       <th>Nom</th>
       <th>Prénom</th>
-      <th>Projet</th>
       <th>Notes</th>
     </tr>
   </thead>
@@ -15,7 +14,6 @@
       <tr>
         <td><%= user.last_name %></td>
         <td><%= user.first_name %></td>
-        <td><%= user.project %></td>
         <td><textarea rows="1"><%= user.project.notes unless user.project.nil? %></textarea></td>
       </tr>
     <% end %>

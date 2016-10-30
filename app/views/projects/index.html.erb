@@ -1,9 +1,18 @@
 <% content_for :title, 'Projets' %>
+<%# On affiche le bouton nouveau projet seulement si il existe au moins un Workshop%>
+
+<% if Workshop.any?%>
 <%= link_to 'New', new_project_path, class: 'btn btn-primary' if can? :create, Project %><br/><br/>
-<div class="row">
+<%end%>
+
+<%# On vérifie que l'utilisateur a bien des projets qui lui sont associés%>
+<%if @projects.empty?%>
+<h3> Vous n'avez aucun projet </h3>
+<%else%>
   <% @projects.each do |project| %>
     <div class="col-md-3">
-      <%= render 'project', project: project %>
+      <%= render 'project', project: project%>
     </div>
   <% end %>
 </div>
+<%end%>

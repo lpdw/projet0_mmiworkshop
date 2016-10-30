@@ -1,4 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700)
+@import jquery.ui.all
 @import 'bootstrap-sprockets'
 @import 'bootstrap'
 @import '*'
+
+.modal-dialog
+    overflow-y: initial!important
+
+.modal-body
+    max-height: calc(100vh - 200px)
+    overflow-y: auto

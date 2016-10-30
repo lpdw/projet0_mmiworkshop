@@ -1,11 +1,26 @@
 <% content_for :title, 'Caractéristiques' %>
-<% @fields.each do |field| %>
-  <h2><%= field %></h2>
-  <div class="row">
-    <% field.all_features.each do |feature| %>
-      <div class="col-xs-6 col-sm-3 col-md-2">
-        <%= render partial: 'badge', locals: { feature: feature } %>
-      </div>
+<% @pills=1 #Pour lier les onglets %>
+<!-- nav : en onglet (bootstrap) por faciliter la navigation -->
+  <ul class="nav nav-tabs" style="margin-bottom: 5px;">
+    <% @fields.each do |field|  %>
+      <li class="<%= ' ' + (@pills == 1 ? 'active' : '') %>">
+        <%= link_to field, '#pills'+@pills.to_s, 'data-toggle'=>'tab' %>
+      </li>
+      <% @pills+=1 %>
     <% end %>
-  </div>
-<% end %>
+    <% @pills=1 %>
+  </ul>
+
+  <!-- content : contenu de chaque onglet -->
+    <div class="tab-content">
+      <% @fields.each do |field|  %>
+        <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
+          <% field.all_features.each do |feature| %>
+            <div class="col-xs-6 col-sm-3 col-md-2">
+                <%= render partial: 'badge', locals: { feature: feature } %>
+            </div>
+          <% end %>
+        </div>
+      <% @pills+=1 %>
+      <% end %>
+    </div>
