@@ -82,28 +82,14 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1
   def update
-
-    # @project = Project.find(params[:id])
-    # @feature = Feature.find(params[:data][:feature_id])
-    # Find the link between project and feature
-    # if(!self.in_users?(current_user) || !current_user.admin)
-    #   return false
-    # end
     if !params[:data].nil?
       @projectsfeature = FeaturesProject.where(["project_id=? and feature_id=?", params[:id], params[:data][:feature_id]]).first
       @user = current_user
-      # render :text => @user.inspect
-      # feature = Feature.new(:feature_id => params[:data][:feature_id], :project_id => params[:id])
-      # FeaturesProject.new(params[:data])
-      # @project.features << @feature
       if(@user.admin == true || @user.profesor == true)
-        params[:data][:status] = 2
+        params[:data][:status] = (params[:data][:status] == '') ? 2:  params[:data][status];
         if !@projectsfeature.nil?
           # Protect field to not change if prof or admin
           params[:data][:commentaire] = @projectsfeature[:commentaire]
-          if params[:data][:reject] == 'true'
-            params[:data][:status] = 1
-          end
         end
       else
         params[:data][:status] = 1
@@ -114,29 +100,21 @@ class ProjectsController < ApplicationController
       end
       # Create if nil
       if @projectsfeature.nil?
-        sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}',now(),'f','#{params[:data][:commentaire_prof]}')"
+        insert = (params[:data][:status] == 1) ? "'#{@user.id}'" : "'#{@user.id}','#{@user.id}',now()";
+        sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}',now(),'#{params[:data][:commentaire_prof]}',#{insert})"
       # Update else
       else
-        update = "status = #{params[:data][:status]}, commentaire = '#{params[:data][:commentaire]}', commentaire_prof = '#{params[:data][:commentaire_prof]}', refuser = '#{params[:data][:reject]}'"
+        update = "status = #{params[:data][:status]}, commentaire = '#{params[:data][:commentaire]}', commentaire_prof = '#{params[:data][:commentaire_prof]}'"
         sql = "UPDATE features_projects SET #{update} WHERE feature_id = #{params[:data][:feature_id]} AND project_id = #{params[:data][:project_id]}"
-        # @projectsfeature[:status] = 2
-        # @projectsfeature[:commentaire] = params[:data][:comment]
-        # @projectsfeature.update(commentaire: "toto")
-        # render :text => @projectsfeature.inspect
-        # @projectsfeature.save
       end
       render :text => sql
       # Execute the query
       ActiveRecord::Base.connection.execute sql
-      # puts @project.inspect
-      # render :text => feature
-      # @project.update(@project)
     elsif @project.update(project_params)
       redirect_to @project, notice: 'Project was successfully updated.'
     else
       render :edit
     end
-
   end
 
   # DELETE /projects/1
