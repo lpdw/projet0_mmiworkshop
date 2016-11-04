@@ -30,7 +30,6 @@ class ProjectsController < ApplicationController
     end
     @features = Feature.all
 
-    @badgesAttente=Project.joins("INNER JOIN features_projects ON project.id=features_projects.project_id").where("status=1")
   end
 
   def synthesis
@@ -52,7 +51,9 @@ class ProjectsController < ApplicationController
     @workshops=Workshop.all
 
     @featuresProject=FeaturesProject.all
-    @usersProject=UsersProject.all
+    #@usersProject=UsersProject.all
+    @badgesAttente=FeaturesProject.joins("INNER JOIN projects ON features_projects.project_id=projects.id").where("status=1")
+
   end
 
   # GET /projects/new
