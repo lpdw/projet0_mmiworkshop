@@ -1,0 +1,45 @@
+<div class="form-group text optional inputsbloc <%= input_class %>">
+  <label class="control-label text optional" for="<%= input_class %>"><%= label %></label>
+  <% if input_values.count > 0 %>
+    <% input_values.each do |f| %>
+      <div class="input-group form-group associatedinputs">
+        <input class="form-control" aria-label="Text input with segmented button dropdown" value="<%= f.name_for_associated_inuts %>" style="border-bottom-left-radius:4px;border-top-left-radius:4px;">
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" onclick="removeField($(this));" style="border-left:0;border-bottom-left-radius:0;border-top-left-radius:0;">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </span>
+        <input type="hidden" name="<%= input_name %>" value="<%= f.id %>">
+      </div>
+    <% end %>
+  <% else %>
+    <div class="input-group form-group associatedinputs">
+      <input class="form-control" aria-label="Text input with segmented button dropdown" value="" style="border-bottom-left-radius:4px;border-top-left-radius:4px;">
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" onclick="removeField($(this));" style="border-left:0;border-bottom-left-radius:0;border-top-left-radius:0;">
+          <span class="glyphicon glyphicon-remove"></span>
+        </button>
+      </span>
+      <input type="hidden" name="<%= input_name %>" value="">
+    </div>
+  <% end %>
+</div>
+<div class="btn-group">
+  <button type="button" class="addinputassociated btn btn-default"><%= add_button_label %></button>
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="/get_add_from_list_modal?label=<%= label %>&input_class=<%= input_class %><% unless @project.id.nil? %>&id=<%= @project.id %><% end %>" data-remote="false" data-toggle="modal" data-target="#<%= input_class %>"><%= dropdown_button_label %></a></li>
+  </ul>
+</div>
+
+
+<div class="modal fade" id="<%= input_class %>" tabindex="-1" role="dialog" aria-labelledby="<%= dropdown_button_label %>" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+<br/>

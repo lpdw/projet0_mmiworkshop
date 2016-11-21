@@ -27,3 +27,7 @@ group :development do
   gem 'web-console'
   gem 'spring'
 end
+
+group :test do
+	gem 'factory_girl_rails'
+end

@@ -1,6 +1,5 @@
 default: &default
   adapter:  postgresql
-  database: mmiworkshop
   host:     localhost
   username: postgres
   pool:     5
@@ -8,11 +7,8 @@ default: &default
 
 development:
   <<: *default
+  database: mmiworkshop
 
 test:
   <<: *default
-  adapter: postgresql
-  database: mmiworkshop_test
-  username: test
-  encoding: unicode
-  pool: 5
+  database: mmiworkshoptest

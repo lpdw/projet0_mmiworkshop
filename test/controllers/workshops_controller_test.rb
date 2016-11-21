@@ -10,6 +10,7 @@
 #  updated_at  :datetime         not null
 #
 
+=begin
 require 'test_helper'
 
 class WorkshopsControllerTest < ActionController::TestCase
@@ -59,3 +60,4 @@ class WorkshopsControllerTest < ActionController::TestCase
     assert_redirected_to workshops_path
   end
 end
+=end

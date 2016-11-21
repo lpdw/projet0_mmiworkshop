@@ -7,7 +7,7 @@ $(function() {
 		$(".feature-badge").click(function() {
 			// Exclusion si on à pas le droit
 			if(Features.droit == 0){
-				alert("Vous n\'avez pas le droit de faire une demande de badge, seul les membres du projet ainsi que leurs professeurs disposents de ce droit");
+				alert("Vous n\'avez pas le droit de faire une demande de badge, seuls les membres du projet ainsi que leurs professeurs disposent de ce droit");
 				return;
 			}
 			// On ouvre le modal

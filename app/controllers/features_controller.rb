@@ -17,7 +17,7 @@ class FeaturesController < ApplicationController
   authorize_resource
 
   before_action :set_feature, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   # GET /features
   def index
@@ -67,16 +67,6 @@ class FeaturesController < ApplicationController
   def destroy
     @feature.destroy
     redirect_to features_url, notice: 'Feature was successfully destroyed.'
-  end
-
-  def autocomplete_feature
-    if params[:term]
-       @features_list = Feature.where('name ILIKE ?', "%#{params[:term].downcase}%")
-       respond_to do |format|  
-          format.html
-          format.json { render :json => @features_list.as_json(:only => [:id], :methods => [:name_with_category]) }
-       end
-     end 
   end
 
   private
