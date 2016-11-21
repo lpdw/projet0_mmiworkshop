@@ -15,6 +15,9 @@
 class Workshop < ActiveRecord::Base
   has_many :projects
   validates :name, presence: true
+  validates :dateDebut, presence: true
+  validates :dateFin, presence: true
+
 
   def to_s
   	"#{name}"

@@ -4,7 +4,7 @@
 <%percent=0%>
 
     <!-- On récupère le nombre total de badges validés du projet-->
-    <%featuresChecked=project.features.map {|c|c.name}.count()%>
+    <%featuresChecked=project.features.where("status=2").map {|c|c.name}.count()%>
 
 
 
@@ -25,21 +25,29 @@
     <%count=0%>
     <% end %>
 
+<%# Si des badges on été validés on affiches les statistiques%>
+
 <%if(featuresChecked!=0)%>
 
       <div class="col-md-6">
         <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
         <%= bar_chart [{name: "Badge(s) validé(s) (en %)", data:data}],colors: ["#014B4C","#012322","#0D7979"], hAxis: {format: 'percent'}, max: 100%>
       </div>
+
       <div class="col-md-6">
         <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
         <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"]%>
       </div>
-      <%=line_chart @projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("project_id=?",project.id).group(:name).group_by_day(:date_demande).count("case when date_demande IS NOT NULL THEN 0 end"),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"] %>
 
+      <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
+      <%if(current_user.profesor?)%>
+        <%=line_chart @projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("features_projects.project_id=?",project.id).group(:name).group_by_day(:date_demande).count("case when date_demande IS NOT NULL THEN 0 end"),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"] %>
+      <%end%>
+
+<%# Si aucun badge n'a été validé on affiche un message d'erreur%>
 <%else%>
   <div class="col-md-12" style="text-align: center;">
-    <p style="margin-top: 20px;">Aucun badges n'a été validé !</p>
+    <p style="margin-top: 20px;">Aucun badge n'a été validé !</p>
   </div>
 <%end%>
 
@@ -52,6 +60,17 @@
   <p> Le projet est terminé </p>
 <%elsif (joursRestants==0)%>
   <p> C'est le dernier jour ! </p>
+<%elsif (joursRestants==1)%>
+<p> Il reste <%=joursRestants%> jour. </p>
 <%else%>
   <p> Il reste <%=joursRestants%> jours. </p>
+<%end%>
+
+<%if(!@badgesAttente.empty?)%>
+Vous avez  <%=@badgesAttente.count%> badges en attente :
+<ul>
+  <%@badgesAttente.each do |badge|%>
+    <li><%=@features.where(id: badge.feature_id).first%></li>
+  <%end%>
+</ul>
 <%end%>

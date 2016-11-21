@@ -13,6 +13,7 @@
 #  notes       :text
 #
 
+=begin
 require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
@@ -62,3 +63,4 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_redirected_to projects_path
   end
 end
+=end

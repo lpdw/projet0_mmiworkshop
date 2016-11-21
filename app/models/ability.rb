@@ -6,6 +6,10 @@ class Ability
 
     if user.admin?
       can :manage, :all
+    elsif user.profesor?
+      can :read, :all
+      can :manage, Workshop
+      can :manage, Project
     else
       can :read, :all
       can :me, User

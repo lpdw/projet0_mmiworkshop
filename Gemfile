@@ -16,7 +16,7 @@ gem 'gravtastic'                                            # Gravatar          
 gem 'chartkick'                                             # Charts                          https://github.com/ankane/chartkick
 gem 'highcharts-rails'                                      # High Charts                      https://github.com/PerfectlyNormal/highcharts-rails
 gem 'groupdate'
-
+gem 'bootstrap-datepicker-rails'
 group :production do
   gem 'rails_12factor'
 end
@@ -26,4 +26,8 @@ group :development do
   gem 'byebug'                                              # Debug                           https://github.com/deivid-rodriguez/byebug
   gem 'web-console'
   gem 'spring'
+end
+
+group :test do
+	gem 'factory_girl_rails'
 end

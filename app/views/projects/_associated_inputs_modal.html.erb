@@ -1,0 +1,17 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title" id="myModalLabel">Sélectionner les <%= @label.downcase %> à ajouter au projet</h4>
+</div>
+<div class="modal-body">
+	<%= simple_form_for(@project) do |f| %>
+		<% if @label == "Badges" %>
+			<%= f.association :features, as: :check_boxes, label: @label, collection: Feature.includes(:field).reorder('fields.parent_id, features.field_id, level').all.map { |f| [f.name_for_associated_inuts, f.id] } %>
+		<% elsif @label == "Membres" %>
+			<%= f.association :users, as: :check_boxes, label: @label, collection: User.reorder('email, first_name, profesor').all.map { |f| [f.name_for_associated_inuts, f.id] } %>
+		<% end %>
+	<% end %>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+	<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addFeaturesInputs('<%= @input_class %>')">Ajouter</button>
+</div>

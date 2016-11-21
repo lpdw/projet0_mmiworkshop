@@ -20,7 +20,7 @@
             <ul>
                 <% if user_signed_in? %>
                 <li><%= link_to 'Dashboard', '/dashboard' %></li>
-                <li><%= link_to 'Workshops', workshops_path if can? :read, :workshops %></li>
+                <%if current_user.profesor? || current_user.admin? %><li><%= link_to 'Workshops', workshops_path if can? :manage, :workshops %></li><%end%>
                 <li><%= link_to 'Projets', projects_path if can? :read, :projects %></li>
                 <% if current_user.admin? %><li><%= link_to 'Utilisateurs', users_path if can? :read, :users %></li><% end %>
                 <li><%= link_to 'Caractéristiques', features_path if can? :read, :features %></li>
