@@ -2603,3 +2603,119 @@ Processing by FeaturesController#index as HTML
   Rendered features/index.html.erb within layouts/application (6.8ms)
 Completed 200 OK in 639ms (Views: 592.2ms | ActiveRecord: 3.7ms)
   [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (25.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (611.2ms)[0m  [1mDROP DATABASE IF EXISTS "mmiworkshoptest"[0m
+  [1m[35m (991.4ms)[0m  CREATE DATABASE "mmiworkshoptest" ENCODING = 'utf8'
+  [1m[36mSQL (1.7ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (29.4ms)[0m  CREATE TABLE "dashboards" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (4.9ms)[0m  [1mCREATE TABLE "features" ("id" serial primary key, "name" character varying, "description" text, "icon" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "position" integer, "field_id" integer, "level" integer) [0m
+  [1m[35m (48.8ms)[0m  CREATE TABLE "features_projects" ("feature_id" integer, "project_id" integer, "status" integer DEFAULT 2, "commentaire" character varying, "date_demande" timestamp, "commentaire_prof" text, "id_demandeur" integer, "id_prof_valide" integer, "date_badge_valide" timestamp) 
+  [1m[36m (2.5ms)[0m  [1mCREATE  INDEX  "index_features_projects_on_feature_id_and_project_id" ON "features_projects" USING btree ("feature_id", "project_id")[0m
+  [1m[35m (1.7ms)[0m  CREATE  INDEX  "index_features_projects_on_feature_id" ON "features_projects" USING btree ("feature_id")
+  [1m[36m (1.8ms)[0m  [1mCREATE  INDEX  "index_features_projects_on_project_id" ON "features_projects" USING btree ("project_id")[0m
+  [1m[35m (5.5ms)[0m  CREATE TABLE "fields" ("id" serial primary key, "name" character varying, "color" character varying, "position" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "icon" character varying, "parent_id" integer) 
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "groups" ("id" serial primary key, "name" character varying) [0m
+  [1m[35m (5.9ms)[0m  CREATE TABLE "projects" ("id" serial primary key, "name" character varying, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "url" character varying, "github" character varying, "workshop_id" integer, "notes" text, "etat_project" integer) 
+  [1m[36m (6.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "admin" boolean DEFAULT 'f', "diploma_year" integer, "profesor" boolean DEFAULT 'f') [0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
+  [1m[36m (5.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "users_projects" ("user_id" integer, "project_id" integer, "group_id" integer) 
+  [1m[36m (1.7ms)[0m  [1mCREATE  INDEX  "index_users_projects_on_group_id" ON "users_projects" USING btree ("group_id")[0m
+  [1m[35m (1.7ms)[0m  CREATE  INDEX  "index_users_projects_on_project_id" ON "users_projects" USING btree ("project_id")
+  [1m[36m (2.0ms)[0m  [1mCREATE  INDEX  "index_users_projects_on_user_id_and_project_id" ON "users_projects" USING btree ("user_id", "project_id")[0m
+  [1m[35m (1.6ms)[0m  CREATE  INDEX  "index_users_projects_on_user_id" ON "users_projects" USING btree ("user_id")
+  [1m[36m (5.3ms)[0m  [1mCREATE TABLE "workshops" ("id" serial primary key, "name" character varying NOT NULL, "description" text, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "dateDebut" timestamp, "dateFin" timestamp) [0m
+  [1m[35m (5.5ms)[0m  ALTER TABLE "users_projects" ADD CONSTRAINT "fk_rails_074d77a458"
+FOREIGN KEY ("group_id")
+  REFERENCES "groups" ("id")
+
+  [1m[36m (19.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.6ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.7ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161101162757')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160103085526')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160103085707')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160103085729')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160103085904')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160104131229')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160104131947')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160104141842')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160105123618')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160105133820')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160113203034')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160114131620')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160115110051')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160118222736')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160118222744')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160126201500')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160209064325')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160314173158')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160316153255')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160317084203')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160320190559')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160320190652')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160623164257')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160929101403')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160929103054')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160929121135')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160929123408')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160929123942')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160929124939')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160929125804')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160929131024')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160929134124')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160929140437')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160930095006')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161018090242')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161020081242')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161020084009')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20161020121158')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20161101162730')
+  [1m[35mActiveRecord::SchemaMigration Load (1.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (7.9ms)[0m  [1mALTER TABLE "dashboards" DISABLE TRIGGER ALL;ALTER TABLE "features" DISABLE TRIGGER ALL;ALTER TABLE "features_projects" DISABLE TRIGGER ALL;ALTER TABLE "fields" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "workshops" DISABLE TRIGGER ALL;ALTER TABLE "groups" DISABLE TRIGGER ALL;ALTER TABLE "users_projects" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "dashboards"[0m
+  [1m[35mFixture Insert (1.2ms)[0m  INSERT INTO "dashboards" ("created_at", "updated_at", "id") VALUES ('2016-11-21 14:51:07', '2016-11-21 14:51:07', 980190962)
+  [1m[36mFixture Insert (1.4ms)[0m  [1mINSERT INTO "dashboards" ("created_at", "updated_at", "id") VALUES ('2016-11-21 14:51:07', '2016-11-21 14:51:07', 298486374)[0m
+  [1m[35mFixture Delete (0.6ms)[0m  DELETE FROM "features"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "features" ("id", "name", "description", "icon", "created_at", "updated_at", "position", "field_id", "level") VALUES (0, 'test', 'test', 'glyphicon-retweet', '2016-09-22 21:05:05.602594', '2016-09-22 21:05:05.602594', 1, 1, 1)[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "fields"
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Delete (1.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "workshops"[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (1.9ms)[0m  [1mALTER TABLE "dashboards" ENABLE TRIGGER ALL;ALTER TABLE "features" ENABLE TRIGGER ALL;ALTER TABLE "features_projects" ENABLE TRIGGER ALL;ALTER TABLE "fields" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "workshops" ENABLE TRIGGER ALL;ALTER TABLE "groups" ENABLE TRIGGER ALL;ALTER TABLE "users_projects" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+FeaturesControllerTest: test_should_get_index
+---------------------------------------------
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT  "features".* FROM "features" WHERE "features"."id" = $1 LIMIT 1[0m  [["id", 0]]
+Processing by FeaturesController#index as HTML
+  [1m[35mField Load (1.0ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position
+  Rendered features/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 97ms (Views: 38.6ms | ActiveRecord: 4.0ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------
+FeatureTest: test_the_truth
+---------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (7.9ms)[0m  ALTER TABLE "dashboards" DISABLE TRIGGER ALL;ALTER TABLE "features" DISABLE TRIGGER ALL;ALTER TABLE "features_projects" DISABLE TRIGGER ALL;ALTER TABLE "fields" DISABLE TRIGGER ALL;ALTER TABLE "projects" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "workshops" DISABLE TRIGGER ALL;ALTER TABLE "groups" DISABLE TRIGGER ALL;ALTER TABLE "users_projects" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "dashboards"
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO "dashboards" ("created_at", "updated_at", "id") VALUES ('2016-11-21 14:52:41', '2016-11-21 14:52:41', 980190962)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "dashboards" ("created_at", "updated_at", "id") VALUES ('2016-11-21 14:52:41', '2016-11-21 14:52:41', 298486374)
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM "features"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "features" ("id", "name", "description", "icon", "created_at", "updated_at", "position", "field_id", "level") VALUES (0, 'test', 'test', 'glyphicon-retweet', '2016-09-22 21:05:05.602594', '2016-09-22 21:05:05.602594', 1, 1, 1)
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM "fields"[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM "projects"
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "workshops"
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  ALTER TABLE "dashboards" ENABLE TRIGGER ALL;ALTER TABLE "features" ENABLE TRIGGER ALL;ALTER TABLE "features_projects" ENABLE TRIGGER ALL;ALTER TABLE "fields" ENABLE TRIGGER ALL;ALTER TABLE "projects" ENABLE TRIGGER ALL;ALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "workshops" ENABLE TRIGGER ALL;ALTER TABLE "groups" ENABLE TRIGGER ALL;ALTER TABLE "users_projects" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+---------------------------
+FeatureTest: test_the_truth
+---------------------------
+  [1m[35m (0.2ms)[0m  ROLLBACK

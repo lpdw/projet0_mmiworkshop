@@ -12354,6 +12354,7 @@ ActionView::Template::Error (undefined method `empty?' for nil:NilClass):
   Rendered /Users/Charlie/.rbenv/versions/2.2.4/lib/ruby/gems/2.2.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (122.7ms)
 
 
+<<<<<<< HEAD
 Started GET "/" for ::1 at 2016-11-04 11:02:21 +0100
   [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Processing by DashboardController#index as HTML
@@ -22083,3 +22084,817 @@ Processing by ProjectsController#show as HTML
   Rendered fields/_list.html.erb (472.4ms)
   Rendered projects/show.html.erb within layouts/application (767.7ms)
 Completed 200 OK in 1233ms (Views: 1123.6ms | ActiveRecord: 94.1ms)
+=======
+Started GET "/projects/2" for ::1 at 2016-11-21 15:49:19 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1[0m  [["id", 2]]
+  [1m[35mFeature Load (1.1ms)[0m  SELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND (status=2)  ORDER BY position, level  [["project_id", 2]]
+  [1m[36mField Load (1.1ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position[0m
+  [1m[35mField Load (0.4ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 1]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 9]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 10]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 11]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 12]]
+  [1m[36mFeature Load (0.7ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 13]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 14]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 15]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 1]]
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 1]]
+  [1m[35mFeature Exists (0.7ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 2]]
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 3]]
+  [1m[35mFeature Exists (0.6ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 4]]
+  [1m[36mFeature Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 5]]
+  [1m[35mFeature Exists (0.6ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 6]]
+  [1m[36mFeature Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 17]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 18]]
+  [1m[36mFeature Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 19]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 7]]
+  [1m[36mFeature Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 8]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 9]]
+  [1m[36mFeature Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 20]]
+  [1m[35mFeature Exists (1.0ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 21]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 42]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 25]]
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 26]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 27]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 22]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 23]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 24]]
+  [1m[35mField Load (0.6ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 2]]
+  [1m[36mFeature Load (0.7ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 16]]
+  [1m[35mFeature Load (1.2ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 17]]
+  [1m[36mFeature Load (0.6ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 18]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 2]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 10]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 16]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 11]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 12]]
+  [1m[36mFeature Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 13]]
+  [1m[35mFeature Exists (0.3ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 14]]
+  [1m[36mFeature Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 28]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 29]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 30]]
+  [1m[35mField Load (0.5ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 3]]
+  [1m[36mFeature Load (0.8ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 8]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 6]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 7]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 5]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 4]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 3]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 31]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 32]]
+  [1m[36mFeature Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 33]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 34]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 15]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 46]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 39]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 40]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 41]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 36]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 38]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 37]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 43]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 44]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 45]]
+  [1m[35m (15.0ms)[0m  SELECT COUNT(case when date_demande IS NOT NULL THEN 0 end) AS count_case_when_date_demande_is_not_null_then_0_end, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND (features_projects.project_id=2) AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name
+  [1m[36m (0.7ms)[0m  [1mSELECT "workshops"."dateFin" FROM "workshops" WHERE "workshops"."id" = $1[0m  [["id", 1]]
+  [1m[35m (7.6ms)[0m  SELECT COUNT(*) FROM "features_projects" INNER JOIN projects ON features_projects.project_id=projects.id WHERE (status=1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "features_projects" INNER JOIN projects ON features_projects.project_id=projects.id WHERE (status=1)[0m
+  [1m[35mFeaturesProject Load (0.9ms)[0m  SELECT "features_projects".* FROM "features_projects" INNER JOIN projects ON features_projects.project_id=projects.id WHERE (status=1)
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT  "features".* FROM "features" WHERE "features"."id" = $1  ORDER BY position, level LIMIT 1[0m  [["id", 5]]
+  Rendered projects/_statsDetails.html.erb (400.6ms)
+  [1m[35mUser Exists (1.4ms)[0m  SELECT  1 AS one FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1 AND "users"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 17]]
+  Rendered features/_modal.html.erb (0.6ms)
+  Rendered projects/_project.html.erb (2.4ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1  ORDER BY last_name, first_name[0m  [["project_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 9]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 1]]
+  [1m[36mFeaturesProject Load (1.2ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=1) LIMIT 1[0m
+  [1m[35mField Load (0.5ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (11.9ms)
+  Rendered features/_badge.html.erb (19.6ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 2]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=2) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (5.0ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 3]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=3) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 10]]
+  [1m[35mFeature Exists (0.6ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 4]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=4) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.3ms)
+  Rendered features/_badge.html.erb (13.3ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 5]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=5) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 6]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=6) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (5.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 11]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 17]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=17) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.3ms)
+  Rendered features/_badge.html.erb (11.8ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 18]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=18) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.9ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 19]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=19) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (5.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 12]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 7]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=7) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.3ms)
+  Rendered features/_badge.html.erb (7.2ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 8]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=8) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (5.5ms)
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 9]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=9) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 13]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 20]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=20) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.6ms)
+  Rendered features/_badge.html.erb (7.2ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 21]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=21) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 42]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=42) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (8.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 14]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 25]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=25) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.4ms)
+  Rendered features/_badge.html.erb (6.9ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 26]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=26) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 27]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=27) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 15]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 22]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=22) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  Rendered features/_test.html.erb (2.9ms)
+  Rendered features/_badge.html.erb (11.6ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 23]]
+  [1m[35mFeaturesProject Load (0.9ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=23) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (9.1ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 24]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=24) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 16]]
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 10]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=10) LIMIT 1
+  [1m[36mField Load (0.7ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (3.4ms)
+  Rendered features/_badge.html.erb (15.4ms)
+  [1m[35mFeature Exists (0.6ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 16]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=16) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.8ms)
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 11]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=11) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (5.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 17]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 12]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=12) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (2.4ms)
+  Rendered features/_badge.html.erb (6.9ms)
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 13]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=13) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 14]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=14) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 18]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 28]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=28) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  Rendered features/_test.html.erb (2.3ms)
+  Rendered features/_badge.html.erb (7.0ms)
+  [1m[35mFeature Exists (0.7ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 29]]
+  [1m[36mFeaturesProject Load (1.2ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=29) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (5.5ms)
+  [1m[35mFeature Exists (0.6ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 30]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=30) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 8]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 31]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=31) LIMIT 1[0m
+  [1m[35mField Load (0.6ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (3.2ms)
+  Rendered features/_badge.html.erb (7.9ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 32]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=32) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (5.3ms)
+  [1m[36mFeature Exists (11.7ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 33]]
+  [1m[35mFeaturesProject Load (1.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=33) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (6.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 6]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 34]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=34) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (2.6ms)
+  Rendered features/_badge.html.erb (7.1ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 15]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=15) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.9ms)
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 46]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=46) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (8.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 7]]
+  [1m[35mFeature Exists (2.6ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 39]]
+  [1m[36mFeaturesProject Load (1.0ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=39) LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (8.4ms)
+  Rendered features/_badge.html.erb (25.1ms)
+  [1m[36mFeature Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 40]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=40) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.9ms)
+  [1m[36mFeature Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 41]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=41) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 5]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 36]]
+  [1m[36mFeaturesProject Load (0.9ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=36) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (17.4ms)
+  Rendered features/_badge.html.erb (22.3ms)
+  [1m[36mFeature Exists (7.8ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 38]]
+  [1m[35mFeaturesProject Load (1.1ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=38) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (8.9ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 37]]
+  [1m[35mFeaturesProject Load (1.1ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=37) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 4]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 2], ["id", 43]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=43) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered features/_test.html.erb (2.0ms)
+  Rendered features/_badge.html.erb (19.4ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 44]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=44) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 2], ["id", 45]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=2 and feature_id=45) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  Rendered fields/_list.html.erb (830.6ms)
+  Rendered projects/show.html.erb within layouts/application (2531.1ms)
+Completed 200 OK in 3609ms (Views: 3314.6ms | ActiveRecord: 165.7ms)
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/assets/application.self-8648aa4fcb06ba658b8cb6e91af4cd355fedb45fc1338265ae2822911dc81007.js?body=1" for ::1 at 2016-11-21 15:49:23 +0100
+
+
+Started GET "/dashboard" for ::1 at 2016-11-21 15:49:32 +0100
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "workshops"
+  [1m[36mWorkshop Load (0.5ms)[0m  [1mSELECT "workshops".* FROM "workshops"[0m
+  [1m[35mProject Load (0.7ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17) AND "projects"."workshop_id" = $1  ORDER BY name  [["workshop_id", 1]]
+  [1m[36mFeature Load (0.7ms)[0m  [1mSELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY position, level[0m  [["project_id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "features"
+  [1m[36m (8.0ms)[0m  [1mSELECT COUNT(*) AS count_all, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND "projects"."workshop_id" = $1 AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name[0m  [["workshop_id", 1]]
+  Rendered projects/_stats.html.erb (25.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "projects".* FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id WHERE (users_projects.user_id= 17) AND "projects"."workshop_id" = $1  ORDER BY name  [["workshop_id", 1]]
+  [1m[36mFeature Load (0.8ms)[0m  [1mSELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND (status=2)  ORDER BY position, level[0m  [["project_id", 1]]
+  [1m[35mField Load (0.5ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 1]]
+  [1m[35mFeature Load (0.7ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 9]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 10]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 11]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 12]]
+  [1m[35mFeature Load (0.3ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 13]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 14]]
+  [1m[35mFeature Load (0.9ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 15]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 1]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 1]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 2]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 3]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 4]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 5]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 6]]
+  [1m[35mFeature Exists (0.3ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 17]]
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 18]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 19]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 7]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 8]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 9]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 20]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 21]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 42]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 25]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 26]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 27]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 22]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 23]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 24]]
+  [1m[36mField Load (3.6ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 2]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 16]]
+  [1m[36mFeature Load (0.7ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 17]]
+  [1m[35mFeature Load (0.7ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 18]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 2]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 10]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 16]]
+  [1m[35mFeature Exists (0.3ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 11]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 12]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 13]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 14]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 28]]
+  [1m[36mFeature Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 29]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 30]]
+  [1m[36mField Load (0.7ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 3]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 8]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 6]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 7]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 5]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 4]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 3]]
+  [1m[35mFeature Exists (1.1ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 31]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 32]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 33]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 34]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 15]]
+  [1m[36mFeature Exists (1.1ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 46]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 39]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 40]]
+  [1m[35mFeature Exists (1.2ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 41]]
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 36]]
+  [1m[35mFeature Exists (0.6ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 38]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 37]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 43]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 44]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 45]]
+  [1m[36m (1.3ms)[0m  [1mSELECT COUNT(case when date_demande IS NOT NULL THEN 0 end) AS count_case_when_date_demande_is_not_null_then_0_end, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND (features_projects.project_id=1) AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name[0m
+  [1m[35m (0.5ms)[0m  SELECT "workshops"."dateFin" FROM "workshops" WHERE "workshops"."id" = $1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "features_projects" INNER JOIN projects ON features_projects.project_id=projects.id WHERE (status=1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "features_projects" INNER JOIN projects ON features_projects.project_id=projects.id WHERE (status=1)
+  [1m[36mFeaturesProject Load (0.9ms)[0m  [1mSELECT "features_projects".* FROM "features_projects" INNER JOIN projects ON features_projects.project_id=projects.id WHERE (status=1)[0m
+  [1m[35mFeature Load (0.5ms)[0m  SELECT  "features".* FROM "features" WHERE "features"."id" = $1  ORDER BY position, level LIMIT 1  [["id", 5]]
+  Rendered projects/_statsDetails.html.erb (269.9ms)
+  Rendered dashboard/index.html.erb within layouts/application (328.9ms)
+Completed 200 OK in 874ms (Views: 790.8ms | ActiveRecord: 55.2ms)
+
+
+Started GET "/projects/2/edit" for ::1 at 2016-11-21 15:49:37 +0100
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35mProject Load (1.2ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1  [["id", 2]]
+  [1m[36mWorkshop Load (0.6ms)[0m  [1mSELECT "workshops".* FROM "workshops"[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1  ORDER BY email, first_name, profesor  [["project_id", 2]]
+  Rendered projects/_project_associated_inputs.html.erb (1.7ms)
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT "features"."id" AS t0_r0, "features"."name" AS t0_r1, "features"."description" AS t0_r2, "features"."icon" AS t0_r3, "features"."created_at" AS t0_r4, "features"."updated_at" AS t0_r5, "features"."position" AS t0_r6, "features"."field_id" AS t0_r7, "features"."level" AS t0_r8, "fields"."id" AS t1_r0, "fields"."name" AS t1_r1, "fields"."color" AS t1_r2, "fields"."position" AS t1_r3, "fields"."created_at" AS t1_r4, "fields"."updated_at" AS t1_r5, "fields"."icon" AS t1_r6, "fields"."parent_id" AS t1_r7 FROM "features" LEFT OUTER JOIN "fields" ON "fields"."id" = "features"."field_id" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY fields.parent_id, features.field_id, level[0m  [["project_id", 2]]
+  [1m[35mField Load (0.7ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  [1m[36mField Load (6.7ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  [1m[35mField Load (0.5ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered projects/_project_associated_inputs.html.erb (17.0ms)
+  Rendered projects/_form.html.erb (401.4ms)
+  Rendered projects/edit.html.erb within layouts/application (405.7ms)
+Completed 200 OK in 972ms (Views: 946.8ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/projects" for ::1 at 2016-11-21 15:49:59 +0100
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "workshops"
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35mProject Load (0.6ms)[0m  SELECT "projects".* FROM "projects"  ORDER BY name
+  Rendered projects/_project.html.erb (0.8ms)
+  Rendered projects/_project.html.erb (0.7ms)
+  Rendered projects/_project.html.erb (0.3ms)
+  Rendered projects/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 979ms (Views: 963.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/projects/1" for ::1 at 2016-11-21 15:50:18 +0100
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35mProject Load (0.6ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1  [["id", 1]]
+  [1m[36mFeature Load (1.0ms)[0m  [1mSELECT "features".* FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND (status=2)  ORDER BY position, level[0m  [["project_id", 1]]
+  [1m[35mField Load (0.7ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" IS NULL  ORDER BY parent_id, position
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 1]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 9]]
+  [1m[36mFeature Load (1.7ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 10]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 11]]
+  [1m[36mFeature Load (0.7ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 12]]
+  [1m[35mFeature Load (0.5ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 13]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 14]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 15]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 1]]
+  [1m[35mFeature Exists (1.1ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 1]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 2]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 3]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 4]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 5]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 6]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 17]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 18]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 19]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 7]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 8]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 9]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 20]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 21]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 42]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 25]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 26]]
+  [1m[36mFeature Exists (2.0ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 27]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 22]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 23]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 24]]
+  [1m[36mField Load (0.4ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 2]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 16]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 17]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 18]]
+  [1m[36mFeature Load (0.5ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 2]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 10]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 16]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 11]]
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 12]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 13]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 14]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 28]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 29]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 30]]
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 3]]
+  [1m[35mFeature Load (0.6ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 8]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 6]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 7]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 5]]
+  [1m[35mFeature Load (0.4ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 4]]
+  [1m[36mFeature Load (0.4ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 3]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 31]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 32]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 33]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 34]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 15]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 46]]
+  [1m[35mFeature Exists (0.6ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 39]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 40]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 41]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 36]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 38]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 37]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 43]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 44]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 45]]
+  [1m[36m (2.3ms)[0m  [1mSELECT COUNT(case when date_demande IS NOT NULL THEN 0 end) AS count_case_when_date_demande_is_not_null_then_0_end, name AS name, (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS day FROM "projects" INNER JOIN users_projects ON projects.id=users_projects.project_id LEFT JOIN features_projects ON features_projects.project_id = projects.id WHERE (users_projects.user_id= 17) AND (features_projects.project_id=1) AND (date_demande IS NOT NULL) GROUP BY "projects"."name", (DATE_TRUNC('day', (date_demande::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'  ORDER BY name[0m
+  [1m[35m (0.5ms)[0m  SELECT "workshops"."dateFin" FROM "workshops" WHERE "workshops"."id" = $1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "features_projects" INNER JOIN projects ON features_projects.project_id=projects.id WHERE (status=1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "features_projects" INNER JOIN projects ON features_projects.project_id=projects.id WHERE (status=1)
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT "features_projects".* FROM "features_projects" INNER JOIN projects ON features_projects.project_id=projects.id WHERE (status=1)[0m
+  [1m[35mFeature Load (0.5ms)[0m  SELECT  "features".* FROM "features" WHERE "features"."id" = $1  ORDER BY position, level LIMIT 1  [["id", 5]]
+  Rendered projects/_statsDetails.html.erb (236.3ms)
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1 AND "users"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 17]]
+  Rendered features/_modal.html.erb (0.1ms)
+  Rendered projects/_project.html.erb (0.5ms)
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1  ORDER BY last_name, first_name  [["project_id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 9]]
+  [1m[36mFeature Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 1]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=1) LIMIT 1
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (3.5ms)
+  Rendered features/_badge.html.erb (8.1ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 2]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=2) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 3]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=3) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.4ms)
+  Rendered features/_badge.html.erb (4.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 10]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 4]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.1ms)
+  Rendered features/_badge.html.erb (6.5ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 5]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=5) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.6ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 6]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=6) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 11]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 17]]
+  [1m[35mFeaturesProject Load (1.1ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=17) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.2ms)
+  Rendered features/_badge.html.erb (6.9ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 18]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=18) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 19]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=19) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 12]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 7]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=7) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.4ms)
+  Rendered features/_badge.html.erb (6.2ms)
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 8]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=8) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 9]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=9) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 13]]
+  [1m[36mFeature Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 20]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=20) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.8ms)
+  Rendered features/_badge.html.erb (7.2ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 21]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=21) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (4.0ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 42]]
+  [1m[36mFeaturesProject Load (0.8ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=42) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (5.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 14]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 25]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=25) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.3ms)
+  Rendered features/_badge.html.erb (6.5ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 26]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=26) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 27]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=27) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.7ms)
+  Rendered features/_badge.html.erb (4.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 15]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 22]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=22) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  Rendered features/_test.html.erb (2.6ms)
+  Rendered features/_badge.html.erb (6.4ms)
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 23]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=23) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.4ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 24]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=24) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position  [["parent_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 16]]
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 10]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=10) LIMIT 1[0m
+  [1m[35mField Load (0.4ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (3.2ms)
+  Rendered features/_badge.html.erb (7.6ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 16]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=16) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.6ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 11]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=11) LIMIT 1
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (5.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 17]]
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 12]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=12) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (2.0ms)
+  Rendered features/_badge.html.erb (6.1ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 13]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=13) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 14]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=14) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level[0m  [["field_id", 18]]
+  [1m[35mFeature Exists (0.6ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 28]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=28) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 2]]
+  Rendered features/_test.html.erb (2.4ms)
+  Rendered features/_badge.html.erb (6.7ms)
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 29]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=29) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.6ms)
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 30]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=30) LIMIT 1
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (3.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "fields".* FROM "fields" WHERE "fields"."parent_id" = $1  ORDER BY parent_id, position[0m  [["parent_id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 8]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 31]]
+  [1m[35mFeaturesProject Load (0.6ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=31) LIMIT 1
+  [1m[36mField Load (0.4ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.8ms)
+  Rendered features/_badge.html.erb (6.8ms)
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 32]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=32) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.2ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 33]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=33) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.5ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 6]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 34]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=34) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.9ms)
+  Rendered features/_badge.html.erb (7.3ms)
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 15]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=15) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.4ms)
+  Rendered features/_badge.html.erb (5.1ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 46]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=46) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 7]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 39]]
+  [1m[35mFeaturesProject Load (0.8ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=39) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.4ms)
+  Rendered features/_badge.html.erb (7.0ms)
+  [1m[35mFeature Exists (0.5ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 40]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=40) LIMIT 1[0m
+  Rendered features/_test.html.erb (1.3ms)
+  Rendered features/_badge.html.erb (6.5ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 41]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=41) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (5.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 5]]
+  [1m[36mFeature Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 36]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=36) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.2ms)
+  Rendered features/_badge.html.erb (6.7ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 38]]
+  [1m[36mFeaturesProject Load (0.6ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=38) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.8ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 37]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=37) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.3ms)
+  Rendered features/_badge.html.erb (5.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "features".* FROM "features" WHERE "features"."field_id" = $1  ORDER BY position, level  [["field_id", 4]]
+  [1m[36mFeature Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1[0m  [["project_id", 1], ["id", 43]]
+  [1m[35mFeaturesProject Load (0.7ms)[0m  SELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=43) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 3]]
+  Rendered features/_test.html.erb (2.4ms)
+  Rendered features/_badge.html.erb (7.3ms)
+  [1m[35mFeature Exists (0.4ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 44]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=44) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.7ms)
+  [1m[35mFeature Exists (0.7ms)[0m  SELECT  1 AS one FROM "features" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1 AND "features"."id" = $2 LIMIT 1  [["project_id", 1], ["id", 45]]
+  [1m[36mFeaturesProject Load (0.7ms)[0m  [1mSELECT  "features_projects".* FROM "features_projects" WHERE (project_id=1 and feature_id=45) LIMIT 1[0m
+  Rendered features/_test.html.erb (0.2ms)
+  Rendered features/_badge.html.erb (4.9ms)
+  Rendered fields/_list.html.erb (492.1ms)
+  Rendered projects/show.html.erb within layouts/application (760.5ms)
+Completed 200 OK in 2576ms (Views: 2466.7ms | ActiveRecord: 96.0ms)
+
+
+Started GET "/assets/application.self-7e75c41e314325a2f0f7dbfe244fc38aa91e9cfb10238797c9f40d274f78ebbb.js?body=1" for ::1 at 2016-11-21 15:50:21 +0100
+
+
+Started GET "/projects/1/edit" for ::1 at 2016-11-21 15:50:27 +0100
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1  [["id", 17]]
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1[0m  [["id", 1]]
+  [1m[35mWorkshop Load (0.6ms)[0m  SELECT "workshops".* FROM "workshops"
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1  ORDER BY email, first_name, profesor[0m  [["project_id", 1]]
+  Rendered projects/_project_associated_inputs.html.erb (0.4ms)
+  [1m[35mSQL (1.2ms)[0m  SELECT "features"."id" AS t0_r0, "features"."name" AS t0_r1, "features"."description" AS t0_r2, "features"."icon" AS t0_r3, "features"."created_at" AS t0_r4, "features"."updated_at" AS t0_r5, "features"."position" AS t0_r6, "features"."field_id" AS t0_r7, "features"."level" AS t0_r8, "fields"."id" AS t1_r0, "fields"."name" AS t1_r1, "fields"."color" AS t1_r2, "fields"."position" AS t1_r3, "fields"."created_at" AS t1_r4, "fields"."updated_at" AS t1_r5, "fields"."icon" AS t1_r6, "fields"."parent_id" AS t1_r7 FROM "features" LEFT OUTER JOIN "fields" ON "fields"."id" = "features"."field_id" INNER JOIN "features_projects" ON "features"."id" = "features_projects"."feature_id" WHERE "features_projects"."project_id" = $1  ORDER BY fields.parent_id, features.field_id, level  [["project_id", 1]]
+  [1m[36mField Load (0.4ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 1]]
+  [1m[36mField Load (0.4ms)[0m  [1mSELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1[0m  [["id", 2]]
+  [1m[35mField Load (0.4ms)[0m  SELECT  "fields".* FROM "fields" WHERE "fields"."id" = $1  ORDER BY parent_id, position LIMIT 1  [["id", 3]]
+  Rendered projects/_project_associated_inputs.html.erb (8.6ms)
+  Rendered projects/_form.html.erb (50.1ms)
+  Rendered projects/edit.html.erb within layouts/application (53.3ms)
+Completed 200 OK in 550ms (Views: 531.6ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/get_add_from_list_modal?label=Membres&input_class=users_projects&id=1" for ::1 at 2016-11-21 15:50:32 +0100
+Processing by ProjectsController#get_add_from_list_modal as HTML
+  Parameters: {"label"=>"Membres", "input_class"=>"users_projects", "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35mProject Load (4.0ms)[0m  SELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1  ORDER BY name LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users"  ORDER BY email, first_name, profesor[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" INNER JOIN "users_projects" ON "users"."id" = "users_projects"."user_id" WHERE "users_projects"."project_id" = $1  ORDER BY last_name, first_name  [["project_id", 1]]
+  Rendered projects/_associated_inputs_modal.html.erb (43.2ms)
+Completed 200 OK in 114ms (Views: 89.8ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/projects" for ::1 at 2016-11-21 15:50:39 +0100
+Processing by ProjectsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY last_name, first_name LIMIT 1[0m  [["id", 17]]
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "workshops"
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  [1m[35mProject Load (0.8ms)[0m  SELECT "projects".* FROM "projects"  ORDER BY name
+  Rendered projects/_project.html.erb (0.5ms)
+  Rendered projects/_project.html.erb (0.3ms)
+  Rendered projects/_project.html.erb (0.5ms)
+  Rendered projects/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 688ms (Views: 672.8ms | ActiveRecord: 3.2ms)
+>>>>>>> master
