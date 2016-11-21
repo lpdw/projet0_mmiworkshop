@@ -51,9 +51,7 @@ class ProjectsController < ApplicationController
     @workshops=Workshop.all
 
     @featuresProject=FeaturesProject.all
-    #@usersProject=UsersProject.all
     @badgesAttente=FeaturesProject.joins("INNER JOIN projects ON features_projects.project_id=projects.id").where("status=1")
-
   end
 
   # GET /projects/new
