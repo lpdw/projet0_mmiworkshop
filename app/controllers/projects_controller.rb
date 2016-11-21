@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
     @workshops=Workshop.all
     
     @featuresProject=FeaturesProject.all
-    @usersProject=UsersProject.all
+    #@usersProject=UsersProject.all
   end
 
   # GET /projects/new
