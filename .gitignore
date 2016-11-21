@@ -14,6 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+log/*
+tmp/*
 !/log/.keep
 !/tmp/.keep
 
@@ -21,6 +23,8 @@
 .byebug_history
 
 .DS_Store
+/db/schema.rb
+/config/database.yml
 db/schema.rb
 config/database.yml
 docker-compose.yml
