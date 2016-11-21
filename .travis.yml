@@ -9,7 +9,6 @@ before_script:
 
 script:
   - RAILS_ENV=test bundle exec rake db:create db:migrate db:seed --trace
-  - pg_restore --verbose --clean --no-acl --no-owner -h -U postgres -d mmiworkshop_test latest.dump
 after_failure:
   - "mysql -e 'show databases;'"
   - "cat ./config/database.yml"
