@@ -12,9 +12,8 @@
 			Features[id] = {};
 			Features[id]['feature_id'] = "<%= project_feature[:feature_id] %>";
 			Features[id]['status'] = "<%= project_feature[:status] %>";
-			Features[id]['commentaire'] = "<%= project_feature[:commentaire] %>";
-			Features[id]['commentaire_prof'] = "<%= project_feature[:commentaire_prof] %>";
-			Features[id]['refuser'] = "<%= project_feature[:refuser] %>";
+			Features[id]['commentaire'] = "<%= raw(project_feature[:commentaire]) %>";
+			Features[id]['commentaire_prof'] = "<%= raw(project_feature[:commentaire_prof]) %>";
 	  	<% end %>
 	<% end %>
 	<%= render partial:'features/test', locals: { feature: feature, inactive: inactive, project_feature: project_feature } %>

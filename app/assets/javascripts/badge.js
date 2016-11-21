@@ -14,13 +14,18 @@ $(function() {
 	    	// document.getElementById('open_modal').click();
 	    	$('#myModal').modal('show');
 	    	id = this.id;
+	    	// Init du modal
+	    	$("#create_demande").css("display", "block");
+	    	$('#commentaire_prof').attr("disabled", false);
+	    	$('#comment').attr("disabled", false);
 	    	// Si on est prof ou admin
 	    	if(Features.droit == 2){
 	    		// On cache commentaire
 	    		$('#comment').attr("disabled", true);
 	    		if(typeof Features[id] !== 'undefined'){
 		    		// Si la demande a été faite on ajoute le bouton de rejet
-		    		if(Features[id].status == 1 && Features[id].refuser == 'false'){$("#reject_demande").css("display", "block");}
+		    		if(Features[id].status == 1){$("#reject_demande").css("display", "block");}
+		    		// else if(Features[id].status == 3){}
 	    		}
 	    	}
 	    	// Sinon on disabled le commentaire prof
@@ -36,8 +41,8 @@ $(function() {
 	    		value = Features[id].status == 1 ? "En attente de validation":"Validé";
 	    		value = Features[id].status == 3 ? "Rejeté" : value;
 	    		button = Features[id].status == 1 && Features.droit == 2 ? 'Valider' : 'Modifier';
-		    	$('#comment').val(Features[id].commentaire.replace(/&amp;#39;/g, "'"));
-		    	$('#commentaire_prof').val(Features[id].commentaire_prof.replace(/&amp;#39;/g, "'"));
+		    	$('#comment').val(Features[id].commentaire.replace(/&#39;/g, "'"));
+		    	$('#commentaire_prof').val(Features[id].commentaire_prof.replace(/&#39;/g, "'"));
 		    	if(Features[id].status == 2){
 		    		$("#create_demande").css("display", "none");
 		    		$('#comment').attr("disabled", true);

@@ -88,7 +88,7 @@ class ProjectsController < ApplicationController
       @projectsfeature = FeaturesProject.where(["project_id=? and feature_id=?", params[:id], params[:data][:feature_id]]).first
       @user = current_user
       if(@user.admin == true || @user.profesor == true)
-        params[:data][:status] = (params[:data][:status] == '') ? 2:  params[:data][status];
+        params[:data][:status] = (params[:data][:status] == '') ? 2:  params[:data][:status];
         if !@projectsfeature.nil?
           # Protect field to not change if prof or admin
           params[:data][:commentaire] = @projectsfeature[:commentaire]
