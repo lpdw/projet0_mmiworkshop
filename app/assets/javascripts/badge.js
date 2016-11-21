@@ -36,8 +36,8 @@ $(function() {
 	    		value = Features[id].status == 1 ? "En attente de validation":"Validé";
 	    		value = Features[id].status == 3 ? "Rejeté" : value;
 	    		button = Features[id].status == 1 && Features.droit == 2 ? 'Valider' : 'Modifier';
-		    	$('#comment').val(Features[id].commentaire);
-		    	$('#commentaire_prof').val(Features[id].commentaire_prof);
+		    	$('#comment').val(Features[id].commentaire.replace(/&amp;#39;/g, "'"));
+		    	$('#commentaire_prof').val(Features[id].commentaire_prof.replace(/&amp;#39;/g, "'"));
 		    	if(Features[id].status == 2){
 		    		$("#create_demande").css("display", "none");
 		    		$('#comment').attr("disabled", true);

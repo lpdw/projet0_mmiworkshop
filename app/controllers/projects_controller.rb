@@ -12,7 +12,7 @@
 #  workshop_id :integer
 #  notes       :text
 #
-
+require 'cgi'
 class ProjectsController < ApplicationController
   authorize_resource
 
@@ -100,6 +100,9 @@ class ProjectsController < ApplicationController
           params[:data][:commentaire_prof] = @projectsfeature[:commentaire_prof]
         end
       end
+      # Bug fixe caractere speciaux
+      params[:data][:commentaire_prof] = CGI.escapeHTML(params[:data][:commentaire_prof]);
+      params[:data][:commentaire] = CGI.escapeHTML(params[:data][:commentaire]);
       # Create if nil
       if @projectsfeature.nil?
         insert = (params[:data][:status] == 1) ? "'#{@user.id}'" : "'#{@user.id}','#{@user.id}',now()";
