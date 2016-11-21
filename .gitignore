@@ -14,6 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+log/*
+tmp/*
+/log/development.log
 !/log/.keep
 !/tmp/.keep
 
@@ -23,3 +26,7 @@
 .DS_Store
 /db/schema.rb
 /config/database.yml
+db/schema.rb
+config/database.yml
+docker-compose.yml
+Gemfile.lock
