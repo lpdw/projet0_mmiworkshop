@@ -86,7 +86,7 @@ class ProjectsController < ApplicationController
       @projectsfeature = FeaturesProject.where(["project_id=? and feature_id=?", params[:id], params[:data][:feature_id]]).first
       @user = current_user
       if(@user.admin == true || @user.profesor == true)
-        params[:data][:status] = (params[:data][:status] == '') ? 2:  params[:data][:status];
+        params[:data][:status] = (params[:data][:status] == '') ? 2:  params[:data][:status]
         if !@projectsfeature.nil?
           # Protect field to not change if prof or admin
           params[:data][:commentaire] = @projectsfeature[:commentaire]
@@ -99,11 +99,11 @@ class ProjectsController < ApplicationController
         end
       end
       # Bug fixe caractere speciaux
-      params[:data][:commentaire_prof] = CGI.escapeHTML(params[:data][:commentaire_prof]);
-      params[:data][:commentaire] = CGI.escapeHTML(params[:data][:commentaire]);
+      params[:data][:commentaire_prof] = CGI.escapeHTML(params[:data][:commentaire_prof])
+      params[:data][:commentaire] = CGI.escapeHTML(params[:data][:commentaire])
       # Create if nil
       if @projectsfeature.nil?
-        insert = (params[:data][:status] == 1) ? "'#{@user.id}'" : "'#{@user.id}','#{@user.id}',now()";
+        insert = (params[:data][:status] == 1) ? "'#{@user.id}'" : "'#{@user.id}','#{@user.id}',now()"
         sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}',now(),'#{params[:data][:commentaire_prof]}',#{insert})"
       # Update else
       else
@@ -114,6 +114,21 @@ class ProjectsController < ApplicationController
       # Execute the query
       ActiveRecord::Base.connection.execute sql
     elsif @project.update(project_params)
+      # On récupère tout les features associés
+      allFeatureProject = FeaturesProject.select("feature_id").where(["project_id=?",@project.id])
+      # On parcourt le tout
+      allFeatureProject.each do |id|
+        # On récupère le contenu actuelle
+        @projectsfeature = FeaturesProject.where(["project_id=? and feature_id=?", @project.id, id.feature_id ]).first
+        update = "status = 2"
+        # On met a jour l'update si besoin
+        if(@projectsfeature.date_badge_valide.nil?)
+          update = update + ",date_badge_valide = now(),id_prof_valide = #{current_user.id},date_demande = now(),id_demandeur = #{current_user.id}"
+        end
+        # Mise a jour de l'élément
+        sql = "UPDATE features_projects SET #{update} WHERE feature_id = #{@projectsfeature.feature_id} AND project_id = #{@projectsfeature.project_id}"
+        ActiveRecord::Base.connection.execute sql
+      end
       redirect_to @project, notice: 'Project was successfully updated.'
     else
       render :edit
@@ -134,7 +149,7 @@ class ProjectsController < ApplicationController
       elsif params[:type] == "features_projects"
         @autocomplete_values = Feature.where('name ILIKE ?', "%#{params[:term].downcase}%")
       end
-      respond_to do |format|  
+      respond_to do |format|
         format.html
         format.json { render :json => @autocomplete_values.as_json(:only => [:id], :methods => [:name_for_associated_inuts]) }
       end
