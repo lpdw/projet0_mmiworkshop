@@ -26,14 +26,16 @@
         <h3> Étudiant(e) </h3>
       <% end %>
     </article>
+      <%= link_to 'Créer un nouveau projet', new_project_path, style: 'width: 100%;', class: 'btn btn-default' if can? :create, Project %>
 
   </div>
 
   <div class="col-md-9">
 
     <%# Formulaire de tri des projets%>
-    <form class="form" action="#" method="get">
-        <%= select_tag('filter', options_for_select([['Tous les projets', 'all'], ['Projets en cours', 'inprogress', 'selected'=>'selected'], ['Projets terminés', 'end']]), :style=>'float: right;', :class=>'btn btn-default', 'onChange'=>'this.parentNode.submit()') %>
+
+    <form class="form col-xs-3" action="#" method="get" style="float: right;">
+        <%= select_tag('filter', options_for_select([['Tous les projets', 'all'], ['Projets en cours', 'inprogress', 'selected'=>'selected'], ['Projets terminés', 'end']]), :class=>'form-control', 'onChange'=>'this.parentNode.submit()') %>
     </form>
     <%# Si il n'y a pas de projets selon le select, un message s'affiche, sinon les stats s'affichent %>
     <%if @workshops.empty?%>
@@ -76,7 +78,6 @@
 
         <!-- content -->
           <div class="tab-content">
-            <%= link_to 'Créer un nouveau projet', new_project_path, class: 'btn btn-primary' if can? :create, Project %><br/><br/>
 
             <% @workshops.each do |workshop|  %>
 
@@ -87,7 +88,7 @@
                   <%end%>
                 <% @projects.where(workshop_id: workshop.id).each do |project|%>
                 <div class="stats-project">
-                  <p style="margin: 0; padding: 5px;"><%= link_to project, 'projects/'+project.id.to_s %></p>
+                  <p style="text-align: center; margin: 0; padding: 5px;"><%= link_to project, 'projects/'+project.id.to_s %></p>
                   <%= render 'projects/statsDetails', project: project %>
 
 

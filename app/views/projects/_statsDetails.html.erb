@@ -39,10 +39,12 @@
         <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"]%>
       </div>
 
-      <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
-      <%if(current_user.profesor?)%>
-        <%=line_chart @projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("features_projects.project_id=?",project.id).group(:name).group_by_day(:date_demande).count("case when date_demande IS NOT NULL THEN 0 end"),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"] %>
-      <%end%>
+      <div class="col-md-12">
+        <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
+        <%if(current_user.profesor?)%>
+          <%=line_chart @projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("features_projects.project_id=?",project.id).group(:name).group_by_day(:date_demande).count("case when date_demande IS NOT NULL THEN 0 end"),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"] %>
+        <%end%>
+      </div>
 
 <%# Si aucun badge n'a été validé on affiche un message d'erreur%>
 <%else%>
@@ -56,15 +58,17 @@
 <% dateFin=@workshops.where(id: project.workshop_id).pluck(:dateFin)[0].to_date %>
 <% aujourdhui=Time.now.to_date%>
 <% joursRestants=(dateFin-aujourdhui).to_i%>
-<% if (joursRestants<0)%>
-  <p> Le projet est terminé </p>
-<%elsif (joursRestants==0)%>
-  <p> C'est le dernier jour ! </p>
-<%elsif (joursRestants==1)%>
-<p> Il reste <%=joursRestants%> jour. </p>
-<%else%>
-  <p> Il reste <%=joursRestants%> jours. </p>
-<%end%>
+<p style="padding: 10px;">
+  <% if (joursRestants<0)%>
+    Le projet est terminé
+  <%elsif (joursRestants==0)%>
+    C'est le dernier jour !
+  <%elsif (joursRestants==1)%>
+    Il reste <%=joursRestants%> jour avant la fin du projet.
+  <%else%>
+    Il reste <%=joursRestants%> jours avant la fin du projet.
+  <%end%>
+</p>
 
 <%if(!@badgesAttente.empty?)%>
 Vous avez  <%=@badgesAttente.count%> badges en attente :
