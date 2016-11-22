@@ -26,7 +26,9 @@ class Feature < ActiveRecord::Base
   end
 
   def icon
-    field.icon
+    if(field)
+      field.icon
+    end
   end
 
   def name_with_hierarchy
