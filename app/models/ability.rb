@@ -4,7 +4,10 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    if user.admin?
+    if (user.admin? && !user.profesor?)
+      can :manage, :all
+      cannot :read, Dashboard
+    elsif user.admin? && user.profesor?
       can :manage, :all
     elsif user.profesor?
       can :read, :all
