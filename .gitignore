@@ -16,6 +16,7 @@
 /tmp/*
 log/*
 tmp/*
+/log/development.log
 !/log/.keep
 !/tmp/.keep
 

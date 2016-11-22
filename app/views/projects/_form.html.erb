@@ -10,7 +10,7 @@
   <%= f.input :notes %>
   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.users.reorder('email, first_name, profesor').all.map, :input_name=>"project[user_ids][]", :input_class=>"users_projects", :label=>"Membres", :add_button_label=>"Ajouter un membre", :dropdown_button_label=>"Ajouter des Membres depuis la liste"} %>
   <br/>
-  <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.features.includes(:field).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
+  <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.features.includes(:field).where("status = 2").references(:features).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
   <br/>
 
   <%= f.button :submit, class: "btn btn-primary" %>
