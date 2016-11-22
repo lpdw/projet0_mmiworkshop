@@ -25,7 +25,6 @@ class Project < ActiveRecord::Base
   validates :name, presence: true
   validates :workshop_id, presence: true
 
-
   def has_feature?(feature)
   	features.include? feature
   end
@@ -33,6 +32,17 @@ class Project < ActiveRecord::Base
   def all_features
     (features + child_features).uniq
   end
+
+#Récupération des dates de début et de fin d'un projet (lié à un Workshop)
+def get_project_start_date(workshop_id)
+  Workshop.where("id=?",workshop_id).pluck(:dateDebut)[0].to_date
+end
+
+def get_project_end_date(workshop_id)
+  Workshop.where("id=?",workshop_id).pluck(:dateFin)[0].to_date
+
+end
+
 
   def proj_feat(feature, project)
     FeaturesProject.where(["project_id=? and feature_id=?", project[:id], feature[:id]]).first

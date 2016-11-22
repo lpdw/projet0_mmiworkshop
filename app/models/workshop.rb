@@ -22,4 +22,14 @@ class Workshop < ActiveRecord::Base
   def to_s
   	"#{name}"
   end
+
+  #Récupération des dates de début et de fin d'un projet (lié à un Workshop)
+  def get_project_start_date(workshop_id)
+    Workshop.where("id=?",workshop_id).pluck(:dateDebut)[0].to_date
+  end
+
+  def get_project_end_date(workshop_id)
+    Workshop.where("id=?",workshop_id).pluck(:dateFin)[0].to_date
+
+  end
 end
