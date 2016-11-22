@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
   def index
 
 # L'utilisateur n'a accès qu'aux projets auxquels il est assigné (si il est élève)
-    if(!current_user.admin? && !current_user.profesor?)
+    if(!@user.admin? && !@user.profesor?)
       @projects = Project.joins("INNER JOIN users_projects ON projects.id=users_projects.project_id").where("users_projects.user_id= ?",current_user.id)
     else
       @projects=Project.all

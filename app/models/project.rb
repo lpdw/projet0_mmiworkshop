@@ -42,7 +42,14 @@ def get_project_end_date(workshop_id)
   Workshop.where("id=?",workshop_id).pluck(:dateFin)[0].to_date
 
 end
+def get_feature_asked_by_day(project,debutProjet,finProjet)
+Project.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("features_projects.project_id=?",project[:id]).group(:name).group_by_day(:date_demande, range:debutProjet..finProjet).count("case when date_demande IS NOT NULL THEN 0 end")
+end
 
+def get_features_asked(project)
+  project.features.where("status=1").map {|c|c.name}
+
+end
 
   def proj_feat(feature, project)
     FeaturesProject.where(["project_id=? and feature_id=?", project[:id], feature[:id]]).first

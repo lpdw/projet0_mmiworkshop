@@ -84,7 +84,7 @@
               <div id="pills<%= @pills %>" class="tab-pane fade<%= ' ' + (@pills == 1 ? 'active in' : '') %>" style="margin-top: 30px;">
                 <%# Si l'utilisateur est un professeur, on affiche les stats de touts les projets ainsi que les stats de chaque projet détaillées%>
                 <%if(current_user.profesor?)%>
-                    <%= render 'projects/stats', projects: @projects.where(workshop_id: workshop.id)%>
+                    <%= render 'projects/stats', projects: @projects.where(workshop_id: workshop.id), workshop: workshop%>
                   <%end%>
                 <% @projects.where(workshop_id: workshop.id).each do |project|%>
                 <div class="stats-project">
