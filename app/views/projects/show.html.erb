@@ -1,3 +1,7 @@
+<%# L'utilisateur peut voir les données d'un projet seulement si il est assigné à celui-ci,
+ sinon si il est professeur il peut s'y associer %>
+<%if UserAssignedToProjet(@project.id)%>
+
 <% content_for :title, @project %>
 <%if(current_user.admin? || current_user.profesor?)%>
   <%= render 'statsDetails', project: @project%>
@@ -48,3 +52,8 @@
       <%= render partial:'fields/list', locals: { parent_fields: @fieldsParents, fields: @fields, project: @project } %>
   </div>
 </div>
+<%else%>
+<div class="alert alert-danger text-center" role="alert">
+  Vous n'avez pas accès au projet <%=@project.name%>
+</div>
+<%end%>

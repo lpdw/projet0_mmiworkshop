@@ -169,6 +169,19 @@ class ProjectsController < ApplicationController
     end
   end
 
+  #Methode qui vérifie si l'utilisateur est assigné au projet
+helper_method :UserAssignedToProjet
+def UserAssignedToProjet(project_id)
+if (UsersProject.where("project_id=? and user_id=?",project_id,current_user.id).count>0)
+    return true;
+  else
+    return false;
+  end
+end
+
+def AssignUserToProject
+end
+
   private
   def set_project
     @project = Project.find(params[:id])
