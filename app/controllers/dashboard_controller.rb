@@ -18,13 +18,13 @@ class DashboardController < ApplicationController
       @workshops = Workshop.all
     end
 
+    @demandesValidation=FeaturesProject.joins(" inner join users_projects on features_projects.project_id=users_projects.project_id").where("features_projects.status=? and users_projects.user_id=?",1,current_user.id)
 #Les utilisateurs n'ont accès aux statistiques que des projets auxquels ils sont associés
     @projects = Project.joins("INNER JOIN users_projects ON projects.id=users_projects.project_id").where("users_projects.user_id= ?",current_user.id)
     @fieldsParents = Field.all.where(parent_id: nil)
     @featuresSearch= Feature.search(params[:search])
     @features= Feature.all
     @featuresProject=FeaturesProject.all
-    @badgesAttente=FeaturesProject.joins("INNER JOIN projects ON features_projects.project_id=projects.id").where("status=1")
 
 
     @user = current_user
