@@ -52,6 +52,7 @@
   <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
   <% if(current_user.profesor?) %>
     <%= line_chart project.get_feature_asked_by_day(project,debutProjet,finProjet),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
+    <%end%>
 </div>
 <% end %>
 
