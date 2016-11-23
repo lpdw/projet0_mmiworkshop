@@ -1,16 +1,16 @@
 <% data=Hash.new %>
-<%dateBadges=Hash.new%>
-<%debutProjet=workshop.get_project_start_date(workshop.id)%>
-<%finProjet=workshop.get_project_end_date(workshop.id)%>
-<%i=0%>
-<%# Pour chaque projet, on récupère le nombre de badges validés par rapport au nombre de badges total%>
+<% dateBadges=Hash.new %>
+<% debutProjet=workshop.get_project_start_date(workshop.id) %>
+<% finProjet=workshop.get_project_end_date(workshop.id) %>
+<% i=0 %>
+<%# Pour chaque projet, on récupère le nombre de badges validés par rapport au nombre de badges total %>
 <% projects.each do |project| %>
-      <%if(project.features.map {|c|c.name}.count()!=0)%>
-            <% data[project.name] = project.features.map {|c|c.name}.count()%>
-        <%end%>
+	<% if(project.features.map {|c|c.name}.count()!=0) %>
+		<% data[project.name] = project.features.map {|c|c.name}.count() %>
+	<% end %>
 <% end %>
-<%if !data.empty?%>
-  <%= bar_chart [{data: data.to_a, name:  "LPDW"},{data:data.to_a, name:"123...."}], colors: ["#014B4C","#012322","#0D7979"], max: @features.size() %>
-  <%# Demande de validation de badge par jour et par projet%>
-<%=line_chart projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").group(:name).group_by_day(:date_demande,range:debutProjet..finProjet).count(),:name => "Demande de validation de badge par jour", colors: ["#014B4C","#012322","#0D7979"]%>
-<%end%>
+<% if !data.empty? %>
+	<%= bar_chart [{data: data.to_a, name:  "LPDW"},{data:data.to_a, name:"123...."}], colors: ["#014B4C","#012322","#0D7979"], max: @features.size(), height: "200px" %>
+	<%# Demande de validation de badge par jour et par projet %>
+	<%= line_chart projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").group(:name).group_by_day(:date_demande,range:debutProjet..finProjet).count(),:name => "Demande de validation de badge par jour", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
+<% end %>

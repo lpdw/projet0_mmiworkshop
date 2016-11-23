@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
     if first_name.nil? or last_name.nil?
       "#{email}"
     else
-      "#{first_name} #{last_name}"
+      "#{first_name} #{last_name} (#{email})"
     end
   end
 

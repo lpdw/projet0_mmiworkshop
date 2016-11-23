@@ -1,95 +1,88 @@
 <%# Initialisation des variables %>
 <% data=Hash.new %>
 <% projet=Hash.new %>
-<%count=0%>
-<%percent=0%>
-<%debutProjet=project.get_project_start_date(project[:workshop_id])%>
-<%finProjet=project.get_project_end_date(project[:workshop_id])%>
+<% count=0 %>
+<% percent=0 %>
+<% debutProjet=project.get_project_start_date(project[:workshop_id]) %>
+<% finProjet=project.get_project_end_date(project[:workshop_id]) %>
 
+<%# On récupère le nombre total de badges validés du projet%>
+<% featuresChecked=project.features.where("status=2").map {|c|c.name}.count() %>
+<% featuresAsked=project.features.where("status=1").map {|c|c.name}.count() %>
 
-    <%# On récupère le nombre total de badges validés du projet%>
-    <%featuresChecked=project.features.where("status=2").map {|c|c.name}.count()%>
-
-    <%featuresAsked=project.features.where("status=1").map {|c|c.name}.count()%>
-
-
-    <%# Pour chaque field parent (Dev, Contenu et Design), on récupère le nombre de features validés%>
-    <% @fieldsParents.each do |field| %>
-        <% field.all_features.each do |feature| %>
-            <%if(project.has_feature?(feature)) %>
-                      <%count=count+1%>
-            <%end %>
-            <%# On calcule le pourcentage de badges validés par field (par rapport a tous les badges validés)%>
-            <%if(featuresChecked!=0)%>
-              <%projet[field.name]=count*100/featuresChecked  %>
-            <%end%>
-           <%# On calcule le pourcentage de features validé par field (par rapport au total de badges par field)%>
-            <%percent=count*100/field.all_features.count%>
-            <% data[field.name]=percent%>
-        <% end %>
-    <%count=0%>
+<%# Pour chaque field parent (Dev, Contenu et Design), on récupère le nombre de features validés%>
+<% @fieldsParents.each do |field| %>
+  <% field.all_features.each do |feature| %>
+    <% if(project.has_feature?(feature)) %>
+      <% count=count+1 %>
     <% end %>
+    <%# On calcule le pourcentage de badges validés par field (par rapport a tous les badges validés)%>
+    <% if(featuresChecked!=0) %>
+      <% projet[field.name]=count*100/featuresChecked %>
+    <% end %>
+    <%# On calcule le pourcentage de features validé par field (par rapport au total de badges par field)%>
+    <% percent=count*100/field.all_features.count %>
+    <% data[field.name]=percent %>
+  <% end %>
+  <% count=0 %>
+<% end %>
 
 <%# Si des badges on été validés on affiches les statistiques%>
-
-<%if(featuresChecked>0)%>
+<% if(featuresChecked>0) %>
 
 <%# Nombre de badges validés/restants et pourcentage%>
-    <div class="row">
-      <div class="col-md-6">
-        <p class="lead"> <%=featuresChecked%> / <%=@features.count()%> (<%=featuresChecked*100/@features.count()%>%)
-      </div>
-    </div>
-      <div class="col-md-6">
-        <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
-        <%= bar_chart [{name: "Badge(s) validé(s) (en %)", data:data}],colors: ["#014B4C","#012322","#0D7979"], hAxis: {format: 'percent'}, max: 100%>
-      </div>
+<div class="row">
+  <div class="col-md-6">
+    <p class="lead"><%= featuresChecked %> / <%= @features.count() %> (<%= featuresChecked*100/@features.count() %>%)</p>
+  </div>
+</div>
 
-      <div class="col-md-6">
-        <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
-        <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"]%>
-      </div>
+<div class="col-md-3">
+  <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
+  <%= bar_chart [{name: "Badge(s) validé(s) (en %)", data:data}],colors: ["#014B4C","#012322","#0D7979"], hAxis: {format: 'percent'}, max: 100, height: "200px" %>
+</div>
 
-      <div class="col-md-12">
+<div class="col-md-3">
+  <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
+  <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
+</div>
 
-
-        <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
-        <%if(current_user.profesor? && featuresAsked!=0)%>
-          <%=line_chart project.get_feature_asked_by_day(project,debutProjet,finProjet),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"]
-     %>
-        <%end%>
-      </div>
+<div class="col-md-6">
+  <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
+  <% if(current_user.profesor? && featuresAsked!=0) %>
+    <%= line_chart project.get_feature_asked_by_day(project,debutProjet,finProjet),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
+  <% end %>
+</div>
 
 <%# Si aucun badge n'a été validé on affiche un message d'erreur%>
-<%else%>
+<% else %>
   <div class="col-md-12" style="text-align: center;">
     <p style="margin-top: 20px;">Aucun badge n'a été validé !</p>
   </div>
-<%end%>
+<% end %>
 
 <%# Calcul du nombre de jours restants %>
-
 <% dateFin=@workshops.where(id: project.workshop_id).pluck(:dateFin)[0].to_date %>
-<% aujourdhui=Time.now.to_date%>
-<% joursRestants=(dateFin-aujourdhui).to_i%>
+<% aujourdhui=Time.now.to_date %>
+<% joursRestants=(dateFin-aujourdhui).to_i %>
 <p style="padding: 10px;">
-  <% if (joursRestants<0)%>
+  <% if (joursRestants<0) %>
     Le projet est terminé
-  <%elsif (joursRestants==0)%>
+  <% elsif (joursRestants==0) %>
     C'est le dernier jour !
-  <%elsif (joursRestants==1)%>
-    Il reste <%=joursRestants%> jour avant la fin du projet.
-  <%else%>
-    Il reste <%=joursRestants%> jours avant la fin du projet.
-  <%end%>
+  <% elsif (joursRestants==1) %>
+    Il reste <%= joursRestants %> jour avant la fin du projet.
+  <% else %>
+    Il reste <%= joursRestants %> jours avant la fin du projet.
+  <% end %>
 </p>
 
 <%#On récupère les badges en attente (si il y en a)%>
-<%if(project.get_features_asked(project).count()>0)%>
-Vous avez  <%=project.get_features_asked(project).count()%> badge(s) en attente :
-<ul>
-  <%project.get_features_asked(project).each do |badge|%>
-    <li><%=badge%></li>
-  <%end%>
-</ul>
-<%end%>
+<% if(project.get_features_asked(project).count()>0) %>
+  <p>Vous avez <%= project.get_features_asked(project).count() %> badge(s) en attente :</p>
+  <ul>
+    <% project.get_features_asked(project).each do |badge| %>
+      <li><%= badge %></li>
+    <% end %>
+  </ul>
+<% end %>
