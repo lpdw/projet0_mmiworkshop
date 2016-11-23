@@ -16,7 +16,7 @@
 
 <%= render partial:'features/modal' %>
 
-<div class="row">
+<div class="col-md-12">
   <div class="col-md-3" id="project" data-id="<%= @project.id %>" style="margin-top: 50px;">
     <%= render 'project', project: @project %>
     <%= link_to @project.github, @project.github, target: :blank %>
