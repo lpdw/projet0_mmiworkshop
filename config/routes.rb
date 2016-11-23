@@ -20,6 +20,6 @@ Rails.application.routes.draw do
     end
   end
   resources :fields
-  get 'autocomplete_feature' => 'features#autocomplete_feature'
+  get 'autocomplete_feature' => 'projects#autocomplete_feature'
   get 'get_features_modal' => 'projects#get_features_modal'
 end
