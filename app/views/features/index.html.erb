@@ -1,5 +1,5 @@
 <% content_for :title, 'Caractéristiques' %>
-<%= link_to 'Nouveau', new_feature_path , class: 'btn btn-default'if can? :create, @feature %>
+<%= link_to 'Nouveau', new_feature_path , class: 'btn btn-default'if can? :create, Feature %>
 
 <% @pills=1 #Pour lier les onglets %>
 <!-- nav : en onglet (bootstrap) por faciliter la navigation -->
