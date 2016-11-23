@@ -18,10 +18,10 @@
     <article class="project thumbnail">
       <h2><%= @user %></h2>
       <% #On affiche Administrateur s'il est admin et enseignant s'il est prof
-      if @user.admin == true %>
+      if @user.admin? && !@user.profesor? %>
         <h3>Administrateur</h3>
-      <% elsif @user.profesor == true %>
-        <h3>Enseignant(e)</h3>
+      <% elsif @user.profesor? %>
+      <h3>Enseignant(e)</h3>
       <% else%>
         <h3> Étudiant(e) </h3>
       <% end %>
