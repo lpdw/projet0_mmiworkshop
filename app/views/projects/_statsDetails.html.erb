@@ -8,7 +8,7 @@
 
 <%# On récupère le nombre total de badges validés du projet%>
 <% featuresChecked=project.features.where("status=2").map {|c|c.name}.count() %>
-<% featuresAsked=project.features.where("status=1").map {|c|c.name}.count() %>
+<% featuresAsked=project.features.where("status=1  OR date_demande IS NOT NULL").map {|c|c.name}.count() %>
 
 <%# Pour chaque field parent (Dev, Contenu et Design), on récupère le nombre de features validés%>
 <% @fieldsParents.each do |field| %>
@@ -49,7 +49,7 @@
 
 <div class="col-md-6">
   <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
-  <% if(current_user.profesor? && featuresAsked!=0) %>
+  <% if(current_user.profesor?) %>
     <%= line_chart project.get_feature_asked_by_day(project,debutProjet,finProjet),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
   <% end %>
 </div>
