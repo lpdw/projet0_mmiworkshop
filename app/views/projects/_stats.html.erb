@@ -5,7 +5,7 @@
 <% i=0 %>
 
 <%# Calcul du nombre de jours restants %>
-<% dateFin=@workshop[:dateFin].to_date %>
+<% dateFin=workshop[:dateFin].to_date %>
 <% aujourdhui=Time.now.to_date %>
 <% joursRestants=(dateFin-aujourdhui).to_i %>
 <p style="padding: 10px;">

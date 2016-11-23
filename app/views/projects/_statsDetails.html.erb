@@ -31,11 +31,9 @@
 <% if(featuresChecked>0) %>
 
 <%# Nombre de badges validés/restants et pourcentage%>
-<div class="row">
-  <div class="col-md-6">
-    <p class="lead"><%= featuresChecked %> / <%= @features.count() %> (<%= featuresChecked*100/@features.count() %>%)</p>
+  <div class="col-md-12">
+    <p><%= featuresChecked %> / <%= @features.count() %> de badges validés (<%= featuresChecked*100/@features.count() %>%)</p>
   </div>
-</div>
 
 <div class="col-md-3">
   <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
@@ -47,12 +45,12 @@
   <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
 </div>
 
+<%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
+<% if(current_user.profesor? && featuresAsked!=0) %>
 <div class="col-md-6">
-  <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
-  <% if(current_user.profesor? && featuresAsked!=0) %>
     <%= line_chart project.get_feature_asked_by_day(project,debutProjet,finProjet),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
-  <% end %>
 </div>
+<% end %>
 
 <%# Si aucun badge n'a été validé on affiche un message d'erreur%>
 <% else %>
