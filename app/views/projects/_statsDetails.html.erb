@@ -77,7 +77,7 @@
   <% end %>
 </p>
 
-<%#On récupère les badges en attente (si il y en a)%>
+<%# On récupère les badges en attente (si il y en a) %>
 <% if(project.get_features_asked(project).count()>0) %>
   <p>Vous avez <%= project.get_features_asked(project).count() %> badge(s) en attente :</p>
   <ul>
