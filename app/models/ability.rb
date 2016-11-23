@@ -16,7 +16,7 @@ class Ability
     elsif user.profesor?
       can :read, :all
       can :create, [Field,Feature]
-      can :edit, [Field,Feature]
+      cannot :edit, [Field,Feature]
       cannot :destroy, [Field, Feature]
       can :manage, Workshop
       can :manage, Project
