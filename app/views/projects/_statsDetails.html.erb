@@ -61,21 +61,7 @@
   </div>
 <% end %>
 
-<%# Calcul du nombre de jours restants %>
-<% dateFin=@workshops.where(id: project.workshop_id).pluck(:dateFin)[0].to_date %>
-<% aujourdhui=Time.now.to_date %>
-<% joursRestants=(dateFin-aujourdhui).to_i %>
-<p style="padding: 10px;">
-  <% if (joursRestants<0) %>
-    Le projet est terminé
-  <% elsif (joursRestants==0) %>
-    C'est le dernier jour !
-  <% elsif (joursRestants==1) %>
-    Il reste <%= joursRestants %> jour avant la fin du projet.
-  <% else %>
-    Il reste <%= joursRestants %> jours avant la fin du projet.
-  <% end %>
-</p>
+
 
 <%#On récupère les badges en attente (si il y en a)%>
 <% if(project.get_features_asked(project).count()>0) %>

@@ -32,4 +32,6 @@ class Workshop < ActiveRecord::Base
     Workshop.where("id=?",workshop_id).pluck(:dateFin)[0].to_date
 
   end
+
+
 end

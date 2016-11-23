@@ -3,14 +3,29 @@
 <% debutProjet=workshop.get_project_start_date(workshop.id) %>
 <% finProjet=workshop.get_project_end_date(workshop.id) %>
 <% i=0 %>
+
+<%# Calcul du nombre de jours restants %>
+<% dateFin=@workshop[:dateFin].to_date %>
+<% aujourdhui=Time.now.to_date %>
+<% joursRestants=(dateFin-aujourdhui).to_i %>
+<p style="padding: 10px;">
+  <% if (joursRestants<0) %>
+    Le projet est terminé
+  <% elsif (joursRestants==0) %>
+    C'est le dernier jour !
+  <% elsif (joursRestants==1) %>
+    Il reste <%= joursRestants %> jour avant la fin du projet.
+  <% else %>
+    Il reste <%= joursRestants %> jours avant la fin du projet.
+  <% end %>
+</p>
+
 <%# Pour chaque projet, on récupère le nombre de badges validés par rapport au nombre de badges total %>
 <% projects.each do |project| %>
-	<% if(project.features.map {|c|c.name}.count()!=0) %>
 		<% data[project.name] = project.features.map {|c|c.name}.count() %>
-	<% end %>
 <% end %>
 <% if !data.empty? %>
-	<%= bar_chart [{data: data.to_a, name:  "LPDW"},{data:data.to_a, name:"123...."}], colors: ["#014B4C","#012322","#0D7979"], max: @features.size(), height: "200px" %>
+	<%= bar_chart [{data: data.to_a, name:  workshop.name}], colors: ["#014B4C","#012322","#0D7979"], max: @features.size(), height: "200px" %>
 	<%# Demande de validation de badge par jour et par projet %>
 	<%= line_chart projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").group(:name).group_by_day(:date_demande,range:debutProjet..finProjet).count(),:name => "Demande de validation de badge par jour", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
 <% end %>
