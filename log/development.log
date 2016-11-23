@@ -10452,7 +10452,7 @@ LINE 1: ..." WHERE "features_projects"."project_id" = $1 AND "features"...
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.features.includes(:field).where(status: '2').reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/views/projects/_form.html.erb:13:in `block in _app_views_projects__form_html_erb___189337226133402313_70305790596560'
   app/views/projects/_form.html.erb:1:in `_app_views_projects__form_html_erb___189337226133402313_70305790596560'
@@ -10483,7 +10483,7 @@ ActionView::Template::Error (undefined local variable or method `project' for #<
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.getFeaturesValidate.includes(:field).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/models/project.rb:48:in `getFeaturesValidate'
   app/views/projects/_form.html.erb:13:in `block in _app_views_projects__form_html_erb___189337226133402313_70305790350120'
@@ -10515,7 +10515,7 @@ ActionView::Template::Error (wrong number of arguments (0 for 1)):
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.getFeaturesValidate.includes(:field).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/models/project.rb:47:in `getFeaturesValidate'
   app/views/projects/_form.html.erb:13:in `block in _app_views_projects__form_html_erb___189337226133402313_70305790350120'
@@ -10547,7 +10547,7 @@ ActionView::Template::Error (no implicit conversion of Symbol into Integer):
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.getFeaturesValidate(@project.id).includes(:field).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/models/project.rb:48:in `[]'
   app/models/project.rb:48:in `getFeaturesValidate'
@@ -10580,7 +10580,7 @@ ActionView::Template::Error (no implicit conversion of Symbol into Integer):
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.getFeaturesValidate(@project.id).includes(:field).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/models/project.rb:48:in `[]'
   app/models/project.rb:48:in `getFeaturesValidate'
@@ -10613,7 +10613,7 @@ ActionView::Template::Error (no implicit conversion of Symbol into Integer):
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.getFeaturesValidate(@project.id).includes(:field).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/models/project.rb:48:in `[]'
   app/models/project.rb:48:in `getFeaturesValidate'
@@ -10646,7 +10646,7 @@ ActionView::Template::Error (Association named 'field' was not found on Features
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.getFeaturesValidate(@project).includes(:field).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/views/projects/_form.html.erb:13:in `block in _app_views_projects__form_html_erb___189337226133402313_70305821836940'
   app/views/projects/_form.html.erb:1:in `_app_views_projects__form_html_erb___189337226133402313_70305821836940'
@@ -10684,7 +10684,7 @@ LINE 1: ...) AND "features_projects"."status" = $1  ORDER BY fields.par...
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.getFeaturesValidate(@project).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/views/projects/_form.html.erb:13:in `block in _app_views_projects__form_html_erb___189337226133402313_70305808279160'
   app/views/projects/_form.html.erb:1:in `_app_views_projects__form_html_erb___189337226133402313_70305808279160'
@@ -10722,7 +10722,7 @@ LINE 1: ... WHERE "features_projects"."project_id" = $1 AND (field.stat...
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.features.includes(:field).where("field.status = 2").references(:field).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/views/projects/_form.html.erb:13:in `block in _app_views_projects__form_html_erb___189337226133402313_70305821510520'
   app/views/projects/_form.html.erb:1:in `_app_views_projects__form_html_erb___189337226133402313_70305821510520'
@@ -10760,7 +10760,7 @@ LINE 1: ... WHERE "features_projects"."project_id" = $1 AND (features.s...
     12:   <br/>
     13:   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.features.includes(:field).where("features.status = 2").references(:features).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
     14:   <br/>
-    15: 
+    15:
     16:   <%= f.button :submit, class: "btn btn-primary" %>
   app/views/projects/_form.html.erb:13:in `block in _app_views_projects__form_html_erb___189337226133402313_70305806827580'
   app/views/projects/_form.html.erb:1:in `_app_views_projects__form_html_erb___189337226133402313_70305806827580'
