@@ -30,6 +30,7 @@
                       <li><%= link_to 'Champs', fields_path if can? :read ,:fields%></li>
                     <%end%>
                     <li><%= link_to 'Mon profil', my_profile_path %></li>
+                    <li><%= link_to "Modifier mot de passe", edit_user_registration_path %></li>
                     <li><%= link_to 'Déconnexion', destroy_user_session_path, rel: 'nofollow', method: :delete %></li>
                 <% else %>
                     <li><%= link_to "Connexion", new_session_path(:user) %></li>

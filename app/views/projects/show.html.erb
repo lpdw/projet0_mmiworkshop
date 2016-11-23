@@ -30,6 +30,11 @@
           <%= link_to user do %>
             <%= image_tag user.gravatar_url(size: 25), class: 'img-circle' %>
             <%= user %>
+            <% if user.profesor == true%>
+              <%= " (Professeur)"%>
+            <% else %>
+              <%= " (Étudiant)"%>
+            <% end %>
           <% end %>
         </li>
       <% end %>

@@ -52,6 +52,21 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def update_password
+    @user = User.find(current_user.id)
+    if @user.update(user_params_passwd)
+      # Sign in the user by passing validation in case their password changed
+      bypass_sign_in(@user)
+      redirect_to root_path
+    else
+      render "edit"
+    end
+  end
+
+  def user_params_passwd
+    # NOTE: Using `strong_parameters` gem
+    params.require(:user).permit(:password, :password_confirmation)
+  end
   # GET /users/1
   def show
     @fields = Field.all
