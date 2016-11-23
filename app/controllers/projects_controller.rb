@@ -170,8 +170,8 @@ class ProjectsController < ApplicationController
   end
 
   #Methode qui vérifie si l'utilisateur est assigné au projet
-helper_method :UserAssignedToProjet
-def UserAssignedToProjet(project_id)
+helper_method :user_assigned_to_project
+def user_assigned_to_project(project_id)
 if (UsersProject.where("project_id=? and user_id=?",project_id,current_user.id).count>0)
     return true;
   else
@@ -179,7 +179,13 @@ if (UsersProject.where("project_id=? and user_id=?",project_id,current_user.id).
   end
 end
 
-def AssignUserToProject
+def assignUserToProject
+  #On assigne l'utilisateur connecté au projet dans la table users_projects
+  @userProject = UsersProject.new(:user_id=>current_user.id,:project_id=>params[:id])
+  if @userProject.save
+          flash[:success] = "Vous avez été assigné au projet !"
+          redirect_to project_url
+end
 end
 
   private

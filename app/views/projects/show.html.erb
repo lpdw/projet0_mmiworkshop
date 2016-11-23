@@ -1,6 +1,11 @@
 <%# L'utilisateur peut voir les données d'un projet seulement si il est assigné à celui-ci,
  sinon si il est professeur il peut s'y associer %>
-<%if UserAssignedToProjet(@project.id)%>
+
+
+<%if user_assigned_to_project(@project.id)%>
+<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 
 <% content_for :title, @project %>
 <%if(current_user.admin? || current_user.profesor?)%>
@@ -55,5 +60,13 @@
 <%else%>
 <div class="alert alert-danger text-center" role="alert">
   Vous n'avez pas accès au projet <%=@project.name%>
+  <%# Si l'utilisateur connecté est un professeur, il peut s'ajouter au projet%>
+
 </div>
+<% if current_user.profesor?%>
+<%#link_to "M'ajouter au projet", assignUserToProject_path(@project.id)%>
+
+<%= button_to "M'ajouter au projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}
+%>
+<%end%>
 <%end%>
