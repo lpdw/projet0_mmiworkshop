@@ -10,3 +10,18 @@
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+.notifications-level{
+  background: red;
+border-radius: 100%;
+width: 15px;
+height: 15px;
+overflow: hidden;
+position: absolute;
+font-size: 13px;
+font-weight: 700;
+color: white;
+bottom: 5px;
+left: 8px;
+text-align: center;
+
+}
