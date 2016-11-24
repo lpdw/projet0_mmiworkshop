@@ -24,6 +24,9 @@
     <div class="alert alert-success" style="text-align: center;">Il reste <%= joursRestants %> jours avant la fin du projet.</div>
   <% end %>
 
+  <%# Si l'utilisateur est un professeur, on affiche les stats de touts les projets %>
+
+<% if current_user.profesor?%>
 <%# Pour chaque projet, on récupère le nombre de badges validés par rapport au nombre de badges total %>
 <% projects.each do |project| %>
 		<% data[project.name] = project.features.map {|c|c.name}.count() %>
@@ -37,3 +40,4 @@
 	<%= line_chart projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("date_demande IS NOT NULL").group(:name).group_by_day(:date_demande,range:debutProjet..finProjet).count(),:name => "Demande de validation de badge par jour", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
 </div>
 <% end %>
+<%end%>
