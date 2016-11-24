@@ -31,30 +31,22 @@
 <% if(featuresChecked>0) %>
 
 <%# Nombre de badges validés/restants et pourcentage%>
-  <div class="col-md-12">
-    <p><%= featuresChecked %> / <%= @features.count() %> de badges validés (<%= featuresChecked*100/@features.count() %>%)</p>
+  <div class="alert alert-info" style="text-align: center;">
+    <p><%= featuresChecked %> badges sur <%= @features.count() %> validés (<%= featuresChecked*100/@features.count() %>%)</p>
   </div>
 
-<div class="col-md-3">
-  <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
-  <%= bar_chart [{name: "Badge(s) validé(s) (en %)", data:data}],colors: ["#014B4C","#012322","#0D7979"], hAxis: {format: 'percent'}, max: 100, height: "200px" %>
+<div class="row" style="margin-bottom: 30px;">
+  <div class="col-md-6">
+    <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
+    <%= bar_chart [{name: "Badge(s) validé(s) (en %)", data:data}],colors: ["#014B4C","#012322","#0D7979"], hAxis: {format: 'percent'}, max: 100, height: "200px" %>
+  </div>
+
+  <div class="col-md-6">
+    <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
+    <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
+  </div>
 </div>
 
-<div class="col-md-3">
-  <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
-  <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
-</div>
-
-<%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
-<% if(current_user.profesor? && featuresAsked!=0) %>
-<div class="col-md-6">
-
-  <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
-  <% if(current_user.profesor?) %>
-    <%= line_chart project.get_feature_asked_by_day(project,debutProjet,finProjet),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
-    <%end%>
-</div>
-<% end %>
 
 <%# Si aucun badge n'a été validé on affiche un message d'erreur%>
 <% else %>
@@ -62,11 +54,19 @@
     <p style="margin-top: 20px;">Aucun badge n'a été validé !</p>
   </div>
 <% end %>
+<%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
+<% if(current_user.profesor? && featuresAsked!=0) %>
+<div class="col-md-12" style="margin-bottom: 30px;">
+
+  <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
+    <%= line_chart project.get_feature_asked_by_day(project,debutProjet,finProjet),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
+</div>
+<% end %>
 
 
 
-<%# On récupère les badges en attente (si il y en a) %>
-<% if(project.get_features_asked(project).count()>0) %>
+<%# Pour les étudiants, on affiche le nombre de badges en attente de validation  %>
+<% if(project.get_features_asked(project).count()>0 && !current_user.profesor? && !current_user.admin?) %>
   <p>Vous avez <%= project.get_features_asked(project).count() %> badge(s) en attente :</p>
   <ul>
     <% project.get_features_asked(project).each do |badge| %>

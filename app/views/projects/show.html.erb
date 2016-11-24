@@ -8,10 +8,6 @@
 <% end %>
 
 <% content_for :title, @project %>
-<%if(current_user.admin? || current_user.profesor?)%>
-  <%= render 'statsDetails', project: @project%>
-
-<%end%>
 
 <%= javascript_tag do %>
   var Features = {};
@@ -48,6 +44,12 @@
     <button type="button" class="btn btn-link"><%= link_to 'Supprimer', @project, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @project %></button>
   </div>
   <div class="col-md-9" style="margin-top: 50px;">
+
+    <%if(current_user.admin? || current_user.profesor?)%>
+      <%= render 'statsDetails', project: @project%>
+
+    <%end%>
+
 <div style="margin: 15px 0;">
     <%= form_tag project_path, :method => 'get', :id => "projects_search" do %>
         <div class="col-xs-3" style="padding: 0; margin-right: 3px;">
@@ -70,9 +72,7 @@
 
 </div>
 <% if current_user.profesor?%>
-<%#link_to "M'ajouter au projet", assignUserToProject_path(@project.id)%>
 
-<%= button_to "M'ajouter au projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}
-%>
+<%= button_to "M'ajouter au projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}%>
 <%end%>
 <%end%>
