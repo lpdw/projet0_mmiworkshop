@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     before_action :set_project, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
     
-    skip_authorize_resource :only => :search_features
+    skip_authorize_resource only: [:search_features, :update]
 
     # GET /projects
     def index

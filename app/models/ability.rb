@@ -29,8 +29,6 @@ class Ability
       can :read, [Dashboard,Project,:projects]
       can :me, User
       can :update_me, User
-      can :update, Project
-      
     end
   end
 end
