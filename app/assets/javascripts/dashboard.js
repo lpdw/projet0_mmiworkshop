@@ -44,6 +44,8 @@ $(function() {
         else if(Features[id].droit==0){
           $("#reject_demande").css("display",'none');
           $('#comment').attr("disabled", false);
+          $('#comment').val(Features[id].commentaire.replace(/&#39;/g, "'"));
+		    	$('#commentaire_prof').val(Features[id].commentaire_prof.replace(/&#39;/g, "'"));
 
           if(Features[id].status==2){
             value="Validé";

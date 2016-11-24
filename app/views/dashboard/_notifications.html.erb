@@ -60,7 +60,7 @@
                         <%# on récupère les données du features pour le javascript%>
                       <%= javascript_tag do %>
 
-                    			var id = "<%= count %>";
+                    			var id = <%= count %>;
 
                           Features[id] = {};
                     			Features[id]['feature_id'] = "<%= featureProject.feature_id %>";
