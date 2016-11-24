@@ -9,6 +9,14 @@
 </i>
 <%end%>
         </div>
+        <%= javascript_tag do %>
+          var Features = {};
+        <% end %>
+        <% content_for :javascript do %>
+        <%= javascript_include_tag 'dashboard.js' %>
+        <%end%>
+
+
         <div class="panel-body" style="height: 155px; overflow: auto;">
             <ul class="list-group">
                 <%if @demandesValidation.count>0%>
@@ -16,7 +24,25 @@
                 <!-- List group -->
                 <li class="list-group-item">
 
-                    <%=Feature.find(demande.feature_id).name%> pour le projet <%=Project.find(demande.project_id).name%>
+                    <strong><%=Project.find(demande.project_id).name%> </strong> (<%=User.find(demande.id_demandeur).first_name%> <%=User.find(demande.id_demandeur).last_name%>) : <%=Feature.find(demande.feature_id).name%>
+                      <%# on récupère les données du features pour le javascript%>
+                    <%= javascript_tag do %>
+
+                  			var id = "<%= demande.feature_id %>";
+
+                        Features[id] = {};
+                  			Features[id]['feature_id'] = "<%= demande.feature_id %>";
+                        Features[id]['project_id'] = "<%= demande.project_id %>";
+                  			Features[id]['status'] = "<%= demande.status %>";
+                  			Features[id]['commentaire'] = "<%= raw(demande.commentaire) %>";
+                  			Features[id]['commentaire_prof'] = "<%= raw(demande.commentaire_prof) %>";
+                  	<% end %>
+                    <%= render partial:'features/modal' %>
+
+                      <i class="glyphicon glyphicon-check feature-check"></i>
+
+
+
                 </li>
 
                 <%end%>

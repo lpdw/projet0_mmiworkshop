@@ -99,8 +99,12 @@ class ProjectsController < ApplicationController
         end
       end
       # Bug fixe caractere speciaux
-      params[:data][:commentaire_prof] = CGI.escapeHTML(params[:data][:commentaire_prof])
-      params[:data][:commentaire] = CGI.escapeHTML(params[:data][:commentaire])
+      if(!params[:data][:commentaire_prof].nil?)
+        params[:data][:commentaire_prof] = CGI.escapeHTML(params[:data][:commentaire_prof])
+      end
+      if(!params[:data][:commentaire].nil?)
+        params[:data][:commentaire] = CGI.escapeHTML(params[:data][:commentaire])
+      end
       # Create if nil
       if @projectsfeature.nil?
         insert = (params[:data][:status] == 1) ? "'#{@user.id}'" : "'#{@user.id}','#{@user.id}',now()"
@@ -172,7 +176,7 @@ class ProjectsController < ApplicationController
   #Methode qui vérifie si l'utilisateur est assigné au projet
 helper_method :user_assigned_to_project
 def user_assigned_to_project(project_id)
-if (UsersProject.where("project_id=? and user_id=?",project_id,current_user.id).count>0)
+  if (UsersProject.where("project_id=? and user_id=?",project_id,current_user.id).count>0)
     return true;
   else
     return false;
@@ -185,7 +189,7 @@ def assignUserToProject
   if @userProject.save
           flash[:success] = "Vous avez été assigné au projet !"
           redirect_to project_url
-end
+        end
 end
 
   private
