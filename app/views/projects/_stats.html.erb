@@ -15,13 +15,13 @@
 <% aujourdhui=Time.now.to_date %>
 <% joursRestants=(dateFin-aujourdhui).to_i %>
   <% if (joursRestants<0) %>
-    <div class="alert alert-info">Le projet est terminé</div>
+    <div class="alert alert-info" style="text-align: center;">Le projet est terminé</div>
   <% elsif (joursRestants==0) %>
-    <div class="alert alert-danger">C'est le dernier jour !</div>
+    <div class="alert alert-danger" style="text-align: center;">C'est le dernier jour !</div>
   <% elsif (joursRestants==1) %>
-    <div class="alert alert-warning">Il reste <%= joursRestants %> jour avant la fin du projet.</div>
+    <div class="alert alert-warning" style="text-align: center;">Il reste <%= joursRestants %> jour avant la fin du projet.</div>
   <% else %>
-    <div class="alert alert-success">Il reste <%= joursRestants %> jours avant la fin du projet.</div>
+    <div class="alert alert-success" style="text-align: center;">Il reste <%= joursRestants %> jours avant la fin du projet.</div>
   <% end %>
 
 <%# Pour chaque projet, on récupère le nombre de badges validés par rapport au nombre de badges total %>
