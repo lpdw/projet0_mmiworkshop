@@ -33,9 +33,11 @@
 <% end %>
 <% if !data.empty? %>
 <div class="col-md-6">
+  <p style="text-align: center;">Nombre de badges validés</p>
 	<%= bar_chart [{data: data.to_a, name:  workshop.name}], colors: ["#014B4C","#012322","#0D7979"], max: @features.size(), height: "200px" %>
 </div>
 <div class="col-md-6">
+  <p style="text-align: center;">Demandes de badges par jour</p>
 	<%# Demande de validation de badge par jour et par projet %>
 	<%= line_chart projects.joins("LEFT JOIN features_projects ON features_projects.project_id = projects.id").where("date_demande IS NOT NULL").group(:name).group_by_day(:date_demande,range:debutProjet..finProjet).count(),:name => "Demande de validation de badge par jour", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
 </div>
