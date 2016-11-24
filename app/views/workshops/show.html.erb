@@ -7,8 +7,8 @@
             <% if @workshop.description %><div><%= @workshop.description %></div><% end %>
             <% if @workshop.url %><p><%= link_to @workshop.url, @workshop.url, target: :blank %></p><% end %>
 
-            <%= link_to 'Edit', edit_workshop_path(@workshop), class: "btn btn-default" if can? :edit, @workshop %>
-            <%= link_to 'Destroy', @workshop, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure?' } if can? :destroy, @workshop %>
+            <%= link_to 'Editer', edit_workshop_path(@workshop), class: "btn btn-default" if can? :edit, @workshop %>
+            <%= link_to 'Supprimer', @workshop, method: :delete, class: "btn btn-default", data: { confirm: 'Are you sure?' } if can? :destroy, @workshop %>
         </article>
     </div>
 

@@ -46,7 +46,27 @@
   <div class="col-md-9" style="margin-top: 50px;">
 
     <%if(current_user.admin? || current_user.profesor?)%>
-      <%= render 'statsDetails', project: @project%>
+
+    <div id="pills" class="tab-pane">
+      <div class="panel-group text-center" id="accordionStats">
+          <div class="panel panel-default">
+            <!-- Nom du field et lien qui servira à ouvrir/fermer l'accordéon -->
+            <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
+            <div class="row panel-heading" style="background-color: transparent !important;">
+                <h3 class="panel-title text-center col-md-12">
+                  Statistiques détaillées
+                </h3>
+            </div>
+            </a>
+            <!-- Contenu (badges) de l'accordéon -->
+            <div id="collapseStats" class="panel-collapse collapse text-center">
+              <div class="panel-body text-center">
+                <%= render 'statsDetails', project: @project%>
+              </div>
+            </div>
+          </div>
+      </div>
+      </div>
 
     <%end%>
 
