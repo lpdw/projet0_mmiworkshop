@@ -33,7 +33,7 @@
             </div>
             </a>
             <!-- Contenu (badges) de l'accordéon -->
-            <div id="collapse<%= @compteur %>" class="panel-collapse collapse text-center">
+            <div id="collapse<%= @compteur %>" class="panel-collapse collapse list text-center">
               <div class="panel-body text-center">
                 <% field.features.each do |feature| %>
                   <div class="col-md-4">
@@ -64,13 +64,13 @@
 <script>
 
 $('.closeall').click(function(){
-  $('.panel-collapse.in')
+  $('.list.panel-collapse.in')
     .collapse('hide');
   $('#openall').show();
 $('#closeall').hide();
 });
 $('.openall').click(function(){
-  $('.panel-collapse:not(".in")')
+  $('.list.panel-collapse:not(".in")')
     .collapse('show');
   $('#closeall').show();
   $('#openall').hide();

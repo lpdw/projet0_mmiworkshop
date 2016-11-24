@@ -13,19 +13,26 @@
 
   <div class="row" style="margin-bottom: 30px;">
   <h1 style="margin: 0 0 20px 0">Tableau de bord</h1>
+
     <div class="col-md-6">
 
-    <article class="project thumbnail" style="min-height: auto;">
-      <h3><%= @user %></h3>
-      <% #On affiche Administrateur s'il est admin et enseignant s'il est prof
-      if @user.admin? && !@user.profesor? %>
-        <h3>Administrateur</h3>
-      <% elsif @user.profesor? %>
-      <h3>Enseignant(e)</h3>
-      <% else%>
-        <h3> Étudiant(e) </h3>
-      <% end %>
-    </article>
+
+    <div class="panel panel-default" style="min-height: auto;">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-user"></span>
+        <%= @user %>
+      </div>
+      <div class="panel-body">
+        <% #On affiche Administrateur s'il est admin et enseignant s'il est prof
+        if @user.admin? && !@user.profesor? %>
+          <h4>Administrateur</h4>
+        <% elsif @user.profesor? %>
+        <h4>Enseignant(e)</h4>
+        <% else%>
+          <h4> Étudiant(e) </h4>
+        <% end %>
+      </div>
+    </div>
 
       <%= link_to 'Créer un nouveau projet', new_project_path, style: 'width: 100%;', class: 'btn btn-default' if can? :create, Project %>
   </div>

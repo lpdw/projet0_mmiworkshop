@@ -14,17 +14,15 @@
 <% dateFin=workshop[:dateFin].to_date %>
 <% aujourdhui=Time.now.to_date %>
 <% joursRestants=(dateFin-aujourdhui).to_i %>
-<p style="padding: 10px;">
   <% if (joursRestants<0) %>
-    Le projet est terminé
+    <div class="alert alert-info">Le projet est terminé</div>
   <% elsif (joursRestants==0) %>
-    C'est le dernier jour !
+    <div class="alert alert-danger">C'est le dernier jour !</div>
   <% elsif (joursRestants==1) %>
-    Il reste <%= joursRestants %> jour avant la fin du projet.
+    <div class="alert alert-warning">Il reste <%= joursRestants %> jour avant la fin du projet.</div>
   <% else %>
-    Il reste <%= joursRestants %> jours avant la fin du projet.
+    <div class="alert alert-success">Il reste <%= joursRestants %> jours avant la fin du projet.</div>
   <% end %>
-</p>
 
 <%# Pour chaque projet, on récupère le nombre de badges validés par rapport au nombre de badges total %>
 <% projects.each do |project| %>

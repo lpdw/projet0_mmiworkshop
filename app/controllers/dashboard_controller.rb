@@ -18,7 +18,14 @@ class DashboardController < ApplicationController
       @workshops = Workshop.all
     end
 
+    # Pour les professeurs, on affiche la liste des features demandées, pour les étudiants on affiche la liste des réponses, et des features en attente
+    if current_user.profesor?
     @demandesValidation=FeaturesProject.joins(" inner join users_projects on features_projects.project_id=users_projects.project_id").where("features_projects.status=? and users_projects.user_id=?",1,current_user.id)
+  else
+    # pour les etudiants, on affiche les badges validés et ou supprimés ( 5 derniers)
+    @demandesValidation=FeaturesProject.joins(" inner join users_projects on features_projects.project_id=users_projects.project_id").where("users_projects.user_id=? and (features_projects.status=? OR features_projects.status=?) ",current_user.id,2,3).reorder(:date_badge_valide).limit(5)
+
+  end
 #Les utilisateurs n'ont accès aux statistiques que des projets auxquels ils sont associés
     @projects = Project.joins("INNER JOIN users_projects ON projects.id=users_projects.project_id").where("users_projects.user_id= ?",current_user.id)
     @fieldsParents = Field.all.where(parent_id: nil)
