@@ -30,7 +30,10 @@
 
   </div>
 
-  <div class="col-md-9">
+  <%if current_user.profesor?%>
+  <%= render 'notifications'%>
+  <%end%>
+    <div class="col-md-9">
 
     <%# Formulaire de tri des projets%>
 

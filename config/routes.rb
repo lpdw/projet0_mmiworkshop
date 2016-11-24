@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   get 'projects/:id/stats' => 'projects#stats'
   get 'users/me' => 'users#me', as: 'my_profile'
   patch 'users/me' => 'users#update_me', as: 'update_my_profile'
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
   resources :users
   get 'users/diploma/:year' => 'users#diploma', as: 'users_by_diploma'
   resources :features do
@@ -22,4 +27,5 @@ Rails.application.routes.draw do
   resources :fields
   get 'autocomplete_feature' => 'projects#autocomplete_feature'
   get 'get_features_modal' => 'projects#get_features_modal'
+  post "projects/:id" => "projects#assignUserToProject"
 end
