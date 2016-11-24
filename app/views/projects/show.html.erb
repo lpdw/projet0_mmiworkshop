@@ -54,7 +54,7 @@
             <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
             <div class="row panel-heading" style="background-color: transparent !important;">
                 <h3 class="panel-title text-center col-md-12">
-                  Statistiques détaillées
+                  Statistiques détaillées <span class="glyphicon glyphicon-chevron-down" style="float: right; color: #777"></span>
                 </h3>
             </div>
             </a>
@@ -93,6 +93,7 @@
 </div>
 <% if current_user.profesor?%>
 
-<%= button_to "M'ajouter au projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}%>
+<%= button_to "Rejoindre le projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}, class: "btn btn-primary", style: "width: 100%;" %>
+<%= link_to 'Retour aux projets', projects_path, class: "btn btn-default", style: "margin-top: 15px;" %>
 <%end%>
 <%end%>
