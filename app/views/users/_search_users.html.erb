@@ -1,0 +1,16 @@
+<div class="row users">
+  <% @users.each do |user| %>
+  <div class="col-md-2 user">
+    <%= link_to user do %>
+      <%= image_tag user.gravatar_url, class: 'img-circle img-responsive' %><br/>
+      <%= user %><br/>
+      <% if can? :edit, user %>
+      	<p><%= link_to 'Editer', edit_user_path(user), class: 'btn btn-default btn-xs' %></p>
+      <% end %>
+      <% if can? :destroy, user %>
+        <p><%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Êtes vous sûr(e) ?' }, class: 'btn btn-default btn-xs' %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <% end %>
+</div>

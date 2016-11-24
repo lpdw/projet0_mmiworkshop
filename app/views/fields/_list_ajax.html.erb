@@ -1,0 +1,11 @@
+<div class="row" id="searchFeatures">
+
+	<% @features.each do |feature| %>
+		<div class="col-md-4 text-center">
+		<%# On récupère le nom du field parent %>
+			<div class="panel-title  col-md-12">  <%= @fields.where(id: feature.field_id).first%> </div>
+			<%= render partial: 'features/badge', locals: { feature: feature, project: @project, inactive: !@project.has_feature?(feature) } %>
+		</div>
+	<%end%>
+
+</div>
