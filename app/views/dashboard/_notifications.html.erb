@@ -15,6 +15,7 @@
         <% content_for :javascript do %>
         <%= javascript_include_tag 'dashboard.js' %>
         <%end%>
+        <%= render partial:'features/modal' %>
 
 
         <div class="panel-body" style="height: 123px; overflow: auto;">
@@ -60,17 +61,16 @@
                         <%# on récupère les données du features pour le javascript%>
                       <%= javascript_tag do %>
 
-                    			var id = <%= count %>;
+                          var id = <%= count %>;
 
                           Features[id] = {};
-                    			Features[id]['feature_id'] = "<%= featureProject.feature_id %>";
+                          Features[id]['feature_id'] = "<%= featureProject.feature_id %>";
                           Features[id]['project_id'] = "<%= featureProject.project_id %>";
-                    			Features[id]['status'] = "<%= featureProject.status %>";
-                    			Features[id]['commentaire'] = "<%= raw(featureProject.commentaire) %>";
-                    			Features[id]['commentaire_prof'] = "<%= raw(featureProject.commentaire_prof) %>";
+                          Features[id]['status'] = "<%= featureProject.status %>";
+                          Features[id]['commentaire'] = "<%= raw(featureProject.commentaire) %>";
+                          Features[id]['commentaire_prof'] = "<%= raw(featureProject.commentaire_prof) %>";
                           Features[id]['droit']=<%=droit%>;
-                    	<% end %>
-                      <%= render partial:'features/modal' %>
+                      <% end %>
 
 
 
