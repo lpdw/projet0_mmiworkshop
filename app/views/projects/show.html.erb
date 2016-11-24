@@ -70,9 +70,7 @@
 
 </div>
 <% if current_user.profesor?%>
-<%#link_to "M'ajouter au projet", assignUserToProject_path(@project.id)%>
 
-<%= button_to "M'ajouter au projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}
-%>
+<%= button_to "M'ajouter au projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}%>
 <%end%>
 <%end%>
