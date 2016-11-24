@@ -31,10 +31,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users= User.search(params[:search]).where.not(admin: true).all
-    if (params[:commit].eql?("Tout afficher") || params[:search].nil?)
-      @users= User.where.not(admin: true).all
-    end
+    @users= User.where.not(admin: true).all
   end
 
   def diploma
@@ -105,6 +102,18 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
+  end
+
+  # Méthode de recherche des utilisateurs, à partir de son nom, prénom ou mail
+  def search_users
+    if params[:search].nil?
+      @users = User.where.not(admin: true).all
+    else
+      @users = User.where("lower(first_name) LIKE lower('%#{params[:search]}%') OR lower(last_name) LIKE lower('%#{params[:search]}%') OR lower(email) LIKE lower('%#{params[:search]}%')").where.not(admin: true)
+    end
+    respond_to do |format|
+      format.json { render :json => {:success => true, :html => (render_to_string(:partial => 'search_users', :formats=>[:html]))} }
+    end
   end
 
   private

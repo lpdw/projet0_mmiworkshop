@@ -154,7 +154,6 @@ class ProjectsController < ApplicationController
         @autocomplete_values = Feature.where('name ILIKE ?', "%#{params[:term].downcase}%")
       end
       respond_to do |format|
-        format.html
         format.json { render :json => @autocomplete_values.as_json(:only => [:id], :methods => [:name_for_associated_inuts]) }
       end
     end
@@ -174,23 +173,39 @@ class ProjectsController < ApplicationController
   end
 
   #Methode qui vérifie si l'utilisateur est assigné au projet
-helper_method :user_assigned_to_project
-def user_assigned_to_project(project_id)
-  if (UsersProject.where("project_id=? and user_id=?",project_id,current_user.id).count>0)
-    return true;
-  else
-    return false;
+  helper_method :user_assigned_to_project
+  def user_assigned_to_project(project_id)
+    if (UsersProject.where("project_id=? and user_id=?",project_id,current_user.id).count>0)
+      return true;
+    else
+      return false;
+    end
   end
-end
 
-def assignUserToProject
-  #On assigne l'utilisateur connecté au projet dans la table users_projects
-  @userProject = UsersProject.new(:user_id=>current_user.id,:project_id=>params[:id])
-  if @userProject.save
-          flash[:success] = "Vous avez été assigné au projet !"
-          redirect_to project_url
-        end
-end
+  def assignUserToProject
+    #On assigne l'utilisateur connecté au projet dans la table users_projects
+    @userProject = UsersProject.new(:user_id=>current_user.id,:project_id=>params[:id])
+    if @userProject.save
+      flash[:success] = "Vous avez été assigné au projet !"
+      redirect_to project_url
+    end
+  end
+
+  #Méthode de recherche des features en fonction de son nom ou du nom du field auquel elle appartient
+  def search_features
+    unless params[:search].nil? && params[:project_id].nil?
+      @project = Project.find(params[:project_id])
+      @fields = Field.all
+      @features = Feature.where("field_id in (SELECT id from fields where lower(name) LIKE lower('%#{params[:search]}%')) OR lower(name) LIKE lower('%#{params[:search]}%')")
+      respond_to do |format|
+        format.json { render :json => {:success => true, :html => (render_to_string(:partial => 'fields/list_ajax', :formats=>[:html]))} }
+      end
+    else
+      respond_to do |format|
+          format.json { render :json => {:success => false} }
+      end
+    end
+  end
 
   private
   def set_project

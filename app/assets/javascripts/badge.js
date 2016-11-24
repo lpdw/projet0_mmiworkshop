@@ -1,10 +1,17 @@
 $(function() {
+	initFeatureModal();
+});
+
+var initFeatureModal = function() {
 	// Init de id
 	var id = "";
 	// Si on est dans un projet
 	if( window.location.pathname.indexOf('projects') !== -1 ){
 		// Au clique d'un badge
-		$(".feature-badge").click(function() {
+		$(".feature-badge").click(function(e) {
+			// On annule la redirection vers la page du badge
+			e.preventDefault();
+
 			// Exclusion si on à pas le droit
 			if(Features.droit == 0){
 				alert("Vous n\'avez pas le droit de faire une demande de badge, seuls les membres du projet ainsi que leurs professeurs disposent de ce droit");
@@ -72,7 +79,7 @@ $(function() {
 	    		var comment_prof = $('#commentaire_prof').val();
 	    		id_project = $('#project').attr('data-id');
 	    		params = {feature_id:id, project_id:id_project,status:'3',commentaire:comment,commentaire_prof:comment_prof};
-	    		console.log(params);
+	    		// console.log(params);
 	    		$.ajax({
 			      type: "PUT",
 			      url: "/projects/"+id_project,
@@ -85,4 +92,4 @@ $(function() {
 	    	});
 	  	});
 	}
-});
+}

@@ -1,11 +1,14 @@
 <% content_for :title, 'Utilisateurs' %>
-<%= form_tag users_path, :method => 'get', :id => "users_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Rechercher" %>
-    <%= submit_tag "Tout afficher" %>
-  </p>
-<% end %>
+
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'search.js' %>
+<%end%>
+
+<div class="row">
+  <div class="col-md-3">
+    <input class="search-users form-control" type="text" name="" placeholder="Rechercher...">
+  </div>
+</div>
 
 <div class="row users">
   <% @users.each do |user| %>

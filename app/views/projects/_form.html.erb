@@ -1,3 +1,7 @@
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'inputsMultivalues.js' %>
+<%end%>
+
 <%= simple_form_for(@project) do |f| %>
   <%= f.error_notification %>
   <%= f.button :submit, class: "btn btn-primary" %>

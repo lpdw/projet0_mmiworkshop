@@ -17,6 +17,7 @@
 
 <% content_for :javascript do %>
   <%= javascript_include_tag 'badge.js' %>
+  <%= javascript_include_tag 'search.js' %>
 <%end%>
 
 <%= render partial:'features/modal' %>
@@ -47,41 +48,41 @@
 
     <%if(current_user.admin? || current_user.profesor?)%>
 
-    <div id="pills" class="tab-pane">
-      <div class="panel-group text-center" id="accordionStats">
-          <div class="panel panel-default">
-            <!-- Nom du field et lien qui servira à ouvrir/fermer l'accordéon -->
-            <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
-            <div class="row panel-heading" style="background-color: transparent !important;">
-                <h3 class="panel-title text-center col-md-12">
-                  Statistiques détaillées
-                </h3>
-            </div>
-            </a>
-            <!-- Contenu (badges) de l'accordéon -->
-            <div id="collapseStats" class="panel-collapse collapse text-center">
-              <div class="panel-body text-center">
-                <%= render 'statsDetails', project: @project%>
+      <div id="pills" class="tab-pane">
+        <div class="panel-group text-center" id="accordionStats">
+            <div class="panel panel-default">
+              <%# Nom du field et lien qui servira à ouvrir/fermer l'accordéon %>
+              <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
+              <div class="row panel-heading" style="background-color: transparent !important;">
+                  <h3 class="panel-title text-center col-md-12">
+                    Statistiques détaillées
+                  </h3>
+              </div>
+              </a>
+              <%# Contenu (badges) de l'accordéon %>
+              <div id="collapseStats" class="panel-collapse collapse text-center">
+                <div class="panel-body text-center">
+                  <%= render 'statsDetails', project: @project%>
+                </div>
               </div>
             </div>
-          </div>
-      </div>
-      </div>
-
-    <%end%>
-
-<div style="margin: 15px 0;">
-    <%= form_tag project_path, :method => 'get', :id => "projects_search" do %>
-        <div class="col-xs-3" style="padding: 0; margin-right: 3px;">
-          <%= text_field_tag :search, params[:search], :class => "form-control" %>
         </div>
-          <%= submit_tag "Rechercher",:name => nil, :class => "btn btn-default" %>
-          <%= submit_tag "Annuler", :class => "btn btn-default" %>
+      </div>
+
     <%end%>
-  </div>
 
+    <div style="margin: 15px 0;">
+      <div class="row">
+        <div class="col-md-4">
+          <input class="search-features form-control" type="text" project_id="<%= @project.id %>" name="" placeholder="Rechercher...">
+        </div>
+      </div>
+    </div>
 
+    <div class="row" id="sortFeatures">
       <%= render partial:'fields/list', locals: { parent_fields: @fieldsParents, fields: @fields, project: @project } %>
+    </div>
+    
   </div>
 </div>
 <%else%>
