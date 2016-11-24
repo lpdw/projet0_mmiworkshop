@@ -19,12 +19,7 @@
       </div>
       <% @workshop.projects.each do |project| %>
         <div class="col-md-9">
-          <% if userCanAccessProject(project.id)%>
             <p>Projet <%= @id %> : <%= link_to project, project %></p>
-          <%else%>
-          <p>Projet <%= @id %> : <%=  "Devenir membre du projet" %></p>
-
-            <%end%>
         </div>
       <% @id += 1%>
       <%end %>
