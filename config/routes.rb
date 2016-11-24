@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   end
   resources :fields
   get 'autocomplete_feature' => 'projects#autocomplete_feature'
-  get 'get_features_modal' => 'projects#get_features_modal'
+  get 'get_add_from_list_modal' => 'projects#get_add_from_list_modal'
   post "projects/:id" => "projects#assignUserToProject"
 end

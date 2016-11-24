@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 $(function() {
     // Init de id
-
+    id = "";
 
 
 
@@ -12,41 +12,73 @@ $(function() {
         // On ouvre le modal
 
         $('#myModal').modal('show');
-
-        console.log(id);
+        id = this.id;
         // Init du modal
-        $("#create_demande").css("display", "block");
-        $('#commentaire_prof').attr("disabled", false);
-        $('#comment').attr("disabled", false);
-        // Si on est prof ou admin
-        // On cache commentaire
-        $('#comment').attr("disabled", true);
-        // On ajoute le bouton de rejet
-        $("#reject_demande").css("display", "block");
+        if(Features[id].droit==1){
+          $("#create_demande").css("display", "block");
+          $('#commentaire_prof').attr("disabled", false);
+          $('#comment').attr("disabled", false);
+          // Si on est prof ou admin
+          // On cache commentaire
+          $('#comment').attr("disabled", true);
+          // On ajoute le bouton de rejet
+          $("#reject_demande").css("display", "block");
 
 
-        value = Features[id].status == 1 ? "En attente de validation" : "Validé";
-        value = Features[id].status == 3 ? "Rejeté" : value;
-        button = Features[id].status == 1  ? 'Valider' : 'Modifier';
-        $('#comment').val(Features[id].commentaire.replace(/&#39;/g, "'"));
-        $('#commentaire_prof').val(Features[id].commentaire_prof.replace(/&#39;/g, "'"));
-        if (Features[id].status == 2) {
-            $("#create_demande").css("display", "none");
-            $('#comment').attr("disabled", true);
-            $('#commentaire_prof').attr("disabled", true);
-            return;
+          value = Features[id].status == 1 ? "En attente de validation" : "Validé";
+          value = Features[id].status == 3 ? "Rejeté" : value;
+          button = Features[id].status == 1  ? 'Valider' : 'Modifier';
+          $('#comment').val(Features[id].commentaire.replace(/&#39;/g, "'"));
+          $('#commentaire_prof').val(Features[id].commentaire_prof.replace(/&#39;/g, "'"));
+          if (Features[id].status == 2) {
+              $("#create_demande").css("display", "none");
+              $('#comment').attr("disabled", true);
+              $('#commentaire_prof').attr("disabled", true);
+              return;
+          }
+          $('#create_demande').html(button);
+          $('#modal_status').html(value);
         }
 
-        $('#create_demande').html(button);
-        $('#modal_status').html(value);
+
+        else if(Features[id].droit==0){
+          $("#reject_demande").css("display",'none');
+          $('#comment').attr("disabled", false);
+          $('#comment').val(Features[id].commentaire.replace(/&#39;/g, "'"));
+		    	$('#commentaire_prof').val(Features[id].commentaire_prof.replace(/&#39;/g, "'"));
+
+          if(Features[id].status==2){
+            value="Validé";
+            $('#modal_status').html(value);
+
+            $('#comment').attr("disabled", true);
+            $('#commentaire_prof').attr("disabled", true);
+
+            $("#create_demande").css("display", "none");
+
+          }else if(Features[id].status==3){
+            button = Features[id].status == 1  ? 'Valider' : 'Modifier';
+
+            $("#reject_demande").css("display",'none');
+
+            $('#comment').attr("disabled", false);
+            value="Rejeté";
+            $('#modal_status').html(value);
+
+            $('#create_demande').html(button);
+
+          }
+
+        }
+
         $("#create_demande").click(function() {
             var comment = $('#comment').val();
             var comment_prof = $('#commentaire_prof').val();
-            var id_project = Features[id].project_id;
+            id_project = Features[id].project_id;
             params = {
                 feature_id: id,
                 project_id: id_project,
-                status: '2',
+                status: '',
                 commentaire: comment,
                 commentaire_prof: comment_prof
             };
@@ -65,7 +97,7 @@ $(function() {
         $("#reject_demande").click(function() {
             var comment = $('#comment').val();
             var comment_prof = $('#commentaire_prof').val();
-            var id_project = Features[id].project_id;
+            id_project = $('#project').attr('data-id');
             params = {
                 feature_id: id,
                 project_id: id_project,
