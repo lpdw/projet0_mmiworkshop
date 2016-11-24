@@ -48,13 +48,12 @@
 <%# Si des badges on été validés on affiches les statistiques%>
 <% if(featuresChecked>0) %>
 
-      <%# Nombre de badges validés/restants et pourcentage%>
-      <div class="alert alert-info" style="text-align: center;">
-          <p><%= featuresChecked %>
-              badges sur
-              <%= @features.count() %>
-              validés (<%= featuresChecked*100/@features.count() %>%)</p>
-      </div>
+
+<%# Nombre de badges validés/restants et pourcentage%>
+  <div class="alert alert-info" style="text-align: center;">
+    <p><%= featuresChecked %> badge(s) validé(s) sur <%= @features.count() %> (<%= featuresChecked*100/@features.count() %>%)</p>
+  </div>
+
 
       <div class="row" style="margin-bottom: 30px;">
           <div class="col-md-6">
