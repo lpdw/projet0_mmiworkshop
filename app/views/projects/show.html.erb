@@ -3,9 +3,6 @@
 
 
 <%if user_assigned_to_project(@project.id)%>
-<% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
 
 <% content_for :title, @project %>
 
@@ -48,22 +45,21 @@
 
     <%if(current_user.admin? || current_user.profesor?)%>
 
-      <div id="pills" class="tab-pane">
-        <div class="panel-group text-center" id="accordionStats">
-            <div class="panel panel-default">
-              <%# Nom du field et lien qui servira à ouvrir/fermer l'accordéon %>
-              <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
-              <div class="row panel-heading" style="background-color: transparent !important;">
-                  <h3 class="panel-title text-center col-md-12">
-                    Statistiques détaillées
-                  </h3>
-              </div>
-              </a>
-              <%# Contenu (badges) de l'accordéon %>
-              <div id="collapseStats" class="panel-collapse collapse text-center">
-                <div class="panel-body text-center">
-                  <%= render 'statsDetails', project: @project%>
-                </div>
+    <div id="pills" class="tab-pane">
+      <div class="panel-group text-center" id="accordionStats">
+          <div class="panel panel-default">
+            <%# Nom du field et lien qui servira à ouvrir/fermer l'accordéon %>
+            <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
+            <div class="row panel-heading" style="background-color: transparent !important;">
+                <h3 class="panel-title text-center col-md-12">
+                  Statistiques détaillées <span class="glyphicon glyphicon-chevron-down" style="float: right; color: #777"></span>
+                </h3>
+            </div>
+            </a>
+            <%# Contenu (badges) de l'accordéon %>
+            <div id="collapseStats" class="panel-collapse collapse text-center">
+              <div class="panel-body text-center">
+                <%= render 'statsDetails', project: @project%>
               </div>
             </div>
         </div>
@@ -94,6 +90,7 @@
 </div>
 <% if current_user.profesor?%>
 
-<%= button_to "M'ajouter au projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}%>
+<%= button_to "Rejoindre le projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}, class: "btn btn-primary", style: "width: 100%;" %>
+<%= link_to 'Retour aux projets', projects_path, class: "btn btn-default", style: "margin-top: 15px;" %>
 <%end%>
 <%end%>
