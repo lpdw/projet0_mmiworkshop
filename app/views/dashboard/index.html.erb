@@ -11,9 +11,9 @@
   </script>
   <% end %>
 
-  <div class="col-md-12">
-
-    <h1 style="margin: 0 0 20px 0">Tableau de bord</h1>
+  <div class="row" style="margin-bottom: 30px;">
+  <h1 style="margin: 0 0 20px 0">Tableau de bord</h1>
+    <div class="col-md-9">
 
     <article class="project thumbnail" style="min-height: auto;">
       <h3><%= @user %></h3>
@@ -26,11 +26,19 @@
         <h3> Étudiant(e) </h3>
       <% end %>
     </article>
+
       <%= link_to 'Créer un nouveau projet', new_project_path, style: 'width: 100%;', class: 'btn btn-default' if can? :create, Project %>
+  </div>
+
+    <%if current_user.profesor?%>
+    <%= render 'notifications'%>
+    <%end%>
 
   </div>
 
-  <div class="col-md-12">
+  <div class="row">
+
+    <div class="col-md-12">
 
     <%# Formulaire de tri des projets%>
 
@@ -100,7 +108,5 @@
           </div>
           <%end%>
 
-
-
-
+          </div>
 </div>

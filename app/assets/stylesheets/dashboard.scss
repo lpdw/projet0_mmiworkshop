@@ -6,7 +6,24 @@
   background-color: #eee;
   margin: 30px 0;
   padding: 11px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  border-radius: 14px;
+  background-clip: padding-box;
+  border: 5px solid transparent;
+}
+.notifications-level{
+  background: red;
+border-radius: 100%;
+width: 15px;
+height: 15px;
+overflow: hidden;
+position: absolute;
+font-size: 13px;
+font-weight: 700;
+color: white;
+bottom: 5px;
+left: 8px;
+text-align: center;
+
 }

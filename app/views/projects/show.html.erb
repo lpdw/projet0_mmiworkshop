@@ -1,3 +1,12 @@
+<%# L'utilisateur peut voir les données d'un projet seulement si il est assigné à celui-ci,
+ sinon si il est professeur il peut s'y associer %>
+
+
+<%if user_assigned_to_project(@project.id)%>
+<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
 <% content_for :title, @project %>
 
 <%= javascript_tag do %>
@@ -22,6 +31,11 @@
           <%= link_to user do %>
             <%= image_tag user.gravatar_url(size: 25), class: 'img-circle' %>
             <%= user %>
+            <% if user.profesor == true%>
+              <%= " (Professeur)"%>
+            <% else %>
+              <%= " (Étudiant)"%>
+            <% end %>
           <% end %>
         </li>
       <% end %>
@@ -50,3 +64,17 @@
       <%= render partial:'fields/list', locals: { parent_fields: @fieldsParents, fields: @fields, project: @project } %>
   </div>
 </div>
+<%else%>
+<div class="alert alert-danger text-center" role="alert">
+  <span class="glyphicon glyphicon-alert"></span>
+  Vous n'avez pas accès au projet <%=@project.name%>
+  <%# Si l'utilisateur connecté est un professeur, il peut s'ajouter au projet%>
+
+</div>
+<% if current_user.profesor?%>
+<%#link_to "M'ajouter au projet", assignUserToProject_path(@project.id)%>
+
+<%= button_to "M'ajouter au projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}
+%>
+<%end%>
+<%end%>

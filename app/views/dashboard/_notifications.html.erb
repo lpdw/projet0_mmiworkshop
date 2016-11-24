@@ -1,0 +1,32 @@
+<div class="col-md-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-bell"></span>
+            Notifications
+            <%if(@demandesValidation.count>0)%>
+            <i class="glyphicon glyphicon-envelope pull-right">            <span class="notifications-level
+"><%=@demandesValidation.count%></span>
+</i>
+<%end%>
+        </div>
+        <div class="panel-body" style="height: 155px; overflow: auto;">
+            <ul class="list-group">
+                <%if @demandesValidation.count>0%>
+                <% @demandesValidation.each do |demande|%>
+                <!-- List group -->
+                <li class="list-group-item">
+
+                    <%=Feature.find(demande.feature_id).name%> pour le projet <%=Project.find(demande.project_id).name%>
+                </li>
+
+                <%end%>
+                <%else%>
+                  <li class="list-group-item">
+                    Vous n'avez aucun badge en attente de validation
+                  </li>
+                  <%end%>
+            </ul>
+
+        </div>
+    </div>
+</div>

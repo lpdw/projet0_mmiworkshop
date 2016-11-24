@@ -2,7 +2,7 @@
 
 <%# On ne peut créer un nouveau projet  seulement si il existe au moins un Workshop%>
 <% if Workshop.any?%>
-<%= link_to 'New', new_project_path, class: 'btn btn-primary' if can? :create, Project %><br/><br/>
+<%= link_to 'Nouveau', new_project_path, class: 'btn btn-primary' if can? :create, Project %><br/><br/>
 <%end%>
 
 <%# On vérifie que l'utilisateur a bien des projets qui lui sont associés%>
