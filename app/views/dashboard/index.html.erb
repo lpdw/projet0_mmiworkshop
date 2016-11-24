@@ -13,7 +13,7 @@
 
   <div class="row" style="margin-bottom: 30px;">
   <h1 style="margin: 0 0 20px 0">Tableau de bord</h1>
-    <div class="col-md-9">
+    <div class="col-md-6">
 
     <article class="project thumbnail" style="min-height: auto;">
       <h3><%= @user %></h3>
@@ -98,8 +98,6 @@
                 <div class="col-md-6 stats-project">
                   <div class="col-md-12" style="text-align: center;"><%= link_to project, 'projects/'+project.id.to_s, class: 'lead' %></div>
                   <%= render 'projects/statsDetails', project: project %>
-
-
                 </div>
                 <% end %>
               </div>
