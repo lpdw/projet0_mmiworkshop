@@ -37,7 +37,7 @@
                         <%# Si l'utilisateur a indiqué son nom et/ou prénom on l'affiche%>
                         <%if !featureProject.id_demandeur.nil? %>
                           <% if !User.find(featureProject.id_demandeur).first_name.nil? || !User.find(featureProject.id_demandeur).last_name.nil?%>
-                            (<%= User(featureProject.id_demandeur).first_name%>  <%=User.find(featureProject.id_demandeur).last_name%>)
+                            (<%= User.find(featureProject.id_demandeur).first_name%>  <%=User.find(featureProject.id_demandeur).last_name%>)
                           <%end%>
                         <%end%>
 
