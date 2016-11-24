@@ -18,6 +18,8 @@ class ProjectsController < ApplicationController
 
     before_action :set_project, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
+    
+    skip_authorize_resource :only => :search_features
 
     # GET /projects
     def index
@@ -141,6 +143,7 @@ class ProjectsController < ApplicationController
         redirect_to projects_url, notice: 'Project was successfully destroyed.'
     end
 
+    # Méthode qui gère l'autocomplétion des champs multivalués
     def autocomplete_feature
         if params[:term]
             @autocomplete_values = ''
@@ -156,6 +159,7 @@ class ProjectsController < ApplicationController
         end
     end
 
+    # Méthode qui affiche la modal pour ajouter des éléments depuis la liste dans des champs multivalués
     def get_add_from_list_modal
         @project = if params[:id].nil?
                        Project.new

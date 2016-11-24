@@ -10,13 +10,13 @@ class ApplicationController < ActionController::Base
   end
 
 
-# Les administrateurs (non professeurs n'ont pas accès au tableau de bord)
+  # Les administrateurs (non professeurs n'ont pas accès au tableau de bord)
   def after_sign_in_path_for(user)
-      if (user.admin && !user.profesor)
-        workshops_path
-      else
-        dashboard_index_path
-      end
+    if (user.admin && !user.profesor)
+      workshops_path
+    else
+      dashboard_index_path
     end
+  end
 
 end
