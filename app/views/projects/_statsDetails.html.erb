@@ -35,19 +35,19 @@
     <p><%= featuresChecked %> / <%= @features.count() %> de badges validés (<%= featuresChecked*100/@features.count() %>%)</p>
   </div>
 
-<div class="col-md-3">
+<div class="col-md-6">
   <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
   <%= bar_chart [{name: "Badge(s) validé(s) (en %)", data:data}],colors: ["#014B4C","#012322","#0D7979"], hAxis: {format: 'percent'}, max: 100, height: "200px" %>
 </div>
 
-<div class="col-md-3">
+<div class="col-md-6">
   <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
   <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
 </div>
 
 <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
 <% if(current_user.profesor? && featuresAsked!=0) %>
-<div class="col-md-6">
+<div class="col-md-12">
 
   <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
   <% if(current_user.profesor?) %>

@@ -11,11 +11,11 @@
   </script>
   <% end %>
 
-  <div class="col-md-3">
+  <div class="col-md-12">
 
     <h1 style="margin: 0 0 20px 0">Tableau de bord</h1>
 
-    <article class="project thumbnail">
+    <article class="project thumbnail" style="min-height: auto;">
       <h3><%= @user %></h3>
       <% #On affiche Administrateur s'il est admin et enseignant s'il est prof
       if @user.admin? && !@user.profesor? %>
@@ -30,7 +30,7 @@
 
   </div>
 
-  <div class="col-md-9">
+  <div class="col-md-12">
 
     <%# Formulaire de tri des projets%>
 
@@ -87,7 +87,7 @@
                     <%= render 'projects/stats', projects: @projects.where(workshop_id: workshop.id), workshop: workshop%>
                   <%end%>
                 <% @projects.where(workshop_id: workshop.id).each do |project|%>
-                <div class="row stats-project">
+                <div class="col-md-6 stats-project">
                   <div class="col-md-12" style="text-align: center;"><%= link_to project, 'projects/'+project.id.to_s, class: 'lead' %></div>
                   <%= render 'projects/statsDetails', project: project %>
 
