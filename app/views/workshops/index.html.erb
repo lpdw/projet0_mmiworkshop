@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Workshops</h1>
+<h1>Listing des Workshops</h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Nom</th>
       <th>Description</th>
       <th>Url</th>
       <th>Date de début</th>
@@ -24,9 +24,9 @@
         <td><%= workshop.dateDebut %></td>
         <td><%= workshop.dateFin %></td>
 
-        <td><%= link_to 'Show', workshop %></td>
-        <td><%= link_to 'Edit', edit_workshop_path(workshop) if can? :edit, Workshop%></td>
-        <td><%= link_to 'Destroy', workshop if can? :destroy, Workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', workshop %></td>
+        <td><%= link_to 'Editer', edit_workshop_path(workshop) if can? :edit, Workshop%></td>
+        <td><%= link_to 'Supprimer', workshop if can? :destroy, Workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Workshop', new_workshop_path if can? :create, Workshop%>
+<%= link_to 'Nouveau Workshop', new_workshop_path if can? :create, Workshop%>
