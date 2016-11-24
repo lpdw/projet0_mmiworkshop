@@ -9,5 +9,40 @@
         <% if current_user.admin? %><div class="form-group"><%= f.check_box :profesor %> <%= f.label(:profesor) %></div><% end %>
     </div>
 
-    <div class="form-actions"><%= f.button :submit, class: "btn btn-default" %></div>
+    <div class="form-actions">
+		<%= f.button :submit, class: "btn btn-default" %>
+		<button type="button" class="form-group btn btn-default" data-toggle="modal" data-target="#changePassword">
+			Modifier mon mot de passe
+		</button>
+	</div>
 <% end %>
+
+<!-- Modal -->
+<div id="changePassword" class="modal modal-wide fade" role="form">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <%= simple_form_for(@user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Validation de badge</h4>
+                </div>
+                <div class="modal-body">
+                    <h2>Modifier mon mot de passe</h2>
+                    <%= f.error_notification %>
+                    <div class="form-inputs">
+                        <%= f.input :password, autocomplete: "off", required: true %>
+                        <%= f.input :password_confirmation, required: true %>
+                        <%= f.input :current_password, hint: "Vous avez besoin de votre ancien mot de passe pour valider le changement", required: true %>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="btn-group">
+                        <%= f.button :submit, "Enregistrer" %>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
