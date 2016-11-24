@@ -1,6 +1,8 @@
 <%# Initialisation des variables %>
 <% data=Hash.new %>
 <% projet=Hash.new %>
+<% percentChecked=Hash.new %>
+
 <% count=0 %>
 <% percent=0 %>
 <% debutProjet=project.get_project_start_date(project[:workshop_id]) %>
@@ -9,68 +11,89 @@
 <%# On récupère le nombre total de badges validés du projet%>
 <% featuresChecked=project.features.where("status=2").map {|c|c.name}.count() %>
 <% featuresAsked=project.features.where("status=1  OR date_demande IS NOT NULL").map {|c|c.name}.count() %>
-
+<%countAllFeatures=Feature.all.count%>
+<%totalPercent=0%>
 <%# Pour chaque field parent (Dev, Contenu et Design), on récupère le nombre de features validés%>
 <% @fieldsParents.each do |field| %>
+<%# On récupère la répartition des features (en %) par fields%>
+  <%fieldRepartition=100/@fieldsParents.count%>
+  <%featuresInField=field.all_features.count%>
   <% field.all_features.each do |feature| %>
-    <% if(project.has_feature?(feature)) %>
-      <% count=count+1 %>
+    <%# Si la feature est validé, on incrémente le compteur%>
+    <% if(project.has_valid_feature?(feature)) %>
+      <% count+=1 %>
     <% end %>
     <%# On calcule le pourcentage de badges validés par field (par rapport a tous les badges validés)%>
-    <% if(featuresChecked!=0) %>
-      <% projet[field.name]=count*100/featuresChecked %>
-    <% end %>
+
     <%# On calcule le pourcentage de features validé par field (par rapport au total de badges par field)%>
-    <% percent=count*100/field.all_features.count %>
-    <% data[field.name]=percent %>
+
   <% end %>
+  <% percentField=(count*100/field.all_features.count.to_f).round %>
+
+  <% data[field.name]=percentField %>
+  <% percent=(count*100/field.all_features.count.to_f).round(2) %>
+
+  <%percentChecked[field.name]=((percent.to_f/100)*(fieldRepartition.to_f/100)).round(3)%>
+  <%totalPercent+=percentChecked[field.name]%>
+    <%# projet[field.name]=nv.round/featuresChecked %>
   <% count=0 %>
 <% end %>
+<% @fieldsParents.each do |field| %>
+<%totalPercent.round%>
+<%chiffre=(percentChecked[field.name]*100).round%>
+<%final=chiffre/totalPercent%>
+<%projet[field.name]=number_to_percentage(final,precision: 1)%>
+<%end%>
 
 <%# Si des badges on été validés on affiches les statistiques%>
 <% if(featuresChecked>0) %>
 
-<%# Nombre de badges validés/restants et pourcentage%>
-  <div class="alert alert-info" style="text-align: center;">
-    <p><%= featuresChecked %> badges sur <%= @features.count() %> validés (<%= featuresChecked*100/@features.count() %>%)</p>
-  </div>
+      <%# Nombre de badges validés/restants et pourcentage%>
+      <div class="alert alert-info" style="text-align: center;">
+          <p><%= featuresChecked %>
+              badges sur
+              <%= @features.count() %>
+              validés (<%= featuresChecked*100/@features.count() %>%)</p>
+      </div>
 
-<div class="row" style="margin-bottom: 30px;">
-  <div class="col-md-6">
-    <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
-    <%= bar_chart [{name: "Badge(s) validé(s) (en %)", data:data}],colors: ["#014B4C","#012322","#0D7979"], hAxis: {format: 'percent'}, max: 100, height: "200px" %>
-  </div>
+      <div class="row" style="margin-bottom: 30px;">
+          <div class="col-md-6">
+          <%# Graphique représentant l'avancée en % des badges validés pour chaque field %>
+          <%= bar_chart [{name: "Badge(s) validé(s) (en %)", data:data}],colors: ["#014B4C","#012322","#0D7979"], hAxis: {format: 'percent'}, max: 100, height: "200px" %>
+        </div>
 
-  <div class="col-md-6">
-    <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
-    <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
-  </div>
-</div>
+        <div class="col-md-6">
+          <%# Graphique représentant la répartition en % des badges validés (si il y a en a) %>
+          <%= pie_chart (projet),colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
+        </div>
+      </div>
 
 
 <%# Si aucun badge n'a été validé on affiche un message d'erreur%>
 <% else %>
-  <div class="col-md-12" style="text-align: center;">
-    <p style="margin-top: 20px;">Aucun badge n'a été validé !</p>
-  </div>
+      <div class="col-md-12" style="text-align: center;">
+        <p style="margin-top: 20px;">Aucun badge n'a été validé !</p>
+      </div>
 <% end %>
-<%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
-<% if(current_user.profesor? && featuresAsked!=0) %>
-<div class="col-md-12" style="margin-bottom: 30px;">
+
 
   <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
-    <%= line_chart project.get_feature_asked_by_day(project,debutProjet,finProjet),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
-</div>
-<% end %>
+  <% if(current_user.profesor? && featuresAsked!=0) %>
+  <div class="col-md-12" style="margin-bottom: 30px;">
 
+      <%# Seuls les professeurs ont accès au graphique de répartition des demandes de validation/jour%>
+      <%= line_chart project.get_feature_asked_by_day(project,debutProjet,finProjet),:name => "Badge(s) demandé(s)", colors: ["#014B4C","#012322","#0D7979"], height: "200px" %>
+  </div>
+  <% end %>
 
-
-<%# Pour les étudiants, on affiche le nombre de badges en attente de validation  %>
-<% if(project.get_features_asked(project).count()>0 && !current_user.profesor? && !current_user.admin?) %>
-  <p>Vous avez <%= project.get_features_asked(project).count() %> badge(s) en attente :</p>
+  <%# Pour les étudiants, on affiche le nombre de badges en attente de validation  %>
+  <% if(project.get_features_asked(project).count()>0 && !current_user.profesor? && !current_user.admin?) %>
+  <p>Vous avez
+      <%= project.get_features_asked(project).count() %>
+      badge(s) en attente :</p>
   <ul>
-    <% project.get_features_asked(project).each do |badge| %>
+      <% project.get_features_asked(project).each do |badge| %>
       <li><%= badge %></li>
-    <% end %>
+      <% end %>
   </ul>
-<% end %>
+  <% end %>
