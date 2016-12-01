@@ -1,6 +1,5 @@
 <div class="row">
-    <div class="col-md-10"><h1>Fields</h1></div>
-    <div class="col-md-2"><%= link_to 'Nouveau', new_field_path, class: 'btn btn-primary' if can? :create, Field %></div>
+    <div class="col-md-12"><h1>Fields</h1></div>
 </div>
 
 <div class="table-responsive">
@@ -12,7 +11,7 @@
                 <th>Position</th>
                 <th>Couleur</th>
                 <th>Icon</th>
-                <th></th>
+                <th style="text-align: right;"><%= link_to 'Nouveau', new_field_path, class: 'btn btn-primary' if can? :create, Field %></th>
             </tr>
         </thead>
 
