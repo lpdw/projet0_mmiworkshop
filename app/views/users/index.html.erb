@@ -20,7 +20,7 @@
       	<p><%= link_to 'Editer', edit_user_path(user), class: 'btn btn-default btn-xs' %></p>
       <% end %>
       <% if can? :destroy, user %>
-        <p><%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Are you sure ?' }, class: 'btn btn-default btn-xs' %></p>
+        <p><%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Êtes-vous sûr(e) ?' }, class: 'btn btn-default btn-xs' %></p>
       <% end %>
     <% end %>
   </div>

@@ -3,8 +3,8 @@
     <div class="col-md-3 text-center">
         <%= render partial: 'badge', locals: { feature: @feature } %>
         <p><%= @feature.description %></p>
-        <%= link_to 'Edit', edit_feature_path(@feature) , class: 'btn btn-default'if can? :edit, @feature %>
-        <%= link_to 'Destroy', @feature, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' if can? :destroy, @feature %>
+        <%= link_to 'Éditer', edit_feature_path(@feature) , class: 'btn btn-default'if can? :edit, @feature %>
+        <%= link_to 'Supprimer', @feature, method: :delete, data: { confirm: 'Êtes-vous sûr(e) ?' }, class: 'btn btn-default' if can? :destroy, @feature %>
     </div>
     <% if @projects.any? %>
       <div class="col-md-9">

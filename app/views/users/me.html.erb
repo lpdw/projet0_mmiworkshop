@@ -2,20 +2,22 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-        <div class="form-group"><%= f.input :first_name, input_html: { class: "form-control" } %></div>
-        <div class="form-group"><%= f.input :last_name, input_html: { class: "form-control" } %></div>
+        <div class="form-group"><%= f.input :first_name, label: "Prénom", input_html: { class: "form-control" } %></div>
+        <div class="form-group"><%= f.input :last_name, label: "Nom", input_html: { class: "form-control" } %></div>
         <div class="form-group"><%= f.input :email, input_html: { class: "form-control" } %></div>
-        <div class="form-group"><%= f.input :diploma_year, input_html: { class: "form-control" } %></div>
-        <% if current_user.admin? %><div class="form-group"><%= f.check_box :profesor %> <%= f.label(:profesor) %></div><% end %>
+        <div class="form-group"><%= f.input :diploma_year, label: "Niveau d'étude", input_html: { class: "form-control" } %></div>
+        <% if current_user.admin? %><div class="form-group"><%= f.check_box :profesor %> <%= f.label("Professeur") %></div><% end %>
     </div>
 
     <div class="form-actions">
-		<%= f.button :submit, class: "btn btn-primary" %>
+		<%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
 		<button type="button" class="form-group btn btn-default" data-toggle="modal" data-target="#changePassword">
 			Modifier mon mot de passe
 		</button>
 	</div>
 <% end %>
+<br/>
+<%= link_to 'Retour', :back %>
 
 <!-- Modal -->
 <div id="changePassword" class="modal modal-wide fade" role="form">
@@ -29,9 +31,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-inputs">
-                        <%= f.input :password, autocomplete: "off", required: true %>
-                        <%= f.input :password_confirmation, required: true %>
-                        <%= f.input :current_password, hint: "Vous avez besoin de votre ancien mot de passe pour valider le changement", required: true %>
+                        <%= f.input :password, label: "Nouveau mot de passe", autocomplete: "off", required: true %>
+                        <%= f.input :password_confirmation, label: "Confirmation de votre mot de passe", required: true %>
+                        <%= f.input :current_password, label: "Mot de passe actuel", hint: "Vous avez besoin de votre ancien mot de passe pour valider le changement", required: true %>
                     </div>
                 </div>
                 <div class="modal-footer">

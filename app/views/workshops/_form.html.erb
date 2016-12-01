@@ -2,16 +2,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, label: "Nom" %>
     <%= f.input :description %>
     <%= f.input :url %>
-<%= f.input :dateDebut, :as=> 'string' ,:label => 'Date de début du projet', input_html: { id: 'dateDebut' } %>
-<%= f.input :dateFin, :as=> 'string' ,:label => 'Date de fin du projet', input_html: { id: 'dateFin' } %>
+<%= f.input :dateDebut, :as=> 'string', label: 'Date de début du projet', input_html: { id: 'dateDebut' } %>
+<%= f.input :dateFin, :as=> 'string', label: 'Date de fin du projet', input_html: { id: 'dateFin' } %>
 
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Enregistrer" %>
   </div>
 <% end %>

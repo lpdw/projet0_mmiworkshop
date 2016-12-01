@@ -2,14 +2,14 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
-        <div class="form-group"><%= f.input :first_name, input_html: { class: "form-control" } %></div>
-        <div class="form-group"><%= f.input :last_name, input_html: { class: "form-control" } %></div>
+        <div class="form-group"><%= f.input :first_name, label: "Prénom", input_html: { class: "form-control" } %></div>
+        <div class="form-group"><%= f.input :last_name, label: "Nom", input_html: { class: "form-control" } %></div>
         <div class="form-group"><%= f.input :email, input_html: { class: "form-control" } %></div>
-        <div class="form-group"><%= f.check_box :admin %> <%= f.label(:admin) %></div>
-        <div class="form-group"><%= f.check_box :profesor %> <%= f.label(:profesor) %></div>
-        <div class="form-group"><%= f.input :diploma_year, input_html: { class: "form-control" } %></div>
+        <div class="form-group"><%= f.check_box :admin %> <%= f.label("Administrateur") %></div>
+        <div class="form-group"><%= f.check_box :profesor %> <%= f.label("Professeur") %></div>
+        <div class="form-group"><%= f.input :diploma_year, label: "Niveau d'étude", input_html: { class: "form-control" } %></div>
     </div>
 
-    <div class="form-actions"><%= f.button :submit, class: "btn btn-default" %></div>
+    <div class="form-actions"><%= f.button :submit, "Enregistrer", class: "btn btn-default" %></div>
 <% end %>
 

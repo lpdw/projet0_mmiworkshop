@@ -4,9 +4,8 @@
 
 <%= simple_form_for(@project) do |f| %>
   <%= f.error_notification %>
-  <%= f.button :submit, class: "btn btn-primary" %>
 
-  <%= f.input :name %>
+  <%= f.input :name, label: "Nom" %>
   <%= f.input :description %>
   <%= f.input :workshop_id, collection: Workshop.all %>
   <%= f.input :url %>
@@ -17,5 +16,5 @@
   <%= render :partial => "project_associated_inputs", :locals => {input_values: @project.features.includes(:field).where("status = 2").references(:features).reorder('fields.parent_id, features.field_id, level').all.map, :input_name=>"project[feature_ids][]", :input_class=>"features_projects", :label=>"Badges", :add_button_label=>"Ajouter un badge", :dropdown_button_label=>"Ajouter des badges depuis la liste"} %>
   <br/>
 
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
 <% end %>

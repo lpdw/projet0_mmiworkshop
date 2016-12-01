@@ -2,12 +2,12 @@
   <div class="col-md-4 col-md-offset-4">
     <%= simple_form_for(@field) do |f| %>
       <%= f.error_notification %>
-      <%= f.input :name %>
-      <%= f.input :color %>
+      <%= f.input :name, label: "Nom" %>
+      <%= f.input :color, label: "Couleur" %>
       <%= f.input :position %>
       <%= f.input :icon %>
       <%= f.association :parent %>
-      <%= f.button :submit %>
+      <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
