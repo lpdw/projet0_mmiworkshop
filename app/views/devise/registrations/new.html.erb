@@ -4,15 +4,15 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-            <div class="form-group"><%= f.input :first_name, autofocus: true, input_html: { class: "form-control" } %></div>
-            <div class="form-group"><%= f.input :last_name, input_html: { class: "form-control" } %></div>
-            <div class="form-group"><%= f.input :email, required: true, input_html: { class: "form-control" } %></div>
-            <div class="form-group"><%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: "form-control" }, hint_html: { class: "help-block" } %></div>
-            <div class="form-group"><%= f.input :password_confirmation, required: true, input_html: { class: "form-control" } %></div>
+            <div class="form-group"><%= f.input :first_name, label: "Prénom", autofocus: true, input_html: { class: "form-control" } %></div>
+            <div class="form-group"><%= f.input :last_name, label: "Nom", input_html: { class: "form-control" } %></div>
+            <div class="form-group"><%= f.input :email, label: "Email", required: true, input_html: { class: "form-control" } %></div>
+            <div class="form-group"><%= f.input :password, label: "Mot de passe", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { class: "form-control" }, hint_html: { class: "help-block" } %></div>
+            <div class="form-group"><%= f.input :password_confirmation, label: "Confimation de votre mot de passe", required: true, input_html: { class: "form-control" } %></div>
         </div>
 
         <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: "btn btn-default" %>
+            <%= f.button :submit, "Valider", class: "btn btn-primary" %>
         </div>
         <br/>
         <% end %>

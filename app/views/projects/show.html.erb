@@ -2,95 +2,96 @@
  sinon si il est professeur il peut s'y associer %>
 
 
-<%if user_assigned_to_project(@project.id)%>
+<% if user_assigned_to_project(@project.id) %>
 
-<% content_for :title, @project %>
+  <% content_for :title, @project %>
 
-<%= javascript_tag do %>
-  var Features = {};
-  Features['droit'] = "<% if (@project.in_users?(current_user) && current_user.profesor) || current_user.admin %>2<% elsif @project.in_users?(current_user) %>1<% else %>0<% end %>";
+  <%= javascript_tag do %>
+    var Features = {};
+    Features['droit'] = "<% if (@project.in_users?(current_user) && current_user.profesor) || current_user.admin %>2<% elsif @project.in_users?(current_user) %>1<% else %>0<% end %>";
+  <% end %>
+
+  <% content_for :javascript do %>
+    <%= javascript_include_tag 'badge.js' %>
+    <%= javascript_include_tag 'search.js' %>
+  <% end %>
+
+  <%= render partial:'features/modal' %>
+
+  <div class="col-md-12">
+    <div class="col-md-3" id="project" data-id="<%= @project.id %>" style="margin-top: 50px;">
+      <%= render 'project', project: @project %>
+      <%= link_to @project.github, @project.github, target: :blank %>
+      <ul class="list-group">
+        <% @project.users.each do |user| %>
+          <li class="list-group-item">
+            <%= link_to user do %>
+              <%= image_tag user.gravatar_url(size: 25), class: 'img-circle' %>
+              <%= user %>
+              <% if user.profesor == true%>
+                <%= " (Professeur)"%>
+              <% else %>
+                <%= " (Étudiant)"%>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <button type="button" class="btn btn-link"><%= link_to 'Editer', edit_project_path(@project) if can? :edit, @project %></button>
+      <button type="button" class="btn btn-link"><%= link_to 'Supprimer', @project, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @project %></button>
+    </div>
+    <div class="col-md-9" style="margin-top: 50px;">
+
+      <% if(current_user.admin? || current_user.profesor?) %>
+
+      <div id="pills" class="tab-pane">
+        <div class="panel-group text-center" id="accordionStats">
+            <div class="panel panel-default">
+              <%# Nom du field et lien qui servira à ouvrir/fermer l'accordéon %>
+              <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
+              <div class="row panel-heading" style="background-color: transparent !important;">
+                  <h3 class="panel-title text-center col-md-12">
+                    Statistiques détaillées <span class="glyphicon glyphicon-chevron-down" style="float: right; color: #777"></span>
+                  </h3>
+              </div>
+              </a>
+              <%# Contenu (badges) de l'accordéon %>
+              <div id="collapseStats" class="panel-collapse collapse text-center">
+                <div class="panel-body text-center">
+                  <%= render 'statsDetails', project: @project%>
+                </div>
+              </div>
+          </div>
+        </div>
+
+      <% end %>
+
+      <div style="margin: 15px 0;">
+        <div class="row">
+          <div class="col-md-4">
+            <input class="search-features form-control" type="text" project_id="<%= @project.id %>" name="" placeholder="Rechercher...">
+          </div>
+        </div>
+      </div>
+
+      <div id="sortFeatures">
+        <%= render partial:'fields/list', locals: { parent_fields: @fieldsParents, fields: @fields, project: @project } %>
+      </div>
+      
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="alert alert-danger text-center" role="alert">
+    <span class="glyphicon glyphicon-alert"></span>
+    Vous n'avez pas accès au projet <%=@project.name%>
+  </div>
+
+  <%# Si l'utilisateur connecté est un professeur, il peut s'ajouter au projet%>
+  <% if current_user.profesor? %>
+    <%= button_to "Rejoindre le projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}, class: "btn btn-primary", style: "width: 100%;" %>
+    <%= link_to 'Retour aux projets', projects_path, class: "btn btn-default", style: "margin-top: 15px;" %>
+  <% end %>
 
 <% end %>
-
-<% content_for :javascript do %>
-  <%= javascript_include_tag 'badge.js' %>
-  <%= javascript_include_tag 'search.js' %>
-<%end%>
-
-<%= render partial:'features/modal' %>
-
-<div class="col-md-12">
-  <div class="col-md-3" id="project" data-id="<%= @project.id %>" style="margin-top: 50px;">
-    <%= render 'project', project: @project %>
-    <%= link_to @project.github, @project.github, target: :blank %>
-    <ul class="list-group">
-      <% @project.users.each do |user| %>
-        <li class="list-group-item">
-          <%= link_to user do %>
-            <%= image_tag user.gravatar_url(size: 25), class: 'img-circle' %>
-            <%= user %>
-            <% if user.profesor == true%>
-              <%= " (Professeur)"%>
-            <% else %>
-              <%= " (Étudiant)"%>
-            <% end %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-    <button type="button" class="btn btn-link"><%= link_to 'Editer', edit_project_path(@project) if can? :edit, @project %></button>
-    <button type="button" class="btn btn-link"><%= link_to 'Supprimer', @project, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, @project %></button>
-  </div>
-  <div class="col-md-9" style="margin-top: 50px;">
-
-    <%if(current_user.admin? || current_user.profesor?)%>
-
-    <div id="pills" class="tab-pane">
-      <div class="panel-group text-center" id="accordionStats">
-          <div class="panel panel-default">
-            <%# Nom du field et lien qui servira à ouvrir/fermer l'accordéon %>
-            <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
-            <div class="row panel-heading" style="background-color: transparent !important;">
-                <h3 class="panel-title text-center col-md-12">
-                  Statistiques détaillées <span class="glyphicon glyphicon-chevron-down" style="float: right; color: #777"></span>
-                </h3>
-            </div>
-            </a>
-            <%# Contenu (badges) de l'accordéon %>
-            <div id="collapseStats" class="panel-collapse collapse text-center">
-              <div class="panel-body text-center">
-                <%= render 'statsDetails', project: @project%>
-              </div>
-            </div>
-        </div>
-      </div>
-
-    <%end%>
-
-    <div style="margin: 15px 0;">
-      <div class="row">
-        <div class="col-md-4">
-          <input class="search-features form-control" type="text" project_id="<%= @project.id %>" name="" placeholder="Rechercher...">
-        </div>
-      </div>
-    </div>
-
-    <div id="sortFeatures">
-      <%= render partial:'fields/list', locals: { parent_fields: @fieldsParents, fields: @fields, project: @project } %>
-    </div>
-    
-  </div>
-</div>
-<%else%>
-<div class="alert alert-danger text-center" role="alert">
-  <span class="glyphicon glyphicon-alert"></span>
-  Vous n'avez pas accès au projet <%=@project.name%>
-  <%# Si l'utilisateur connecté est un professeur, il peut s'ajouter au projet%>
-
-</div>
-<% if current_user.profesor?%>
-
-<%= button_to "Rejoindre le projet", {:action => "assignUserToProject", :controller => "projects", :method => :post}, class: "btn btn-primary", style: "width: 100%;" %>
-<%= link_to 'Retour aux projets', projects_path, class: "btn btn-default", style: "margin-top: 15px;" %>
-<%end%>
-<%end%>

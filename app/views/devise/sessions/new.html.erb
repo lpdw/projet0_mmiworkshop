@@ -7,7 +7,7 @@
             <%= f.error_notification %>
 
             <div class="form-inputs">
-                <div class="form-group"><%= f.input :email, required: false, input_html: { class: "form-control" } %></div>
+                <div class="form-group"><%= f.input :email, label: "Email", required: false, input_html: { class: "form-control" } %></div>
                 <div class="form-group"><%= f.input :password, label: "Mot de passe", required: false, input_html: { class: "form-control" } %></div>
 
                 <div class="form-group checkbox"><%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %></div>
