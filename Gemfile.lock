@@ -43,6 +43,7 @@ GEM
     autoprefixer-rails (6.5.3)
       execjs
     bcrypt (3.1.11)
+    bcrypt (3.1.11-x86-mingw32)
     bootstrap-datepicker-rails (1.6.4.1)
       railties (>= 3.0)
     bootstrap-sass (3.3.7)
@@ -99,8 +100,11 @@ GEM
     minitest (5.9.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
+    nokogiri (1.6.8.1-x86-mingw32)
+      mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     pg (0.19.0)
+    pg (0.19.0-x86-mingw32)
     rack (1.6.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -160,6 +164,8 @@ GEM
     tilt (2.0.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2016.8)
+      tzinfo (>= 1.0.0)
     uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
     warden (1.2.6)
@@ -171,6 +177,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   annotate
@@ -193,6 +200,7 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   simple_form
   spring
+  tzinfo-data
   uglifier
   web-console
 
