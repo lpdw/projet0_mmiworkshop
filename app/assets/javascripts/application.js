@@ -5,6 +5,7 @@
 //= require Chart.bundle
 //= require highcharts
 //= require_tree .
+//= require_self
 
 $(function() {
 	$("#users_search input").keyup(function() {

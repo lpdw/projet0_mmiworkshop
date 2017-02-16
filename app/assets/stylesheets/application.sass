@@ -1,30 +1,36 @@
+//= require_self
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,100,700)
 @import jquery.ui.all
 @import 'bootstrap-sprockets'
 @import 'bootstrap'
-@import '*'
+@import 'features'
+@import 'layout'
+@import 'menu'
+@import 'projects'
+@import 'users'
+@import 'dashboard.scss'
 
 
 html
-    position: relative
-    min-height: 100%
+  position: relative
+  min-height: 100%
 
 body
-    margin-bottom: 60px
+  margin-bottom: 60px
 
 .modal-dialog
-    overflow-y: initial!important
+  overflow-y: initial!important
 
 .modal-body
-    max-height: calc(100vh - 200px)
-    overflow-y: auto
+  max-height: calc(100vh - 200px)
+  overflow-y: auto
 
 footer.footer
-    position: absolute
-    bottom: 0
-    left: 0
-    width: 100%
-    height: 60px
-    line-height: 60px
-    background-color: #eee
-    text-align: center
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  height: 60px
+  line-height: 60px
+  background-color: #eee
+  text-align: center
