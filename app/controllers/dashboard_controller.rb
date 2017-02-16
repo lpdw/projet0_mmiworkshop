@@ -22,8 +22,8 @@ class DashboardController < ApplicationController
     if current_user.profesor?
     @demandesValidation=FeaturesProject.joins(" inner join users_projects on features_projects.project_id=users_projects.project_id").where("features_projects.status=? and users_projects.user_id=?",1,current_user.id)
   else
-    # pour les etudiants, on affiche les badges validés et ou supprimés ( 5 derniers)
-    @demandesValidation=FeaturesProject.joins(" inner join users_projects on features_projects.project_id=users_projects.project_id").where("users_projects.user_id=? and (features_projects.status=? OR features_projects.status=?) ",current_user.id,2,3).reorder(:date_badge_valide).limit(5)
+    # pour les etudiants, on affiche les badges validés et/ou rejetés ( 5 derniers)
+    @demandesValidation=FeaturesProject.joins(" inner join users_projects on features_projects.project_id=users_projects.project_id").where("users_projects.user_id=? and (features_projects.status=? OR features_projects.status=?) ",current_user.id,2,3).reorder(date_badge_valide: :desc).limit(5)
 
   end
 #Les utilisateurs n'ont accès aux statistiques que des projets auxquels ils sont associés

@@ -44,23 +44,24 @@
 
       <% if(current_user.admin? || current_user.profesor?) %>
 
-      <div id="pills" class="tab-pane">
-        <div class="panel-group text-center" id="accordionStats">
-            <div class="panel panel-default">
-              <%# Nom du field et lien qui servira à ouvrir/fermer l'accordéon %>
-              <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
-              <div class="row panel-heading" style="background-color: transparent !important;">
-                  <h3 class="panel-title text-center col-md-12">
-                    Statistiques détaillées <span class="glyphicon glyphicon-chevron-down" style="float: right; color: #777"></span>
-                  </h3>
-              </div>
-              </a>
-              <%# Contenu (badges) de l'accordéon %>
-              <div id="collapseStats" class="panel-collapse collapse text-center">
-                <div class="panel-body text-center">
-                  <%= render 'statsDetails', project: @project%>
+        <div id="pills" class="tab-pane">
+          <div class="panel-group text-center" id="accordionStats">
+              <div class="panel panel-default">
+                <%# Nom du field et lien qui servira à ouvrir/fermer l'accordéon %>
+                <a data-toggle="collapse" data-parent="#accordionStats" href="#collapseStats" style="text-decoration: none;color: black;">
+                <div class="row panel-heading" style="background-color: transparent !important;">
+                    <h3 class="panel-title text-center col-md-12">
+                      Statistiques détaillées <span class="glyphicon glyphicon-chevron-down" style="float: right; color: #777"></span>
+                    </h3>
                 </div>
-              </div>
+                </a>
+                <%# Contenu (badges) de l'accordéon %>
+                <div id="collapseStats" class="panel-collapse collapse text-center">
+                  <div class="panel-body text-center">
+                    <%= render 'statsDetails', project: @project%>
+                  </div>
+                </div>
+            </div>
           </div>
         </div>
 

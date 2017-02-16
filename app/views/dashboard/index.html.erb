@@ -5,8 +5,6 @@
   <script type="javascript">
       $(function() {
         var App = <%= current_user %>;
-        console.log(App);
-        // toto(App);
       });
   </script>
   <% end %>
@@ -53,13 +51,13 @@
     <%# Formulaire de tri des projets%>
 
     <form class="form col-xs-3" action="#" method="get" style="float: right;">
-        <%= select_tag('filter', options_for_select([['Tous les projets', 'all'], ['Projets en cours', 'inprogress', 'selected'=>'selected'], ['Projets terminés', 'end']]), :class=>'form-control', 'onChange'=>'this.parentNode.submit()') %>
+        <%= select_tag('filter', options_for_select([['Projets en cours', 'inprogress'], ['Projets terminés', 'end'], ['Tous les projets', 'all']]), :class=>'form-control', 'onChange'=>'this.parentNode.submit()') %>
     </form>
     <%# Si il n'y a pas de projets selon le select, un message s'affiche, sinon les stats s'affichent %>
     <%if @workshops.empty?%>
 
       <%if(params[:filter].eql?("inprogress"))%>
-          <h3> Il n'y a aucun workshop en cours </h3>
+          <h3> Il n'y a aucun workshop en cours</h3>
       <%elsif (params[:filter].eql?("end"))%>
           <h3> Il n'y a aucun workshop terminé</h3>
       <%else%>

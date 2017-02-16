@@ -11,6 +11,7 @@
 			var id = '<%= project_feature.feature_id %>';
 			Features[id] = {};
 			Features[id]['feature_id'] = "<%= project_feature[:feature_id] %>";
+			Features[id]['project_id'] = "<%= project.id %>";
 			Features[id]['status'] = "<%= project_feature[:status] %>";
 			Features[id]['commentaire'] = "<%= raw(project_feature[:commentaire]) %>";
 			Features[id]['commentaire_prof'] = "<%= raw(project_feature[:commentaire_prof]) %>";

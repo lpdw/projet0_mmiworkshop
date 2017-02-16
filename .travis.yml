@@ -7,7 +7,7 @@ before_script:
   - RAILS_ENV=test bundle exec rake db:create db:migrate db:seed --trace
 script:
   - psql -c "CREATE USER test WITH PASSWORD 'test';" -U postgres
-  - psql -c 'create database mmiworkshop_test' -U postgres
+  - psql -c 'create database lpdwworkshop_test' -U postgres
 after_failure:
   - "mysql -e 'show databases;'"
   - "cat ./config/database.yml"

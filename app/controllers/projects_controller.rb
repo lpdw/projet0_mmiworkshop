@@ -109,7 +109,8 @@ class ProjectsController < ApplicationController
                 sql = "INSERT INTO features_projects VALUES (#{params[:data][:feature_id]},#{params[:data][:project_id]},#{params[:data][:status]},'#{params[:data][:commentaire]}',now(),'#{params[:data][:commentaire_prof]}',#{insert})"
             # Update else
             else
-                update = "status = #{params[:data][:status]}, commentaire = '#{params[:data][:commentaire]}', commentaire_prof = '#{params[:data][:commentaire_prof]}'"
+                setValidateInfos = params[:data][:status] == 2 ? ", date_badge_valide = now(), id_prof_valide = #{current_user.id}" : ""
+                update = "status = #{params[:data][:status]}, commentaire = '#{params[:data][:commentaire]}', commentaire_prof = '#{params[:data][:commentaire_prof]}'" + setValidateInfos
                 sql = "UPDATE features_projects SET #{update} WHERE feature_id = #{params[:data][:feature_id]} AND project_id = #{params[:data][:project_id]}"
             end
             render text: sql
@@ -125,7 +126,7 @@ class ProjectsController < ApplicationController
                 update = 'status = 2'
                 # On met a jour l'update si besoin
                 if @projectsfeature.date_badge_valide.nil?
-                    update += ",date_badge_valide = now(),id_prof_valide = #{current_user.id},date_demande = now(),id_demandeur = #{current_user.id}"
+                    update += ",date_badge_valide = now(),id_prof_valide = #{current_user.id},date_demande = now()"
                 end
                 # Mise a jour de l'élément
                 sql = "UPDATE features_projects SET #{update} WHERE feature_id = #{@projectsfeature.feature_id} AND project_id = #{@projectsfeature.project_id}"
